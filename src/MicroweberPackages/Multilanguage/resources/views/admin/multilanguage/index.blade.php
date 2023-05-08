@@ -1,1 +1,0 @@
-<module type="multilanguage/admin" />
