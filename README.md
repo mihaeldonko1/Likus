@@ -1,6 +1,6 @@
 # Likus
 
-Aplikacija Likus:
+Aplikacija Likus::
 
 - Naziv, kratka vizija (stavek, dva), namen informacijske rešitve
     *TO JE ŽIVA KNJIGA AVTORJEV (540), KI NASTAJA 35 LET, Namenjena ja ohranjanju zapisov v elektronski obliki (ne zgolj knjižni)
