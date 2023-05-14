@@ -29,10 +29,20 @@ Aplikacija Likus::
     Za uporabo REST API-jev v Strapiju lahko uporabite naslednje končne točke:
 
         -http://localhost:1337/api/{$pural_ime_tabele}/ - ta končna točka vrne vse podatke iz določene tabele.
+        -tabele so omejene na 25max podatkov na en klic če hočeš dobiti več mores zgornjemu stavku dodati 
+        http://localhost:1337/api/{$pural_ime_tabele}?pagination[pageSize]={$number} number je število podatkov, ki jih želiš dobiti.
+
+
+
+
+
+
         -http://localhost:1337/api/{$pural_ime_tabele}/{$id} - ta končna točka vrne podatke za določenega elementa v tabeli, ki ga identificira ID.
         -Zgornji povezavi vrneta samo enolične vrednosti iz tabele, kar pomeni, da ne vrne povezav z drugimi tabelami ali morfizmi. 
         
         Če želite dobiti vse povezave, lahko uporabite naslednje parametre:
          -Če želite dobiti vse povezane podatke, lahko uporabite http://localhost:1337/api/{$pural_ime_tabele}?populate=*. Uporaba populate=*        vrne vse povezane podatke za želeno poizvedbo.
 
-         -Če želite dobiti samo določeno povezavo, na primer samo povezavo na slike, uporabite populate=image. To bo vrnilo samo povezavo na slike. 
+         -Če želite dobiti samo določeno povezavo, na primer samo povezavo na slike, uporabite populate=image. To bo vrnilo samo povezavo na slike.
+
+         
