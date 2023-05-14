@@ -30,12 +30,7 @@ Aplikacija Likus::
 
         -http://localhost:1337/api/{$pural_ime_tabele}/ - ta končna točka vrne vse podatke iz določene tabele.
         -tabele so omejene na 25max podatkov na en klic če hočeš dobiti več mores zgornjemu stavku dodati 
-        http://localhost:1337/api/{$pural_ime_tabele}?pagination[pageSize]={$number} number je število podatkov, ki jih želiš dobiti.
-
-
-
-
-
+         http://localhost:1337/api/{$pural_ime_tabele}?pagination[pageSize]={$number} number je število podatkov, ki jih želiš dobiti.
 
         -http://localhost:1337/api/{$pural_ime_tabele}/{$id} - ta končna točka vrne podatke za določenega elementa v tabeli, ki ga identificira ID.
         -Zgornji povezavi vrneta samo enolične vrednosti iz tabele, kar pomeni, da ne vrne povezav z drugimi tabelami ali morfizmi. 
