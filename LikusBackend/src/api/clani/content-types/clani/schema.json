@@ -1,0 +1,95 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clanis",
+  "info": {
+    "singularName": "clani",
+    "pluralName": "clanis",
+    "displayName": "Clani",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Ime": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "Priimek": {
+      "type": "string",
+      "required": true
+    },
+    "Spol": {
+      "type": "enumeration",
+      "enum": [
+        "Moški",
+        "Ženski"
+      ],
+      "required": true
+    },
+    "Naslov": {
+      "type": "text"
+    },
+    "Postna_stevilka": {
+      "type": "integer"
+    },
+    "Drzava": {
+      "type": "string"
+    },
+    "Telefon": {
+      "type": "string"
+    },
+    "GSM": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "email"
+    },
+    "Rojstni_dan": {
+      "type": "date",
+      "required": true
+    },
+    "Datum_vstopa": {
+      "type": "date"
+    },
+    "Datum_izstopa": {
+      "type": "date"
+    },
+    "Razlog_izstopa": {
+      "type": "text"
+    },
+    "Preverjeno_na_terenu": {
+      "type": "enumeration",
+      "enum": [
+        "Da",
+        "Ne"
+      ]
+    },
+    "Profilna_slika": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Stopnja_aktivnosti": {
+      "type": "enumeration",
+      "enum": [
+        "ENA",
+        "DVA",
+        "TRI",
+        "STIRI",
+        "PET"
+      ]
+    },
+    "Posta": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rokopisi",
+  "info": {
+    "singularName": "rokopis",
+    "pluralName": "rokopisi",
+    "displayName": "Rokopis"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Rokopis_datoteke": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "oseba": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::clani.clani"
+    }
+  }
+}

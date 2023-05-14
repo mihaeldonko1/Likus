@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clanki",
+  "info": {
+    "singularName": "clanek",
+    "pluralName": "clanki",
+    "displayName": "Clanek"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "clan": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::clani.clani"
+    },
+    "Letnica_zbornika": {
+      "type": "integer"
+    },
+    "Stevilka_knjige": {
+      "type": "integer"
+    },
+    "Strani_od_do": {
+      "type": "integer"
+    },
+    "Clanek": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

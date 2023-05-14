@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "zivljenjepisi",
+  "info": {
+    "singularName": "zivljenjepis",
+    "pluralName": "zivljenjepisi",
+    "displayName": "Zivljenjepis"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "oseba": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::clani.clani"
+    },
+    "Zivljenjepis": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
