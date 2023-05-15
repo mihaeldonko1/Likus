@@ -40,4 +40,18 @@ Aplikacija Likus::
 
          -Če želite dobiti samo določeno povezavo, na primer samo povezavo na slike, uporabite populate=image. To bo vrnilo samo povezavo na slike.
 
-         
+        env: 
+        HOST=0.0.0.0
+        PORT=1337
+        APP_KEYS=nrBBv0OzlosOz4o4hq0J9g==,QRkQQKKT5CRPY9XFoTbxOA==,iS66uVBFeR5jEEeRTQlmGg==,Dk8tJtqLBFKInfTuvISf3Q==
+        API_TOKEN_SALT=jNiVOyptfk2eKv4t5v0Luw==
+        ADMIN_JWT_SECRET=VG3+rKB50voNn0qO6yIzgA==
+        TRANSFER_TOKEN_SALT=oHHx7e26KR4hxWGNKNsbgw==
+        # Database
+        DATABASE_CLIENT=mysql
+        DATABASE_HOST=127.0.0.1
+        DATABASE_PORT=3306
+        DATABASE_NAME=strapi
+        DATABASE_USERNAME=root
+        DATABASE_PASSWORD=
+        JWT_SECRET=0k/aqZleD8R7LPc9/4hw6g==
