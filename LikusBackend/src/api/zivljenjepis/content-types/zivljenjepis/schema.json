@@ -4,27 +4,33 @@
   "info": {
     "singularName": "zivljenjepis",
     "pluralName": "zivljenjepisi",
-    "displayName": "Zivljenjepis"
+    "displayName": "Zivljenjepis",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "oseba": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::clani.clani"
-    },
     "Zivljenjepis": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "clan_id": {
+      "type": "integer"
+    },
+    "clan": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::clani.clani",
+      "inversedBy": "zivljenjepis"
     }
   }
 }

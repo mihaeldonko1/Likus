@@ -4,7 +4,8 @@
   "info": {
     "singularName": "rokopis",
     "pluralName": "rokopisi",
-    "displayName": "Rokopis"
+    "displayName": "Rokopis",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,19 +13,24 @@
   "pluginOptions": {},
   "attributes": {
     "Rokopis_datoteke": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
-    "oseba": {
+    "clan": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::clani.clani"
+      "target": "api::clani.clani",
+      "inversedBy": "rokopis"
+    },
+    "clan_id": {
+      "type": "integer"
     }
   }
 }

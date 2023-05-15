@@ -33,7 +33,7 @@
       "type": "text"
     },
     "Postna_stevilka": {
-      "type": "integer"
+      "type": "string"
     },
     "Drzava": {
       "type": "string"
@@ -90,6 +90,24 @@
     },
     "Posta": {
       "type": "string"
+    },
+    "zivljenjepis": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::zivljenjepis.zivljenjepis",
+      "mappedBy": "clan"
+    },
+    "rokopis": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::rokopis.rokopis",
+      "mappedBy": "clan"
+    },
+    "clanki": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::clanek.clanek",
+      "mappedBy": "clan"
     }
   }
 }

@@ -4,18 +4,14 @@
   "info": {
     "singularName": "clanek",
     "pluralName": "clanki",
-    "displayName": "Clanek"
+    "displayName": "Clanek",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "clan": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::clani.clani"
-    },
     "Letnica_zbornika": {
       "type": "integer"
     },
@@ -26,14 +22,24 @@
       "type": "integer"
     },
     "Clanek": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "clan_id": {
+      "type": "integer"
+    },
+    "clan": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::clani.clani",
+      "inversedBy": "clanki"
     }
   }
 }
