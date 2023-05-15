@@ -40,6 +40,9 @@
       "relation": "manyToOne",
       "target": "api::clani.clani",
       "inversedBy": "clanki"
+    },
+    "tip_datoteke": {
+      "type": "string"
     }
   }
 }

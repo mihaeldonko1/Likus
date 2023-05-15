@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Upload files </title>
+  </head>
+  <body>
+    <input type="file" id="folderInput" webkitdirectory directory multiple />
+    <button onclick="uploadFiles()">Nalozi</button>
+
+    <script>
+      async function uploadFiles() {
+        const folderInput = document.getElementById('folderInput');
+
+        if ('webkitdirectory' in folderInput && folderInput.files.length > 0) {
+          const files = folderInput.files;
+
+          for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            const fileName = file.name;
+            const fileType = file.type;
+            const firstFourChars = fileName.substr(0, 4);
+            const year = fileName.substr(4, 2);
+            const bookNumber = fileName.substr(6, 3);
+            let pages = fileName.substr(9, 6);
+            pages = pages.substr(1);
+
+            const data = {
+              Letnica_zbornika: year,
+              Stevilka_knjige: bookNumber,
+              Strani_od_do: pages,
+              clan_id: firstFourChars,
+              clan: firstFourChars,
+              tip_datoteke:fileType
+            };
+
+            const formData = new FormData();
+            formData.append('files.Clanek', file, fileName);
+            formData.append('data', JSON.stringify(data));
+
+            try {
+              const response = await fetch('http://localhost:1337/api/clanki/', {
+                method: 'POST',
+                body: formData
+              });
+
+              if (response.ok) {
+                console.log(`File ${fileName} uploaded successfully.`);
+              } else {
+                console.log(`Error uploading file ${fileName}. Status: ${response.status}`);
+              }
+            } catch (error) {
+              console.error(`Error uploading file ${fileName}:`, error);
+            }
+          }
+        } else {
+          alert('Please select a folder.');
+        }
+      }
+    </script>
+  </body>
+</html>
