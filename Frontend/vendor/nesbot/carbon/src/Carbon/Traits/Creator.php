@@ -921,11 +921,11 @@ trait Creator
     /**
      * Set last errors.
      *
-     * @param array $lastErrors
+     * @param $lastErrors
      *
      * @return void
      */
-    private static function setLastErrors(array $lastErrors)
+    private static function setLastErrors($lastErrors)
     {
         static::$lastErrors = $lastErrors;
     }

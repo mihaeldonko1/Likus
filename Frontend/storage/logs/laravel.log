@@ -1,0 +1,22 @@
+[2023-05-16 11:01:51] production.ERROR: Carbon\Carbon::setLastErrors(): Argument #1 ($lastErrors) must be of type array, bool given, called in C:\Users\mihad\OneDrive\Namizje\Likus\Likus\Frontend\vendor\nesbot\carbon\src\Carbon\Traits\Creator.php on line 98 {"exception":"[object] (TypeError(code: 0): Carbon\\Carbon::setLastErrors(): Argument #1 ($lastErrors) must be of type array, bool given, called in C:\\Users\\mihad\\OneDrive\\Namizje\\Likus\\Likus\\Frontend\\vendor\\nesbot\\carbon\\src\\Carbon\\Traits\\Creator.php on line 98 at C:\\Users\\mihad\\OneDrive\\Namizje\\Likus\\Likus\\Frontend\\vendor\\nesbot\\carbon\\src\\Carbon\\Traits\\Creator.php:928)
+[stacktrace]
+#0 C:\\Users\\mihad\\OneDrive\\Namizje\\Likus\\Likus\\Frontend\\vendor\\nesbot\\carbon\\src\\Carbon\\Traits\\Creator.php(98): Carbon\\Carbon::setLastErrors(false)
+#1 C:\\Users\\mihad\\OneDrive\\Namizje\\Likus\\Likus\\Frontend\\vendor\\nesbot\\carbon\\src\\Carbon\\Traits\\Creator.php(252): Carbon\\Carbon->__construct(NULL, NULL)
+#2 C:\\Users\\mihad\\OneDrive\\Namizje\\Likus\\Likus\\Frontend\\vendor\\spatie\\laravel-package-tools\\src\\PackageServiceProvider.php(71): Carbon\\Carbon::now()
+#3 C:\\Users\\mihad\\OneDrive\\Namizje\\Likus\\Likus\\Frontend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Spatie\\LaravelPackageTools\\PackageServiceProvider->boot()
+#4 C:\\Users\\mihad\\OneDrive\\Namizje\\Likus\\Likus\\Frontend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#5 C:\\Users\\mihad\\OneDrive\\Namizje\\Likus\\Likus\\Frontend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#6 C:\\Users\\mihad\\OneDrive\\Namizje\\Likus\\Likus\\Frontend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(MicroweberPackages\\App\\LaravelApplication), Array, Object(Closure))
+#7 C:\\Users\\mihad\\OneDrive\\Namizje\\Likus\\Likus\\Frontend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(653): Illuminate\\Container\\BoundMethod::call(Object(MicroweberPackages\\App\\LaravelApplication), Array, Array, NULL)
+#8 C:\\Users\\mihad\\OneDrive\\Namizje\\Likus\\Likus\\Frontend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(928): Illuminate\\Container\\Container->call(Array)
+#9 C:\\Users\\mihad\\OneDrive\\Namizje\\Likus\\Likus\\Frontend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(909): Illuminate\\Foundation\\Application->bootProvider(Object(LivewireUI\\Modal\\LivewireModalServiceProvider))
+#10 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(LivewireUI\\Modal\\LivewireModalServiceProvider), 53)
+#11 C:\\Users\\mihad\\OneDrive\\Namizje\\Likus\\Likus\\Frontend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(908): array_walk(Array, Object(Closure))
+#12 C:\\Users\\mihad\\OneDrive\\Namizje\\Likus\\Likus\\Frontend\\src\\MicroweberPackages\\App\\LaravelApplication.php(32): Illuminate\\Foundation\\Application->boot()
+#13 C:\\Users\\mihad\\OneDrive\\Namizje\\Likus\\Likus\\Frontend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): MicroweberPackages\\App\\LaravelApplication->boot()
+#14 C:\\Users\\mihad\\OneDrive\\Namizje\\Likus\\Likus\\Frontend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(239): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(MicroweberPackages\\App\\LaravelApplication))
+#15 C:\\Users\\mihad\\OneDrive\\Namizje\\Likus\\Likus\\Frontend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#16 C:\\Users\\mihad\\OneDrive\\Namizje\\Likus\\Likus\\Frontend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#17 C:\\Users\\mihad\\OneDrive\\Namizje\\Likus\\Likus\\Frontend\\artisan(31): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#18 {main}
+"} 
