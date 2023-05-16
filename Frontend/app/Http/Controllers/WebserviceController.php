@@ -12,11 +12,11 @@ class WebserviceController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     
-    public function test()
+    public static function test()
     {
         $client = new Client(); 
         try {
-            $response = $client->get('https://api.example.com/data');
+            $response = $client->get('http://localhost:1337/api/clanki/38?populate=*');
             $data = $response->getBody()->getContents();
 
             return response()->json($data);
