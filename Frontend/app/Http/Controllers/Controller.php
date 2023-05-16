@@ -18,4 +18,9 @@ class Controller extends BaseController
 
         return view('favorite-drink', ['drink' => $drinks[$randKey]]);
     }
+
+    public function test()
+    {
+        return view('welcome');
+    }
 }
