@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\WebserviceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,4 +14,5 @@ use App\Http\Controllers\Controller;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/tester', [Controller::class, 'test']);
+
+Route::get('/clani', [WebserviceController::class, 'allMembers'])->name('clani');
