@@ -1,4 +1,4 @@
-000046a:1:{s:4:"time";s:21:"0.20247400 1684254748";}1684314748a:9:{s:2:"id";i:47;s:10:"updated_at";s:19:"2021-04-27 13:35:58";s:10:"created_at";s:19:"2021-04-27 13:35:30";s:10:"created_by";i:1;s:9:"edited_by";i:1;s:8:"rel_type";s:6:"module";s:6:"rel_id";s:1:"0";s:5:"field";s:45:"layout-info-blocks-skin-3-module-layouts-1--9";s:5:"value";s:1998:"
+000046a:1:{s:4:"time";s:21:"0.02605600 1684321507";}1684381507a:9:{s:2:"id";i:47;s:10:"updated_at";s:19:"2021-04-27 13:35:58";s:10:"created_at";s:19:"2021-04-27 13:35:30";s:10:"created_by";i:1;s:9:"edited_by";i:1;s:8:"rel_type";s:6:"module";s:6:"rel_id";s:1:"0";s:5:"field";s:45:"layout-info-blocks-skin-3-module-layouts-1--9";s:5:"value";s:1998:"
     <div class="container">
         <div class="row">
             <div class="col-xl-10 mx-auto">

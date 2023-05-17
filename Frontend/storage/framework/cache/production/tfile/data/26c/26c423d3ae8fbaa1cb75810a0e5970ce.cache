@@ -1,4 +1,4 @@
-000046a:1:{s:4:"time";s:21:"0.17893600 1684254748";}1684314748a:9:{s:2:"id";i:45;s:10:"updated_at";s:19:"2021-04-27 13:35:23";s:10:"created_at";s:19:"2021-04-27 13:35:23";s:10:"created_by";i:1;s:9:"edited_by";i:1;s:8:"rel_type";s:6:"module";s:6:"rel_id";s:1:"0";s:5:"field";s:45:"layout-info-blocks-skin-6-module-layouts-1--5";s:5:"value";s:1409:"
+000046a:1:{s:4:"time";s:21:"0.81347700 1684321506";}1684381506a:9:{s:2:"id";i:45;s:10:"updated_at";s:19:"2021-04-27 13:35:23";s:10:"created_at";s:19:"2021-04-27 13:35:23";s:10:"created_by";i:1;s:9:"edited_by";i:1;s:8:"rel_type";s:6:"module";s:6:"rel_id";s:1:"0";s:5:"field";s:45:"layout-info-blocks-skin-6-module-layouts-1--5";s:5:"value";s:1409:"
     <div class="container-fluid">
         <div class="row flexbox-container">
             <div class="col-12 col-lg-6 col-xl-5 img-holder element" style="background-image: url('{SITE_URL}userfiles/templates/new-world/assets/img/img-1.png');"><div class="element" id="mw-element-1619530413347"></div></div>

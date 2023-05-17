@@ -16,3 +16,4 @@ use App\Http\Controllers\WebserviceController;
 */
 
 Route::get('/clani', [WebserviceController::class, 'allMembers'])->name('clani');
+Route::get('/test', [WebserviceController::class, 'pdfreader']);

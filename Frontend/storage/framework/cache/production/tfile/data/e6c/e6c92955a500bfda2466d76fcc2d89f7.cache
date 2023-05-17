@@ -1,4 +1,4 @@
-000046a:1:{s:4:"time";s:21:"0.13907600 1684254748";}1684314748a:9:{s:2:"id";i:36;s:10:"updated_at";s:19:"2021-04-27 12:52:27";s:10:"created_at";s:19:"2021-04-27 11:15:34";s:10:"created_by";i:1;s:9:"edited_by";i:1;s:8:"rel_type";s:6:"global";s:6:"rel_id";s:1:"0";s:5:"field";s:16:"new-world_footer";s:5:"value";s:1813:"
+000046a:1:{s:4:"time";s:21:"0.39216000 1684321506";}1684381506a:9:{s:2:"id";i:36;s:10:"updated_at";s:19:"2021-04-27 12:52:27";s:10:"created_at";s:19:"2021-04-27 11:15:34";s:10:"created_by";i:1;s:9:"edited_by";i:1;s:8:"rel_type";s:6:"global";s:6:"rel_id";s:1:"0";s:5:"field";s:16:"new-world_footer";s:5:"value";s:1813:"
                 <div class="row">
                     <div class="col-12 col-lg-12 col-xl-3 mx-auto logo-column text-center text-xl-left m-b-20 allow-drop element" id="element_1619521706099">
                         <img src="{SITE_URL}userfiles/templates/new-world/assets/img/logo_footer.png" alt="" class="m-b-10">

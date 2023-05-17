@@ -58,4 +58,16 @@ class WebserviceController extends BaseController
             return view('error', ['error' => $e->getMessage()])->status(500);
         }
     }
+
+    public function pdfreader(){
+
+
+
+return view('pdfreader');
+
+
+
+    }
+
+
 }
