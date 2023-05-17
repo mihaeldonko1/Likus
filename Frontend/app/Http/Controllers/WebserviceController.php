@@ -60,14 +60,23 @@ class WebserviceController extends BaseController
     }
 
     public function pdfreader(){
-
-
-
-return view('pdfreader');
-
-
-
+        return view('pdfreader');
     }
-
+    public function getMember($id)
+    {
+        $client = new Client(); 
+        try {
+            $response = $client->get("http://localhost:1337/api/clanis/{$id}?populate=*");
+            
+            $data = json_decode($response->getBody()->getContents(), true);
+            Log::info($data);
+    
+            return view('singlemember', compact('data')); 
+        
+        } catch (\Exception $e) {
+            return view('error', ['error' => $e->getMessage()])->status(500);
+        }
+    }
+    
 
 }

@@ -1,4 +1,4 @@
-000046a:1:{s:4:"time";s:21:"0.87528200 1684321506";}1684381506a:9:{s:2:"id";i:46;s:10:"updated_at";s:19:"2021-04-27 13:35:23";s:10:"created_at";s:19:"2021-04-27 13:35:23";s:10:"created_by";i:1;s:9:"edited_by";i:1;s:8:"rel_type";s:6:"module";s:6:"rel_id";s:1:"0";s:5:"field";s:45:"layout-info-blocks-skin-7-module-layouts-1--6";s:5:"value";s:1409:"
+000046a:1:{s:4:"time";s:21:"0.54334000 1684325332";}1684385332a:9:{s:2:"id";i:46;s:10:"updated_at";s:19:"2021-04-27 13:35:23";s:10:"created_at";s:19:"2021-04-27 13:35:23";s:10:"created_by";i:1;s:9:"edited_by";i:1;s:8:"rel_type";s:6:"module";s:6:"rel_id";s:1:"0";s:5:"field";s:45:"layout-info-blocks-skin-7-module-layouts-1--6";s:5:"value";s:1409:"
     <div class="container-fluid">
         <div class="row flexbox-container">
             <div class="col-12 col-lg-6 col-xl-7 left-side text-center text-lg-left" style="padding-left: 346.433px;">

@@ -1,4 +1,4 @@
-000046a:1:{s:4:"time";s:21:"0.60471400 1684321506";}1684381506a:9:{s:2:"id";i:63;s:10:"updated_at";s:19:"2023-05-16 15:27:29";s:10:"created_at";s:19:"2023-05-16 15:27:29";s:10:"created_by";i:1;s:9:"edited_by";i:1;s:8:"rel_type";s:6:"module";s:6:"rel_id";s:1:"0";s:5:"field";s:42:"layout-features-skin-1-module-layouts-1--2";s:5:"value";s:2376:"
+000046a:1:{s:4:"time";s:21:"0.48988700 1684325332";}1684385332a:9:{s:2:"id";i:63;s:10:"updated_at";s:19:"2023-05-16 15:27:29";s:10:"created_at";s:19:"2023-05-16 15:27:29";s:10:"created_by";i:1;s:9:"edited_by";i:1;s:8:"rel_type";s:6:"module";s:6:"rel_id";s:1:"0";s:5:"field";s:42:"layout-features-skin-1-module-layouts-1--2";s:5:"value";s:2376:"
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-12 col-lg-10 mx-auto">
