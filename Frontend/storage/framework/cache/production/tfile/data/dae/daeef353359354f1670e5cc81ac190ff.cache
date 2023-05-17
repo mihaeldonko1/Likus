@@ -1,4 +1,4 @@
-000046a:1:{s:4:"time";s:21:"0.57420600 1684325332";}1684385332a:9:{s:2:"id";i:28;s:10:"updated_at";s:19:"2021-04-27 10:58:46";s:10:"created_at";s:19:"2021-04-27 10:58:46";s:10:"created_by";i:1;s:9:"edited_by";i:1;s:8:"rel_type";s:6:"module";s:6:"rel_id";s:1:"0";s:5:"field";s:33:"layout-skin-2-module-layouts-1--8";s:5:"value";s:419:"
+000046a:1:{s:4:"time";s:21:"0.04233300 1684359252";}1684419252a:9:{s:2:"id";i:28;s:10:"updated_at";s:19:"2021-04-27 10:58:46";s:10:"created_at";s:19:"2021-04-27 10:58:46";s:10:"created_by";i:1;s:9:"edited_by";i:1;s:8:"rel_type";s:6:"module";s:6:"rel_id";s:1:"0";s:5:"field";s:33:"layout-skin-2-module-layouts-1--8";s:5:"value";s:419:"
     <div class="container" style="max-width:750px;">
         <div class="row">
             <div class="col-12 text-center allow-drop element" id="element_1619521057957">
