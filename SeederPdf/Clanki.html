@@ -21,13 +21,19 @@
             const firstFourChars = fileName.substr(0, 4);
             const year = fileName.substr(4, 2);
             const bookNumber = fileName.substr(6, 3);
-            let pages = fileName.substr(9, 6);
+            let pages = fileName.substr(9, 7);
             pages = pages.substr(1);
+            console.log(pages);
+            let pagesStart = pages.substring(0, 3);
+            let pagesFinish = pages.substring(3);
+            console.log("start"+pagesStart);
+            console.log("finito"+pagesFinish);
 
             const data = {
               Letnica_zbornika: year,
               Stevilka_knjige: bookNumber,
-              Strani_od_do: pages,
+              Strani_od: pagesStart,
+              Strani_do: pagesFinish,
               clan_id: firstFourChars,
               clan: firstFourChars,
               tip_datoteke:fileType

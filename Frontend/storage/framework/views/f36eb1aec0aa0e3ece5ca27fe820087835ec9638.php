@@ -49,7 +49,12 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            <?php echo e($data['data']['attributes']['Ime']); ?> <?php echo e($data['data']['attributes']['Priimek']); ?><br />
+                            <?php echo e($data['data']['attributes']['clanki']['data']['attributes']['Stevilka_knjige']); ?>
+
+                        
+                        </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -79,7 +84,7 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
                         <h5 class="card-title">Identifikacijska št. članka:<?php echo e($val['id']); ?></h5>
                         <p class="card-text">Letnica knjige: <?php echo e($val['attributes']['Letnica_zbornika']); ?></p>
                         <p class="card-text">Številka knjige: <?php echo e($val['attributes']['Stevilka_knjige']); ?></p>
-                        <p class="card-text">Strani v knjigi: <?php echo e($val['attributes']['Strani_od_do']); ?></p>
+                        <p class="card-text">Strani v knjigi: <?php echo e($val['attributes']['Strani_od']); ?>-<?php echo e($val['attributes']['Strani_do']); ?></p>
                         <button data-book="<?php echo e($val['id']); ?>" class="btn btn-primary bookLoader" data-bs-toggle="modal" data-bs-target="#bookModal">Preberi članek</button>
                     </div>
                 </div>
