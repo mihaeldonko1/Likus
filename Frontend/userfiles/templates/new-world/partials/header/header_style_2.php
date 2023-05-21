@@ -20,8 +20,8 @@
             </div>
             <ul class="member-nav main-member-nav visible-search">
                 <?php include('parts/desktop_profile_link.php'); ?>
-                <?php include('parts/shopping_cart.php'); ?>
-                <?php include('parts/desktop_search_bar.php'); ?>
+              
+               
                 <li class="ms-3">
                     <div class="toggle">
                         <a href="javascript:;" class="js-menu-toggle mobile-menu-btn">
