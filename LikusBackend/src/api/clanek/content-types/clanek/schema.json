@@ -18,9 +18,6 @@
     "Stevilka_knjige": {
       "type": "integer"
     },
-    "Strani_od_do": {
-      "type": "integer"
-    },
     "Clanek": {
       "type": "media",
       "multiple": false,
@@ -42,6 +39,12 @@
       "inversedBy": "clanki"
     },
     "tip_datoteke": {
+      "type": "string"
+    },
+    "Strani_od": {
+      "type": "text"
+    },
+    "Strani_do": {
       "type": "string"
     }
   }
