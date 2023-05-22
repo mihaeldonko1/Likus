@@ -1,4 +1,4 @@
-<nav class="navigation">
+<nav class="navigation" style="background-color: beige">
     <div class="container">
         <div class="navbar-header">
             <module type="logo" class="logo" id="header-logo" data-alt-logo="false"/>
