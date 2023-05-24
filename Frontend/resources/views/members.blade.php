@@ -1,44 +1,8 @@
-@extends('header')
-
-<style>
-    .card-img {
-        height: 200px !important;
-        width: 200px !important;
-        object-fit: cover;
-    }
-#content {
-  display: none;
-}
-#loader {
-  background-color: white;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-#loader-text {
-  font-size: 32px;
-  text-align: center;
-  opacity: 0;
-  animation: fade-out 6s ease-in-out forwards;
-}
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-</style>
+@extends('layouts.app')
+@section('content')
 <div id="loader">
     <h1 id="loader-text">Dobrodošli v spletni čitalnici Likusa</h1>
-  </div>
+</div>
   <div id="content">
         <div class="d-flex justify-content-center">
             <div class="pagination">
@@ -119,8 +83,8 @@
             </div>
         </div>
 </div>
+
 <script>
-// Wait for the page to load
 window.addEventListener("load", function () {
   if (window.location.href === "http://127.0.0.1:8000/clani") {
     const loaderText = document.getElementById("loader-text");
@@ -148,8 +112,5 @@ window.addEventListener("load", function () {
     document.getElementById("content").style.display = "block";
   }
 });
-
-
-
 </script>
-@extends('footer')
+@endsection 

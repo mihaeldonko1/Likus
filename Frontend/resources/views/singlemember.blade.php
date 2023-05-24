@@ -5,7 +5,8 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
     $zivljenjepisId = 0;
 }
 ?>
-@extends('header')
+@extends('layouts.app')
+@section('content')
 <div class="container mt-4">
     <div class="row">
         <h5>Informacije o članu</h5>
@@ -123,4 +124,4 @@ $(document).ready(function() {
     }
 });
 </script>
-@extends('footer')
+@endsection 
