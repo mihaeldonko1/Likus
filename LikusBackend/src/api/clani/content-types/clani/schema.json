@@ -98,24 +98,36 @@
       "mappedBy": "clan"
     },
     "Zivljenjepis": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "Rokopis": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "Opomba": {
+      "type": "text"
+    },
+    "Tip_clana": {
+      "type": "enumeration",
+      "enum": [
+        "LIKUS",
+        "SLPS"
+      ]
     }
   }
 }

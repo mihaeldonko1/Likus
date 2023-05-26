@@ -15,6 +15,14 @@ use App\Http\Controllers\WebserviceController;
 |
 */
 
+//Routes za upravljanje članov
 Route::get('/clani', [WebserviceController::class, 'allMembers'])->name('clani');
-Route::get('/test', [WebserviceController::class, 'pdfreader']);
 Route::get('/clan/{id}', [WebserviceController::class, 'getMember']);
+
+
+//Routes za opravljanje knjižnice
+Route::get('/knjige', [WebserviceController::class, 'allBooks'])->name('knjige');
+Route::get('/knjiga/{id}', [WebserviceController::class, 'getBook']);
+Route::get('/preberi/{id}', [WebserviceController::class, 'getClankiPerBook']);
+
+//proxy

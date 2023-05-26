@@ -1,9 +1,7 @@
 @extends('layouts.app')
+
 @section('content')
-<div id="loader">
-    <h1 id="loader-text">Dobrodošli v spletni čitalnici Likusa</h1>
-</div>
-  <div id="content">
+<div id="content-books">
         <div class="d-flex justify-content-center">
             <div class="pagination">
                 <ul class="pagination">
@@ -65,15 +63,16 @@
                 @foreach ($members->items() as $item)
                     <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4">
                         <div class="card text-center">
-                            @if (isset($item['attributes']['Profilna_slika']['data'][0]['attributes']['url']))
-                                <img src="http://localhost:1337{{ $item['attributes']['Profilna_slika']['data'][0]['attributes']['url'] }}" class="card-img-top mx-auto d-block mt-3 card-img">
+                            @if (isset($item['attributes']['Slika_platnice']['data'][0]['attributes']['url']))
+                                <img src="http://localhost:1337{{ $item['attributes']['Slika_platnice']['data'][0]['attributes']['url'] }}" class="card-img-top mx-auto d-block mt-3 card-img">
                             @else
                                 <img src="https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg" class="card-img-top mx-auto d-block mt-3 card-img">
                             @endif
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    <a href="clan/{{ $item['id'] }}">
-                                        {{ $item['attributes']['Ime'] }} <br /> {{ $item['attributes']['Priimek'] }}
+                                    <a href="knjiga/{{ $item['id'] }}">
+                                        {{ $item['attributes']['Naslov'] }} ({{ $item['attributes']['Leto'] }}) <br />
+                                        Zbornik: {{ $item['attributes']['Zbornik_st'] }}
                                     </a>
                                 </h5>
                             </div>
@@ -83,34 +82,4 @@
             </div>
         </div>
 </div>
-
-<script>
-window.addEventListener("load", function () {
-  if (window.location.href === "http://127.0.0.1:8000/clani") {
-    const loaderText = document.getElementById("loader-text");
-
-    const textContent = loaderText.textContent;
-
-    loaderText.textContent = "";
-
-    let counter = 0;
-    const timer = setInterval(function () {
-      loaderText.textContent += textContent[counter];
-      counter++;
-
-      if (counter >= textContent.length) {
-        clearInterval(timer);
-
-        loaderText.addEventListener("animationend", function () {
-          document.getElementById("loader").style.display = "none";
-          document.getElementById("content").style.display = "block";
-        });
-      }
-    }, 50); // Adjust the delay between each letter (in milliseconds)
-  } else {
-    document.getElementById("loader").style.display = "none";
-    document.getElementById("content").style.display = "block";
-  }
-});
-</script>
-@endsection 
+@endsection

@@ -58,11 +58,7 @@ class WebserviceController extends BaseController
             return view('error', ['error' => $e->getMessage()])->status(500);
         }
     }
-
-    public function pdfreader(){
-        return view('pdfreader');
-    }
-
+    
     public function getMember($id)
     {
         $client = new Client(); 
@@ -74,6 +70,93 @@ class WebserviceController extends BaseController
         
         } catch (\Exception $e) {
             return view('error', ['error' => $e->getMessage()])->status(500);
+        }
+    }
+
+    public function allBooks(Request $request)
+    {
+        $page = $request->query('page');
+        if ($page == null) {
+            $page = 1;
+        }
+
+        $client = new Client(); 
+        try {
+            $response = $client->get("http://localhost:1337/api/knjige?populate=*&pagination[page]={$page}&pagination[pageSize]=28&sort[0]=Stevilka_knjige%3Adesc");
+            
+            $data = json_decode($response->getBody()->getContents(), true);
+
+            $members = $data['data'];
+            $pagination = $data['meta']['pagination'];
+            
+            $currentPage = $pagination['page'];
+            $totalPages = $pagination['pageCount'];
+    
+            $perPage = 28; 
+            $totalItems = $pagination['total'];
+            $membersCollection = collect($members);
+            $membersPaginated = new LengthAwarePaginator(
+                $membersCollection,
+                $totalItems,
+                $perPage,
+                $currentPage,
+                ['path' => url()->current()]
+            );
+            return view('books', [
+                'members' => $membersPaginated,
+                'currentPage' => $currentPage,
+                'totalPages' => $totalPages,
+            ]);
+    
+        } catch (\Exception $e) {
+            return view('error', ['error' => $e->getMessage()])->status(500);
+        }
+    }
+
+    public function getBook($id)
+    {
+        $client = new Client(); 
+        try {
+            $response = $client->get("http://localhost:1337/api/knjige/{$id}?populate=*");        
+            $data = json_decode($response->getBody()->getContents(), true);
+    
+            return view('singlebook', compact('data')); 
+        
+        } catch (\Exception $e) {
+            return view('error', ['error' => $e->getMessage()])->status(500);
+        }
+    }
+
+    public function getClankiPerBook($id)
+    {
+        $client = new Client();
+    
+        try {
+            $url = "http://localhost:1337/api/clanki";
+            $queryParams = [
+                'filters' => ['Stevilka_knjige' => ['$eq' => $id]],
+                'populate' => '*',
+                'pagination' => ['pageSize' => 1000],
+                'sort' => ['Strani_od:asc']
+            ];
+    
+            $response = $client->get($url, ['query' => $queryParams]);
+            $data = json_decode($response->getBody()->getContents(), true);
+
+          
+            $filteredData = array_map(function ($item) {
+                return [
+                    'id' => $item['id'],
+                    'pdf' =>  "http://localhost:1337".$item['attributes']['Clanek']['data']['attributes']['url'],
+                    'clan_id' => $item['attributes']['clan_id'],
+                    'page_start' =>  $item['attributes']['Strani_od'],
+                ];
+            }, $data['data']);
+            
+            return view('pdfReader', compact('filteredData'));
+        } catch (RequestException $e) {
+            $errorMessage = $e->getMessage();
+            return view('error', ['error' => $errorMessage])->status(500);
         }
     }
 }

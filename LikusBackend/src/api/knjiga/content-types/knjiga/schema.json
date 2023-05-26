@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "knjige",
+  "info": {
+    "singularName": "knjiga",
+    "pluralName": "knjige",
+    "displayName": "Knjige",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Naslov": {
+      "type": "string"
+    },
+    "Stevilka_knjige": {
+      "type": "biginteger"
+    },
+    "Slika_platnice": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Kazalo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Zakljucne_misli": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Leto": {
+      "type": "integer"
+    },
+    "Zbornik_st": {
+      "type": "string"
+    },
+    "Opis_knjige": {
+      "type": "text"
+    },
+    "Urednik": {
+      "type": "text"
+    }
+  }
+}

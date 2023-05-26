@@ -1,195 +1,63 @@
-@extends('header')
+@extends('layouts.app')
+    @section('content')
+        <?php
+            $pdfArray = array_column($filteredData, 'pdf');
+            $jsonPdfArray = json_encode($pdfArray);
+        ?>
+                                    <button class="prevChapter">Prejšnji članek</button>
+                            <button class="nextChapter">Naslednji članek</button>
+                        <div class="container-bookify">
 
+                            <div class="book-body">
+                                <button class="button-book" id="prev-btn">
+                                    <i class="fas fa-arrow-circle-left"></i>
+                                </button>
+                                <div id="book" class="book"></div>
+                                <button class="button-book" id="next-btn">
+                                    <i class="fas fa-arrow-circle-right"></i>
+                                </button>
+                            </div>
+                        </div>
 
-<style>
-    body {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
+<script src="../resources/js/main.js"></script>
+<script src="../resources/js/bookifyPDF.min.js"></script>
+<script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+<script src="https://kit.fontawesome.com/b0f29e9bfe.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+$(document).ready(function() {
+    var allPDFs = JSON.parse('<?php echo $jsonPdfArray; ?>');
+    var defaultContent = $('.container-bookify').html();
+    var currentChapter = 0; 
+
+    function loadChapter(index) {
+        var url = allPDFs[index]; 
+        $('.container-bookify').html(defaultContent);
+        readPDFasBook(url, "prev-btn", "next-btn", "book", 1);
     }
-    #pdf-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background-color: #f7f7f7;
-      perspective: 800px;
-    }
-    canvas {
-      display: block;
-      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.1s ease-in-out;
-      transform-origin: left center;
-    }
-    #prev,
-    #next {
-      position: absolute;
-      width: 70px;
-      height: 70px;
-      border: none;
-      background-color: #f7f7f7;
-      color: #333;
-      font-size: 50px;
-      cursor: pointer;
-      z-index: 1;
-      top: calc(50% - 40px);
-    }
-    #prev::before,
-    #next::before {
-      content: "";
-      display: block;
-      width: 0;
-      height: 0;
-      border-top: 25px solid transparent;
-      border-bottom: 25px solid transparent;
-    }
-    #prev::before {
-      border-right: 25px solid #606060;
-      margin-left: 30px;
-    }
-    #next::before {
-      border-left: 25px solid #606060;
-      margin-right: 30px;
-    }
-    #prev {
-      left: 445px;
-    }
-    #next {
-      right: 442px;
-    }
-    #pdf-container.animate-next {
-      transform: rotateY(-10deg);
-    }
-    #pdf-container.animate-prev {
-      transform: rotateY(10deg);
-    }
-  </style>
-</head>
-<body>
-  <button id="prev"></button>
-  <button id="next"></button>
-  <div id="pdf-container"></div>
 
-  <!-- Add the script tags for pdf.js and pdf.worker.js
-  <script src="pdf.min.js"></script>
-  <script>
-    // Initialize the PDFJS worker
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdf.worker.min.js';
-  </script>
-  <script src="script.js"></script>
+    loadChapter(currentChapter);
 
- -->
-
- <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const url = 'public/022500015-185188-JermanJanka.pdf';
-  const pdfContainer = document.getElementById('pdf-container');
-  let currentPage = 1; // Current page number
-  let isAnimating = false; // Animation flag
-  let pdfDoc = null; // Reference to the PDF document
-  let pages = new Map(); 
-
-  // Load and render the PDF document
-  pdfjsLib.getDocument(url).promise.then(function(doc) {
-    pdfDoc = doc;
-    renderPage(currentPage);
-    addEventListeners();
-  });
-
-  // Function to render a specific page of the PDF document
-  function renderPage(pageNum) {
-    if (pages.has(pageNum)) {
-      // Page already rendered, retrieve from cache
-      const canvas = pages.get(pageNum);
-      pdfContainer.innerHTML = '';
-      pdfContainer.appendChild(canvas);
-    } else {
-      // Page not rendered, load and render
-      pdfDoc.getPage(pageNum).then(function(page) {
-        const canvas = document.createElement('canvas');
-        const context = canvas.getContext('2d');
-
-        // Set the desired scale and dimensions for the PDF page
-        const scale = 0.8; // Adjust as needed
-        const viewport = page.getViewport({ scale });
-
-        // Adjust canvas size based on viewport dimensions
-        canvas.width = viewport.width;
-        canvas.height = viewport.height;
-
-        const renderContext = {
-          canvasContext: context,
-          viewport
-        };
-
-     
-        page.render(renderContext).promise.then(function() {
-      
-          pages.set(pageNum, canvas);
-
-          if (pageNum === currentPage) {
-            pdfContainer.innerHTML = '';
-            pdfContainer.appendChild(canvas);
-          }
-        });
-      });
-    }
-  }
-
-  
-  function nextPage() {
-    if (!isAnimating && currentPage < pdfDoc.numPages) {
-      isAnimating = true;
-      currentPage++;
-      pdfContainer.classList.add('animate-next');
-
-      setTimeout(function() {
-        renderPage(currentPage);
-        pdfContainer.classList.remove('animate-next');
-        isAnimating = false;
-      }, 100); 
-    }
-  }
-
-
-  function prevPage() {
-    if (!isAnimating && currentPage > 1) {
-      isAnimating = true;
-      currentPage--;
-      pdfContainer.classList.add('animate-prev');
-
-      setTimeout(function() {
-        renderPage(currentPage);
-        pdfContainer.classList.remove('animate-prev');
-        isAnimating = false;
-      }, 100);
-    }
-  }
-
-  
-  function addEventListeners() {
-   
-    document.getElementById('next').addEventListener('click', function() {
-      if (!isAnimating && currentPage < pdfDoc.numPages) {
-        nextPage();
-      }
+    $(".nextChapter").click(function() {
+        currentChapter++; 
+        if (currentChapter >= allPDFs.length) {
+            alert("Ste na koncu knjige.");
+            currentChapter = allPDFs.length - 1; 
+            return;
+        }
+        loadChapter(currentChapter);
     });
 
-    
-    document.getElementById('prev').addEventListener('click', function() {
-      if (!isAnimating && currentPage > 1) {
-        prevPage();
-      }
+    $(".prevChapter").click(function() {
+        currentChapter--; 
+        if (currentChapter < 0) {
+            alert("Ste nja začetku knjige.");
+            currentChapter = 0; 
+            return;
+        }
+        loadChapter(currentChapter);
     });
-  }
 });
+</script>
 
-
-
-
- </script>
-
-
-
-
-@extends('footer')
+@endsection 
