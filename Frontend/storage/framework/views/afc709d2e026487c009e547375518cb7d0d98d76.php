@@ -1,0 +1,2 @@
+<module type="content/edit" content_id="<?php echo e($content_id); ?>" />
+<?php /**PATH C:\Users\Asus\OneDrive\Desktop\LIKUS_mapa\LikusProjekt_plus_Microweber\Likus\Likus\Frontend\src\MicroweberPackages\Content\resources\views/admin/content/edit.blade.php ENDPATH**/ ?>

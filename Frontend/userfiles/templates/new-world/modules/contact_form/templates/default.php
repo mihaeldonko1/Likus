@@ -22,7 +22,7 @@
 
         <div class="row">
             <div class="col-12">
-                <module type="custom_fields" default-fields="Your Name[type=text,field_size=6,show_placeholder=true], E-mail Address[type=email,field_size=6,show_placeholder=true], Phone[type=phone,field_size=6,show_placeholder=true], Company[type=text,field_size=6,show_placeholder=true], Message[type=textarea,field_size=12,show_placeholder=true]" input_class="form-control"/>
+                <module type="custom_fields" default-fields="Tvoje Ime: [type=text,field_size=6,show_placeholder=true], Tvoj E-Mail Naslov: [type=email,field_size=6,show_placeholder=true], Tvoj Priimek: [type=text,field_size=6,show_placeholder=true], Tvoja Telefonska Številka: [type=phone,field_size=6,show_placeholder=true], Kratko Sporočilo: [type=textarea,field_size=12,show_placeholder=true]" input_class="form-control"/>
             </div>
             <?php
            // dd($require_terms);
@@ -41,7 +41,7 @@
                 <?php endif; ?>
             </div>
             <div class="col-12 col-md-6 text-end text-right">
-                <module type="btn" template="bootstrap" button_action="submit" button_style="btn-primary" text="Send message"/>
+                <module type="btn" template="bootstrap" button_action="submit" button_style="btn-primary" text="Pošlji Prijavnico"/>
             </div>
         </div>
     </form>
