@@ -152,12 +152,9 @@ class UserRegisterController extends Controller
 
         // Check the response status
         if ($response->getStatusCode() == 200) {
-            return redirect()->back()->with('success', 'User created successfully!');
+            return $resource->response()->setStatusCode(201);
         } else {
             return redirect()->back()->with('error', 'Something went wrong. Please try again.');
         }
-
-        return $resource->response()->setStatusCode(201);
-
     }
 }
