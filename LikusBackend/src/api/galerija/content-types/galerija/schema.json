@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "galerije",
+  "info": {
+    "singularName": "galerija",
+    "pluralName": "galerije",
+    "displayName": "Galerija"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Naslovna_slika": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Galerija_slik": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
