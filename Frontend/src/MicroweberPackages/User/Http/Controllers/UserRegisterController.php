@@ -11,6 +11,7 @@ use MicroweberPackages\Option\Facades\Option;
 use MicroweberPackages\User\Events\UserWasRegistered;
 use MicroweberPackages\User\Http\Requests\RegisterRequest;
 use MicroweberPackages\User\Models\User;
+use Illuminate\Support\Facades\Log;
 
 class UserRegisterController extends Controller
 {
@@ -34,6 +35,7 @@ class UserRegisterController extends Controller
         'subscr_id',
         'profile_url',
         'website_url',
+        'Spol',
         'phone'
     ];
 
@@ -47,6 +49,9 @@ class UserRegisterController extends Controller
     {
         $userData = [];
         $inputs = $request->all();
+
+
+        Log::info($inputs);
 
         $enable_user_gesitration = get_option('enable_user_registration', 'users');
         if ($enable_user_gesitration === 'n' || $enable_user_gesitration === 0) {

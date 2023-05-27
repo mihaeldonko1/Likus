@@ -59,6 +59,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     //protected $hidden = array('password', 'remember_token');
     protected $fillable = array(
+        'Spol',
         'updated_at',
         'created_at',
         'expires_on',

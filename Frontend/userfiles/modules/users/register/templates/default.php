@@ -37,29 +37,102 @@ description: Default register template
         <p class="text-center pb-4"><?php _e('We are glad to welcome you in our community.'); ?></p>
         <form class="p-t-10" action="#" id="user_registration_form_holder" method="post">
             <?php print csrf_form(); ?>
-            <?php if ($form_show_first_name): ?>
+
                 <div class="form-group">
-                    <label class="control-label"><?php _e('First Name'); ?></label>
-                    <input class="form-control input-lg" type="text" name="first_name" placeholder="<?php _e('First Name'); ?>">
+                    <label class="control-label"><?php _e('Ime'); ?></label>
+                    <input class="form-control input-lg" type="text" name="first_name" placeholder="<?php _e('Ime'); ?>">
                 </div>
-            <?php endif; ?>
 
-            <?php if ($form_show_last_name): ?>
+
                 <div class="form-group">
-                    <label class="control-label"><?php _e('Last Name'); ?></label>
-                    <input class="form-control input-lg" type="text" name="last_name" placeholder="<?php _e('Last Name'); ?>">
+                    <label class="control-label"><?php _e('Priimek'); ?></label>
+                    <input class="form-control input-lg" type="text" name="last_name" placeholder="<?php _e('Priimek'); ?>">
                 </div>
-            <?php endif; ?>
 
-            <div class="form-group">
-                <label class="control-label"><?php _e('E-mail'); ?></label>
-                <input class="form-control input-lg" type="email" name="email" placeholder="<?php _e('E-mail'); ?>">
-            </div>
 
-            <div class="form-group">
-                <label class="control-label"><?php _e('Password'); ?></label>
-                <input class="form-control input-lg" type="password" name="password" placeholder="<?php _e('Password'); ?>">
-            </div>
+                <div class="form-group">
+                    <label class="control-label"><?php _e('E-mail'); ?></label>
+                    <input class="form-control input-lg" type="email" name="email" placeholder="<?php _e('E-mail'); ?>">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label"><?php _e('Izberite tip spola'); ?></label>
+                    <div>
+                        <input type="radio" id="option3" name="Spol" value="Moški">
+                        <label for="option3"><?php _e('Moški'); ?></label>
+                    </div>
+                    <div>
+                        <input type="radio" id="option4" name="Spol" value="Ženski">
+                        <label for="option4"><?php _e('Ženski'); ?></label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label"><?php _e('Datum rojstva'); ?></label>
+                    <input class="form-control input-lg" type="date" name="Rojstni_dan" placeholder="<?php _e('Datum rojstva'); ?>">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label"><?php _e('Telefon'); ?></label>
+                    <input class="form-control input-lg" type="text" name="phone" placeholder="<?php _e('Telefon'); ?>">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label"><?php _e('Naslov'); ?></label>
+                    <input class="form-control input-lg" type="text" name="Naslov" placeholder="<?php _e('Naslov'); ?>">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label"><?php _e('Pošta'); ?></label>
+                    <input class="form-control input-lg" type="text" name="Posta" placeholder="<?php _e('Pošta'); ?>">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label"><?php _e('Poštna številka'); ?></label>
+                    <input class="form-control input-lg" type="text" name="Postna_stevilka" placeholder="<?php _e('Poštna številka'); ?>">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label"><?php _e('Država'); ?></label>
+                    <input class="form-control input-lg" type="text" name="Drzava" placeholder="<?php _e('Država'); ?>">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label"><?php _e('Izberite tip članarine'); ?></label>
+                    <div>
+                        <input type="radio" id="option1" name="Tip_clana" value="LIKUS">
+                        <label for="option1"><?php _e('LIKUS'); ?></label>
+                    </div><br />
+                    <div>
+                        <input type="radio" id="option2" name="Tip_clana" value="SLPS">
+                        <label for="option2"><?php _e('SLPS'); ?></label>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="form-group">
+                    <label class="control-label"><?php _e('Geslo'); ?></label>
+                    <input class="form-control input-lg" type="password" name="password" placeholder="<?php _e('Geslo'); ?>">
+                </div>
 
             <?php if ($form_show_password_confirmation): ?>
                 <div class="form-group">
