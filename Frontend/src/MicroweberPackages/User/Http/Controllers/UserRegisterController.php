@@ -12,6 +12,7 @@ use MicroweberPackages\User\Events\UserWasRegistered;
 use MicroweberPackages\User\Http\Requests\RegisterRequest;
 use MicroweberPackages\User\Models\User;
 use Illuminate\Support\Facades\Log;
+use GuzzleHttp\Client;
 
 class UserRegisterController extends Controller
 {
@@ -36,6 +37,12 @@ class UserRegisterController extends Controller
         'profile_url',
         'website_url',
         'Spol',
+        'Rojstni_dan',
+        'Naslov',
+        'Posta',
+        'Postna_stevilka',
+        'Drzava',
+        'Tip_clana',
         'phone'
     ];
 
@@ -112,6 +119,43 @@ class UserRegisterController extends Controller
         }
 
         $resource = new \MicroweberPackages\User\Http\Resources\UserResource($request, $created);
+
+        $client = new Client();
+
+        // Define your API endpoint
+        $url = 'http://localhost:1337/api/clanis';
+
+        // Prepare the data
+     // Prepare the data
+            $data = [
+            'data' => [
+            'Ime' => $request->first_name,
+            'Priimek' => $request->last_name,
+            'Spol' => $request->Spol,
+            'Naslov' => $request->Naslov,
+            'Postna_stevilka' => $request->Postna_stevilka,
+            'Drzava' => $request->Drzava,
+            'Telefon' => $request->phone,
+            'Email' => $request->email,
+            'Rojstni_dan' => $request->Rojstni_dan,
+            'Posta' => $request->Posta,
+            'Tip_clana' => $request->Tip_clana,
+        ],
+    ];
+
+    // Make a POST request to the API
+    $response = $client->post($url, [
+        'headers' => ['Content-Type' => 'application/json'],
+        'json' => $data,
+    ]);
+
+
+        // Check the response status
+        if ($response->getStatusCode() == 200) {
+            return redirect()->back()->with('success', 'User created successfully!');
+        } else {
+            return redirect()->back()->with('error', 'Something went wrong. Please try again.');
+        }
 
         return $resource->response()->setStatusCode(201);
 
