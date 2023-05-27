@@ -18,19 +18,38 @@ class CmsController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     
-    public function getImages($id)
+    public static function getImages($id)
     {
-        $client = new Client(); 
+        $error = "id se ne ujema z bazo podatkov";
+    
+        $client = new Client();
+    
         try {
             $response = $client->get("http://localhost:1337/api/galerije/{$id}?populate=*");        
             $data = json_decode($response->getBody()->getContents(), true);
             
-            return $data; 
-        
+            $dataAttributes = $data['data']['attributes'];
+            $galerijaSlikData = $dataAttributes['Galerija_slik']['data'];
+            $naslovnaSlikaData = $dataAttributes['Naslovna_slika']['data']['attributes']['url'];
+    
+            $allImages = [];
+    
+            foreach ($galerijaSlikData as $slika) {
+                $allImages[] = $slika['attributes']['url'];
+            }
+    
+            $fullGallery = [
+                'naslovnaSlika' => $naslovnaSlikaData,
+                'vseSlike' => $allImages,
+            ];
+    
+            return $fullGallery; 
+    
         } catch (\Exception $e) {
-            return view('error', ['error' => $e->getMessage()])->status(500);
+            return $error;
         }
     }
+    
 
  
 }
