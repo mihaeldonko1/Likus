@@ -7,6 +7,29 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
 ?>
 @extends('layouts.app')
 @section('content')
+
+<style>
+    body {
+        background-color: beige;
+    }
+    .custom-title {
+        color: #6ca7cc;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .btn-close {
+        font-size: 24px;
+        padding: 10px 15px;
+        background-color: #c24a64; 
+        color: #fff; 
+        border: none; 
+    }
+
+ 
+
+</style>
+
 <div class="container mt-4">
     <div class="row">
         <h5>Informacije o članu</h5>
@@ -49,12 +72,12 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
         <div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">
-                            {{ $data['data']['attributes']['Ime'] }} {{ $data['data']['attributes']['Priimek'] }}<br />
-                        </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
+                <div class="modal-header" style="display: flex; justify-content: center; align-items: center;">
+                    <h5 class="modal-title custom-title" id="exampleModalLabel">
+                        {{ $data['data']['attributes']['Ime'] }} {{ $data['data']['attributes']['Priimek'] }}<br />
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
                     <div class="modal-body">
                         <div class="container-bookify">
                             <div class="book-body">
@@ -124,4 +147,4 @@ $(document).ready(function() {
     }
 });
 </script>
-@endsection 
+@endsection
