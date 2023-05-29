@@ -7,12 +7,72 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
 ?>
 
 <?php $__env->startSection('content'); ?>
+
+<style>
+    body {
+        background-color: beige;
+    }
+    .custom-title {
+        color: #6ca7cc;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .btn-close {
+        font-size: 24px;
+        padding: 10px 15px;
+        background-color: #c24a64; 
+        color: #fff; 
+        border: none; 
+    }
+
+    .btn {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6ca7cc;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover .button-hover {
+    opacity: 1;
+    background-color: #fff;
+}
+
+.button-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: #fff;
+    transition: opacity 0.3s;
+    z-index: -1;
+}
+
+.button-text {
+    position: relative;
+    z-index: 1;
+}
+
+</style>
+
 <div class="container mt-4">
     <div class="row">
         <h5>Informacije o članu</h5>
     </div>
     <div class="row">
         <div class="col-md-4">
+        <div class="row">
+                <span><?php echo e($data['data']['attributes']['Ime']); ?> <?php echo e($data['data']['attributes']['Priimek']); ?></span><br>
+                <span>Spol: <?php echo e($data['data']['attributes']['Spol']); ?></span>
+                <span>Datum rojstva: <?php echo e(date('d-m-Y', strtotime($data['data']['attributes']['Rojstni_dan']))); ?></span>
+            </div>
             <div class="row">
                 <?php if(isset($data['data']['attributes']['Profilna_slika']['data'][0]['attributes']['url'])): ?>
                 <img src="http://localhost:1337<?php echo e($data['data']['attributes']['Profilna_slika']['data'][0]['attributes']['url']); ?>">
@@ -20,11 +80,7 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
                 <img src="https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg" style="transform: scale(0.5);">
                 <?php endif; ?>
             </div>
-            <div class="row">
-                <span><?php echo e($data['data']['attributes']['Ime']); ?> <?php echo e($data['data']['attributes']['Priimek']); ?></span><br>
-                <span>Spol: <?php echo e($data['data']['attributes']['Spol']); ?></span>
-                <span>Datum rojstva: <?php echo e(date('d-m-Y', strtotime($data['data']['attributes']['Rojstni_dan']))); ?></span>
-            </div>
+        
         </div>
         <?php if(isset($data['data']['attributes']['Zivljenjepis']['data'])): ?>
         <div class="col-md-8">
@@ -49,12 +105,12 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
         <div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">
-                            <?php echo e($data['data']['attributes']['Ime']); ?> <?php echo e($data['data']['attributes']['Priimek']); ?><br />
-                        </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
+                <div class="modal-header" style="display: flex; justify-content: center; align-items: center;">
+                    <h5 class="modal-title custom-title" id="exampleModalLabel">
+                        <?php echo e($data['data']['attributes']['Ime']); ?> <?php echo e($data['data']['attributes']['Priimek']); ?><br />
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
                     <div class="modal-body">
                         <div class="container-bookify">
                             <div class="book-body">
@@ -77,13 +133,16 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
             </div>
             <?php $__currentLoopData = $data['data']['attributes']['clanki']['data']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-md-3 mb-4">
-                <div class="card">
-                    <div class="card-body">
+                <div class="card d-flex align-items-center justify-content-center">
+                    <div class="card-body text-center">
                         <h5 class="card-title">Identifikacijska št. članka:<?php echo e($val['id']); ?></h5>
                         <p class="card-text">Letnica knjige: <?php echo e($val['attributes']['Letnica_zbornika']); ?></p>
                         <p class="card-text">Številka knjige: <?php echo e($val['attributes']['Stevilka_knjige']); ?></p>
                         <p class="card-text">Strani v knjigi: <?php echo e($val['attributes']['Strani_od']); ?>-<?php echo e($val['attributes']['Strani_do']); ?></p>
-                        <button data-book="<?php echo e($val['id']); ?>" class="btn btn-primary bookLoader" data-bs-toggle="modal" data-bs-target="#bookModal">Preberi članek</button>
+                        <button data-book="<?php echo e($val['id']); ?>" class="btn btn-primary bookLoader" data-bs-toggle="modal" data-bs-target="#bookModal">
+                        <span class="button-text">Preberi članek</span>
+                        <span class="button-hover"></span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -124,6 +183,5 @@ $(document).ready(function() {
     }
 });
 </script>
-<?php $__env->stopSection(); ?> 
-
+<?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\mihad\OneDrive\Namizje\Praktikum3\Likus\LikusFrontend\resources\views/singlemember.blade.php ENDPATH**/ ?>
