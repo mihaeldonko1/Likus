@@ -1,0 +1,11 @@
+000046a:1:{s:4:"time";s:21:"0.49222800 1685353122";}1685413122a:9:{s:2:"id";i:61;s:10:"updated_at";s:19:"2021-04-29 12:42:28";s:10:"created_at";s:19:"2021-04-29 12:42:18";s:10:"created_by";i:1;s:9:"edited_by";i:1;s:8:"rel_type";s:6:"module";s:6:"rel_id";s:1:"0";s:5:"field";s:33:"layout-skin-2-module-layouts-1--1";s:5:"value";s:512:"
+    <div class="container" style="max-width:750px;">
+        <div class="row">
+            <div class="col-12 text-center allow-drop element" id="element_1619700129975">
+                <h2 class="hr element" id="element_1619700129927">Build a website, it's easy and free<br>
+</h2>
+                <p class="lead element">Professional developers can freely access the code, exchanging their knowledge and contributions with the rest of the open-source community</p>
+            </div>
+        </div>
+    </div>
+";}

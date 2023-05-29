@@ -1,0 +1,17 @@
+000046a:1:{s:4:"time";s:21:"0.48881800 1685353122";}1685413122a:9:{s:2:"id";i:43;s:10:"updated_at";s:19:"2021-04-27 13:34:20";s:10:"created_at";s:19:"2021-04-27 13:34:20";s:10:"created_by";i:1;s:9:"edited_by";i:1;s:8:"rel_type";s:6:"module";s:6:"rel_id";s:1:"0";s:5:"field";s:43:"layout-home-banners-skin-1-module-layouts-1";s:5:"value";s:946:"
+    <div class="background-image-holder d-flex w-100 justify-content-center element" style="background-image: url('{SITE_URL}userfiles/templates/new-world/assets/img/slide-1.jpg');">
+        <div class="container d-flex justify-content-center align-items-center element" id="element_1619530413371">
+            <div class="w-100 text-left info-holder allow-drop element" no-data-aos="fade-down" id="element_1619530413519">
+                <h1 class="element" id="element_1619530413383">This is the default <br>template of the website builder</h1>
+                <br>
+                <p class="lead element" id="element_1619530413520">Drag and drop website builder<br>and CMS of new generation.</p>
+                <br>
+                <br>
+
+                <div class="element"><p class="element">
+                    <a href="" class="btn btn-primary">Call to action</a>
+                </p></div>
+            </div>
+        </div>
+    </div>
+";}
