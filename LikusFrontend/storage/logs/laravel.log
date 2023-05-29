@@ -124,3 +124,18 @@
 #45 C:\\Users\\mihad\\OneDrive\\Namizje\\microweber-master (3)\\server.php(21): require_once('C:\\\\Users\\\\mihad\\\\...')
 #46 {main}
 "} 
+[2023-05-29 11:24:46] production.ERROR: Command "SERVE" is ambiguous.
+Did you mean one of these?
+    serve      Serve the application on the PHP development s...
+    serve-test Serve the application on the PHP testing serve.... {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"SERVE\" is ambiguous.
+Did you mean one of these?
+    serve      Serve the application on the PHP development s...
+    serve-test Serve the application on the PHP testing serve.... at C:\\Users\\mihad\\OneDrive\\Namizje\\Praktikum3\\Likus\\LikusFrontend\\vendor\\symfony\\console\\Application.php:766)
+[stacktrace]
+#0 C:\\Users\\mihad\\OneDrive\\Namizje\\Praktikum3\\Likus\\LikusFrontend\\vendor\\symfony\\console\\Application.php(262): Symfony\\Component\\Console\\Application->find('SERVE')
+#1 C:\\Users\\mihad\\OneDrive\\Namizje\\Praktikum3\\Likus\\LikusFrontend\\vendor\\symfony\\console\\Application.php(174): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 C:\\Users\\mihad\\OneDrive\\Namizje\\Praktikum3\\Likus\\LikusFrontend\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(102): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\Users\\mihad\\OneDrive\\Namizje\\Praktikum3\\Likus\\LikusFrontend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(155): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\Users\\mihad\\OneDrive\\Namizje\\Praktikum3\\Likus\\LikusFrontend\\artisan(31): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
