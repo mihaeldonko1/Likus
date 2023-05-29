@@ -76,6 +76,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     //protected $hidden = array('password', 'remember_token');
     protected $fillable = array(
+        'Profilna',
         'Spol',
         'Rojstni_dan',
         'Naslov',

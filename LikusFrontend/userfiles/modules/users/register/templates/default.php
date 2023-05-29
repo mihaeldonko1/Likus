@@ -32,9 +32,9 @@ description: Default register template
 
     <div id="register_form_holder">
         <h4  class="text-center pt-3">
-            <?php _e('Register new account.'); ?>
+            <?php _e('Postanite nov član.'); ?>
         </h4>
-        <p class="text-center pb-4"><?php _e('We are glad to welcome you in our community.'); ?></p>
+        <p class="text-center pb-4"><?php _e('Veseli nas, da postajate član naše skupnosti.'); ?></p>
         <form class="p-t-10" action="#" id="user_registration_form_holder" method="post">
             <?php print csrf_form(); ?>
             <div class="form-group">
@@ -127,18 +127,18 @@ description: Default register template
 
             <div class="row">
                 <div class="col-12">
-                    <p class="personal-data"><?php _e("Your personal data will be used to support your expirience
-                        throughout this website, to manage access to your account
-                        and for other purposes described in our"); ?> <a href="#"><?php _e("privacy policy"); ?></a>.</p>
+                    <p class="personal-data"><?php _e("Vaši osebni podatki bodo uporabljeni za podporo vaših izkušenj
+                        na tem spletnem mestu, za upravljanje dostopa do vašega računa
+                        in za druge namene, opisane v naši"); ?> <a href="#"><?php _e("politiki zasebnosti"); ?></a>.</p>
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-outline-primary btn-lg btn-block my-3 text-center justify-content-center"><?php print $form_btn_title ?></button>
+            <button type="submit" class="btn btn-outline-primary btn-lg btn-block my-3 text-center justify-content-center">Postani nov član</button>
         </form>
     </div>
 <?php else: ?>
     <p class="text-center">
-        <?php _e("You Are Logged In"); ?>
+        <?php _e("Trenutno ste prijavljeni"); ?>
     </p>
 <?php endif; ?>
 <br/>
