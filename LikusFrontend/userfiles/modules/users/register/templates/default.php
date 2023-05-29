@@ -95,18 +95,25 @@ description: Default register template
                     <label class="control-label"><?php _e('Država'); ?></label>
                     <input class="form-control input-lg" type="text" name="Drzava" placeholder="<?php _e('Država'); ?>">
                 </div>
-
-                <div class="form-group">
-                    <label class="control-label"><?php _e('Izberite tip članarine'); ?></label>
-                    <div>
-                        <input type="radio" id="option1" name="Tip_clana" value="LIKUS">
-                        <label for="option1"><?php _e('LIKUS'); ?></label>
-                    </div><br />
-                    <div>
-                        <input type="radio" id="option2" name="Tip_clana" value="SLPS">
-                        <label for="option2"><?php _e('SLPS'); ?></label>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                        <label class="control-label"><?php _e('Izberite tip članarine'); ?></label>
+                        <div>
+                            <input type="radio" id="option1" name="Tip_clana" value="LIKUS">
+                            <label for="option1"><?php _e('LIKUS'); ?></label>
+                        </div><br />
+                        <div>
+                            <input type="radio" id="option2" name="Tip_clana" value="SLPS">
+                            <label for="option2"><?php _e('SLPS'); ?></label>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="/likus-in-slps" class="btn btn-primary">Preberi več</a>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label class="control-label"><?php _e('Geslo'); ?></label>
                     <input class="form-control input-lg" type="password" name="password" placeholder="<?php _e('Geslo'); ?>">
