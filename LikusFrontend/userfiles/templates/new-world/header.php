@@ -48,7 +48,7 @@
 
     <?php include('template_settings.php'); ?>
 </head>
-<body class="<?php print helper_body_classes(); ?> <?php print $sticky_navigation; ?> ">
+<body class="<?php print helper_body_classes(); ?> <?php print $sticky_navigation; ?> " style="background-color: beige;">
 
 <?php if ($preloader == 'true'): ?>
     <div class="js-ajax-loading">
