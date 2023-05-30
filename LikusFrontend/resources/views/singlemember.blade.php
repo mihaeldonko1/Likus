@@ -152,10 +152,21 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
     @endif
     @if(isset($data['data']['attributes']['Dodatni_clanki']['data']))
     <hr>
+    <div class="row">
     <h3>Dodatne objave člana</h3>
         @foreach($data['data']['attributes']['Dodatni_clanki']['data'] as $val)
-           <a href="http://localhost:1337{{$val['attributes']['url']}}">{{$val['attributes']['url']}}</a><br />
+        <div class="col-md-3 mb-4">
+                <div class="card d-flex align-items-center justify-content-center">
+                    <div class="card-body text-center">
+                        <p class="card-text">Ime članka: <br /> {{ str_replace('.pdf', '', $val['attributes']['name']) }}</p>
+                        <a class="btn btn-primary" href="http://localhost:1337{{$val['attributes']['url']}}" target="_blank">Preberi več</a>
+
+                    </div>
+                </div>
+            </div>
         @endforeach
+        </div>
+        </div>
     @endif
     
 
