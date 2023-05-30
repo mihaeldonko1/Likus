@@ -1,56 +1,122 @@
-<?php if (isset($orders) and is_array($orders)): ?>
-    <h3 class="m-b-20">My Orders</h3>
-
-    <?php foreach ($orders as $order) { ?>
-        <?php $cart = get_cart('order_id=' . $order['id']); ?>
-        <?php if (is_array($cart) and !empty($cart)): ?>
-            <div class="mw-ui-box mw-ui-box-content my-order">
-                <div class="my-order-status pull-right">
-                    <?php if ($order['order_status'] == 'completed') { ?>
-                        <span class="my-order-status-completed text-green">Completed</span>
-                    <?php } else { ?>
-                        <span class="my-order-status-pending text-red">Pending</span>
-                    <?php } ?>
-                </div>
-
-                <h4>Order #<?php print $order['id']; ?> -
-                    <small>created on <?php print $order['created_at']; ?></small>
-                </h4>
-
-                <hr class="m-b-0"/>
-                <table width="100%" cellspacing="0" cellpadding="0" class="mw-ui-table mw-ui-table-basic">
-                    <thead>
-                    <tr>
-                        <th>Image</th>
-                        <th>Title</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Total</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach ($cart as $product) { ?>
-                        <?php $theproduct = get_content_by_id($product['rel_id']); ?>
-                        <?php if ($theproduct): ?>
-                            <tr>
-                                <td>
-                                    <img src="<?php print get_picture($theproduct['id']); ?>" width="70" alt=""/>
-                                </td>
-                                <td><?php print $theproduct['title']; ?></td>
-                                <td><?php print $product['qty']; ?></td>
-                                <td><?php print $product['price']; ?></td>
-                                <td><?php print (intval($product['qty']) * intval($product['price'])); ?></td>
-                            </tr>
-                        <?php endif; ?>
-                    <?php } ?>
-                    </tbody>
-                </table>
-            </div>
-            <br/>
-        <?php endif; ?>
-    <?php } ?>
-<?php else: ?>
-    <div>
-        <h3>You have no orders</h3>
+<div id="uploadClanek">
+    <div class="infoText">
+        <h4>Objavi samostojen članek</h4><br /><br />
+        <h5>Na tej platformi imate priložnost objaviti svoj lasten članek, ki ni del urejanja zbornika Likusa. Tukaj je nekoliko podrobnejši vodič, kako to storiti:</h5><br /><br />
+        <h5>Pripravite članek:</h5>
+        <span>
+            Pred objavo se prepričajte, da je vaš članek v skladu z našimi smernicami in standardi. Članek naj bo originalen, neobjavljen in ne del urejanja zbornika Likusa.
+        </span><br /><br />
+        <h5>Kako objaviti:</h5>
+        <span>
+            Ko je vaš članek pripravljen za objavo, ga preprosto povlečite ali naložite v spodnjo polje in kliknite objavi, da se objavi na naši spletni platformi
+            <b>(Pazite da je članek v formatu PDF)</b>.
+        </span><br /><br />
+        <h5>Privolitev:</h5>
+        <span>
+            Z objavo vašega članka na naši spletni strani nam avtomatično dajete pravico, da ga prikažemo na naši spletni strani. To pomeni, da smo po objavi vašega članka pridobili dovoljenje, da ga lahko uporabljamo, prikazujemo in delimo na naši spletni strani.
+        </span><br /><br />
+        <h5>Objava:</h5>
+        <span>
+            Ko je vaš članek uspešno objavljen, bo na voljo za ogled na naši spletni strani. Upoštevajte, da v primeru neprimernih objav bo članek v skladu z našimi standardi in pravili izbrisan.
+        </span><br /><br />
+        <span>Upamo, da ta podrobnejša navodila olajšajo postopek objave. Veselimo se vašega prispevka!</span>
     </div>
-<?php endif; ?>
+    <form class="col-12 mb-5 mx-auto" method="post" id="pdf-data">
+        <div style="margin-bottom: 10px; margin-top: 20px">
+            <b><label style="margin-bottom: 10px;">Naložite vaš članek</label></b><br />
+            <button class="btn btn-primary" onclick="handleButtonClick(event)">Naloži</button>
+            <input type="file" id="pdfUpload" name="Clanek" style="display:none" accept=".pdf" onchange="displayFileName(this)">
+            <span id="fileUploadedText" style="display:none;color: green">Datoteka uspešno naložena</span>
+        </div>
+    </form>
+    <hr>
+    <button type="button" class="btn btn-default btn-lg btn-block m-t-10" onclick="uploadPDFdata()">Objavi</button>
+</div>
+<script>
+  function handleButtonClick(event) {
+    event.preventDefault();
+    document.getElementById('pdfUpload').click();
+  }
+</script>
+<script>
+  function uploadPDFdata() {
+  let email = "<?php print $user['email']; ?>";
+  fetch(`http://localhost:1337/api/clanis?filters[Email][$eq]=${email}`)
+    .then(response => response.json())
+    .then(responseData => {
+      const mainId = responseData['data'][0]['id']; 
+      var fileInput = document.querySelector('#pdfUpload');
+      var file = fileInput.files[0];
+
+      if (!file || file === null || file === undefined || file === "") {
+        $('#uploadClanek').empty();
+            var redHeading = $('<h3>').text('Vaš članek ni uspešno naložen, poskusite ponovno!');
+            redHeading.css('color', 'red');
+            redHeading.css('margin-bottom', '100px');
+            $('#uploadClanek').append(redHeading);
+        return;
+      }
+
+      // Check if file type is PDF
+      if (file.type !== 'application/pdf') {
+        $('#uploadClanek').empty();
+            var redHeading = $('<h3>').text('Vaš članek ni uspešno naložen, tip datoteke ni pravilen!');
+            redHeading.css('color', 'red');
+            redHeading.css('margin-bottom', '100px');
+            $('#uploadClanek').append(redHeading);
+        return;
+      }
+
+      console.log(mainId);
+      console.log(file);
+
+      var formData = new FormData();
+      formData.append('files.Dodatni_clanki', file);
+      formData.append('data', JSON.stringify({}));
+
+      fetch(`http://localhost:1337/api/clanis/${mainId}`, {
+        method: 'PUT',
+        body: formData
+      })
+        .then(updatedResponse => updatedResponse.json())
+        .then(updatedData => {
+          console.log("success")
+          $('#uploadClanek').empty();
+          var greenHeading = $('<h3>').text('Uspešno ste objavili članek, Hvala!');
+          greenHeading.css('color', 'green');
+          greenHeading.css('margin-bottom', '100px');
+          $('#uploadClanek').append(greenHeading);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          $('#uploadClanek').empty();
+          var redHeading = $('<h3>').text('Vaš članek ni uspešno naložen, poskusite ponovno!');
+          redHeading.css('color', 'red');
+          redHeading.css('margin-bottom', '100px');
+          $('#uploadClanek').append(redHeading);
+        });
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      $('#uploadClanek').empty();
+      var redHeading = $('<h3>').text('Vaš članek ni uspešno naložen, poskusite ponovno!');
+      redHeading.css('color', 'red');
+      redHeading.css('margin-bottom', '100px');
+      $('#uploadClanek').append(redHeading);
+    });
+}
+
+
+  function displayFileName(input) {
+    var fileUploadedText = document.getElementById("fileUploadedText");
+    if (input.value) {
+      fileUploadedText.style.display = "inline";
+    } else {
+      fileUploadedText.style.display = "none";
+    }
+  }
+</script>
+
+
+
+

@@ -11,6 +11,8 @@ use MicroweberPackages\Option\Facades\Option;
 use MicroweberPackages\User\Events\UserWasRegistered;
 use MicroweberPackages\User\Http\Requests\RegisterRequest;
 use MicroweberPackages\User\Models\User;
+use Illuminate\Support\Facades\Log;
+use GuzzleHttp\Client;
 
 class UserRegisterController extends Controller
 {
@@ -71,13 +73,10 @@ class UserRegisterController extends Controller
             }
         }
 
-
-
         if (!isset($userData['username'])) {
             $userData['username'] = explode('@', $userData['email'])[0];
         }
 
-        // $registration_approval_required = get_option('registration_approval_required', 'users');
         $registration_approval_required = Option::getValue('registration_approval_required', 'users');
         $isVerfiedEmailRequired = Option::getValue('register_email_verify', 'users');
 
@@ -111,12 +110,40 @@ class UserRegisterController extends Controller
             if ($should_login) {
                 app()->user_manager->make_logged($created->id);
             }
-            // event(new UserWasRegistered($created, $request->all()));
         }
 
         $resource = new \MicroweberPackages\User\Http\Resources\UserResource($request, $created);
 
-        return $resource->response()->setStatusCode(201);
 
+        $client = new Client();
+
+        $url = 'http://localhost:1337/api/clanis';
+
+        $data = [
+                'data' => [
+                'Ime' => $request->first_name,
+                'Priimek' => $request->last_name,
+                'Spol' => $request->Spol,
+                'Naslov' => $request->Naslov,
+                'Postna_stevilka' => $request->Postna_stevilka,
+                'Drzava' => $request->Drzava,
+                'Telefon' => $request->phone,
+                'Email' => $request->email,
+                'Rojstni_dan' => $request->Rojstni_dan,
+                'Posta' => $request->Posta,
+                'Tip_clana' => $request->Tip_clana,
+            ],
+        ];
+
+        $response = $client->post($url, [
+            'headers' => ['Content-Type' => 'application/json'],
+            'json' => $data,
+        ]);
+
+        if ($response->getStatusCode() == 200) {
+            return $resource->response()->setStatusCode(201);
+        } else {
+            return redirect()->back()->with('error', 'Something went wrong. Please try again.');
+        }
     }
 }

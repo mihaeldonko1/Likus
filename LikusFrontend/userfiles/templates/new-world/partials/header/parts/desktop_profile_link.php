@@ -18,19 +18,19 @@
         <a href="#" class="dropdown-toggle btn btn-primary" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle-o d-none"></i><?php if (user_id()): ?><?php print user_name(); ?><?php else: ?><?php _e('Log in'); ?><?php endif; ?></a>
         <ul class="dropdown-menu">
             <?php if (user_id()): ?>
-                <li><a href="#" data-bs-toggle="modal" data-bs-target="#loginModal"><?php _lang("Profile", "templates/new-world"); ?></a></li>
-                <li><a href="#" data-bs-toggle="modal" data-bs-target="#ordersModal"><?php _lang("My Orders"); ?></a></li>
+                <li><a href="#" data-bs-toggle="modal" data-bs-target="#loginModal"><?php _lang("Moj profil", "templates/new-world"); ?></a></li>
+                <li><a href="#" data-bs-toggle="modal" data-bs-target="#ordersModal"><?php _lang("Objavi članek"); ?></a></li>
             <?php else: ?>
-                <li><a href="#" class="js-login-modal" data-bs-toggle="modal" data-bs-target="#loginModal"><?php _lang("Login", "templates/new-world"); ?></a></li>
-                <li><a href="#" class="js-register-modal" data-bs-toggle="modal" data-bs-target="#loginModal"><?php _lang("Register", "templates/new-world"); ?></a></li>
+                <li><a href="#" class="js-login-modal" data-bs-toggle="modal" data-bs-target="#loginModal"><?php _lang("Prijava", "templates/new-world"); ?></a></li>
+                <li><a href="#" class="js-register-modal" data-bs-toggle="modal" data-bs-target="#loginModal"><?php _lang("Registracija", "templates/new-world"); ?></a></li>
             <?php endif; ?>
 
             <?php if (is_admin()): ?>
-                <li><a href="<?php print admin_url() ?>"><?php _lang("Admin panel", "templates/new-world"); ?></a></li>
+                <li><a href="<?php print admin_url() ?>"><?php _lang("Admin plošča", "templates/new-world"); ?></a></li>
             <?php endif; ?>
 
             <?php if (user_id()): ?>
-                <li><a href="<?php print logout_url() ?>"><?php _lang("Logout", "templates/new-world"); ?></a></li>
+                <li><a href="<?php print logout_url() ?>"><?php _lang("Odjava", "templates/new-world"); ?></a></li>
             <?php endif; ?>
         </ul>
     </li>

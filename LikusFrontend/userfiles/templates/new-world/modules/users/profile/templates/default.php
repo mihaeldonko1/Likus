@@ -1,24 +1,88 @@
 <?php $user = get_user_by_id(user_id()); ?>
-    <script>
-        saveuserdata = function () {
-            var data = mw.serializeFields('#user-data');
-            if (data.password != data.password2) {
-                mw.$('#errnotification').html('Passwords do not match').show();
-                return false;
-            } else {
-                mw.$('#errnotification').hide();
+<script>
+    saveuserdata = function () {
+        var data = mw.serializeFields('#user-data');
 
-                if (data.password == '') {
-                    delete data.password;
-                    delete data.password2;
-                }
+        if (data.password != data.password2) {
+            mw.$('#errnotification').html('Passwords do not match').show();
+            return false;
+        } else {
+            mw.$('#errnotification').hide();
+
+            if (data.password == '') {
+                delete data.password;
+                delete data.password2;
             }
-            mw.tools.loading('#user-data')
-            $.post("<?php print api_url(); ?>save_user", data, function () {
-                mw.tools.loading('#user-data', false);
-            });
         }
-    </script>
+        mw.tools.loading('#user-data');
+        $.post("<?php print api_url(); ?>save_user", data, function () {
+            mw.tools.loading('#user-data', false);
+            
+            fetch(`http://localhost:1337/api/clanis?filters[Email][$eq]=${data.email}`)
+                .then(response => response.json())
+                .then(responseData => {
+                    const mainId = responseData['data'][0]['id']; 
+                    var fileInput = document.querySelector('#pictureUpload');
+                    var file = fileInput.files[0];
+                    var formData = new FormData();
+                    formData.append('files.Profilna_slika', file);
+                    formData.append('data', JSON.stringify({
+                        Ime: data.first_name,
+                        Priimek: data.last_name,
+                        Drzava: data.Drzava,
+                        Naslov: data.Naslov,
+                        Posta: data.Posta,
+                        Postna_stevilka: data.Postna_stevilka,
+                        Telefon: data.phone
+                    }));
+                    fetch(`http://localhost:1337/api/clanis/${mainId}`, {
+                    method: 'PUT',
+                    body: formData
+                    })
+                    .then(updatedResponse => updatedResponse.json())
+                    .then(updatedData => {
+                        fetch(`http://localhost:1337/api/clanis/${mainId}?populate=*`)
+                            .then(response => {
+                                if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                                }
+                                return response.json();
+                            })
+                            .then(profileData => { 
+                                var profileURL = profileData['data']['attributes']['Profilna_slika']['data']['attributes']['url'];
+                                data.Profilna = profileURL; 
+                                console.log(data);
+                                $.post("<?php print api_url(); ?>save_user", data, function () {
+                                    mw.tools.loading('#user-data', false);
+                                });
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                            });
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    }
+</script>
+<script>
+document.getElementById('pictureUpload').addEventListener('change', function(e) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        document.querySelector('label[for="pictureUpload"] img').src = e.target.result;
+    };
+    reader.readAsDataURL(this.files[0]);
+});
+</script>
+
+
+
+
 
     <form class="col-12 mb-5 mx-auto" method="post" id="user-data">
     <div class="my-3">
@@ -27,14 +91,27 @@
         </div>
         <div class="mw-ui-box mw-ui-box-important mw-ui-box-content" id="errnotification" style="display: none;margin-bottom: 12px;"></div>
 
+  <!--      <div class="form-group mb-2">
+            <label class="control-label mb-2"><?php// _lang("Uporabniško ime", "templates/new-world"); ?></label>
+            <input class="form-control input-lg" type="text" name="username" value="<?php// print $user['username']; ?>" placeholder="<?php// _lang('Uporabniško ime', "templates/new-world"); ?>">
+        </div> -->
+
         <div class="form-group mb-2">
-            <label class="control-label mb-2"><?php _lang("Uporabniško ime", "templates/new-world"); ?></label>
-            <input class="form-control input-lg" type="text" name="username" value="<?php print $user['username']; ?>" placeholder="<?php _lang('Uporabniško ime', "templates/new-world"); ?>">
+    <label for="pictureUpload">
+        <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: inline-block; margin-right: 10px;">
+            <img src="http://localhost:1337<?php print $user['Profilna']; ?>" alt="test" style="cursor: pointer; width: 100%; height: 100%; object-fit: cover;">
         </div>
+    </label>
+</div>
+<div class="form-group mb-2" style="display: none;">
+    <label class="control-label mb-2"><?php _lang("Izberite sliko", "templates/new-world"); ?></label>
+    <input class="form-control-file" type="file" name="profilna" id="pictureUpload" accept="image/*">
+</div>
+
 
         <div class="form-group mb-2">
             <label class="control-label mb-2"><?php _lang("Email", "templates/new-world"); ?></label>
-            <input class="form-control input-lg" type="email" name="email" value="<?php print $user['email']; ?>" placeholder="<?php _lang('Email', "templates/new-world"); ?>">
+            <input class="form-control input-lg" type="email" name="email" value="<?php print $user['email']; ?>" placeholder="<?php _lang('Email', "templates/new-world"); ?>" readonly>
         </div>
 
         <div class="form-group mb-2">
@@ -82,6 +159,6 @@
             <input class="form-control input-lg" type="password" name="password2" placeholder="<?php _lang('Potrdi geslo', "templates/new-world"); ?>">
         </div>
         
-        <button type="button" class="btn btn-default btn-lg btn-block m-t-10" onclick="saveuserdata()"><?php _lang('Save', "templates/new-world"); ?></button>
+        <button type="button" class="btn btn-default btn-lg btn-block m-t-10" onclick="saveuserdata()"><?php _lang('Shrani nove podatke', "templates/new-world"); ?></button>
     </form>
 
