@@ -1,0 +1,202 @@
+<?php
+if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data']['attributes']['Zivljenjepis']['data'] != null) {
+    $zivljenjepisId = $data['data']['attributes']['Zivljenjepis']['data'][0]['attributes']['url'];
+} else {
+    $zivljenjepisId = 0;
+}
+?>
+
+<?php $__env->startSection('content'); ?>
+
+<style>
+    body {
+        background-color: beige;
+        max-width: 100vw;
+    }
+    .custom-title {
+        color: #6ca7cc;
+        
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .btn-close {
+        font-size: 24px;
+        padding: 10px 15px;
+        background-color: #c24a64; 
+        color: #fff; 
+        border: none; 
+    }
+
+    .btn {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6ca7cc;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover .button-hover {
+    opacity: 1;
+    background-color: #fff;
+}
+
+.button-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: #fff;
+    transition: opacity 0.3s;
+    z-index: -1;
+}
+
+.button-text {
+    position: relative;
+    z-index: 1;
+}
+
+.centerImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+hr {
+    width: 70%;
+}
+
+</style>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="text-center">
+            <h5>Informacije o članu</h5>
+            <br />
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-lg-offset-4 col-lg-4 mol-md-offset-4 col-md-4 col-sm-offset-2 col-sm-8 text-center centerImg">
+            <?php if(isset($data['data']['attributes']['Profilna_slika']['data'][0]['attributes']['url'])): ?>
+            <img src="http://localhost:1337<?php echo e($data['data']['attributes']['Profilna_slika']['data'][0]['attributes']['url']); ?>" class="rounded " style="max-width:100%;" >
+            <?php else: ?>
+            <img src="https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg" class="rounded " style="max-width:100%;">
+            <?php endif; ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="text-center">
+            <br />
+            <span><?php echo e($data['data']['attributes']['Ime']); ?> <?php echo e($data['data']['attributes']['Priimek']); ?></span><br />
+            <span>Datum rojstva: <?php echo e(date('d-m-Y', strtotime($data['data']['attributes']['Rojstni_dan']))); ?></span> <br />
+            <span>Spol: <?php echo e($data['data']['attributes']['Spol']); ?></span>
+            <br />
+        </div>    
+    </div> 
+    <hr />
+    <?php if(isset($data['data']['attributes']['Zivljenjepis']['data'])): ?>         
+        <div class="row text-center">
+            <h5>Življenjepis <?php echo e($data['data']['attributes']['Ime']); ?> <?php echo e($data['data']['attributes']['Priimek']); ?></h5>
+            <div id="outputZivljenjepis"></div>
+        </div>
+        <hr />
+    <?php endif; ?>
+    <?php if(isset($data['data']['attributes']['Rokopis']['data'])): ?>           
+        <div class="row text-center">               
+            <h3>Rokopis</h3>
+        </div> 
+        <div class="col-lg-offset-3 col-lg-6 mol-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 text-center centerImg">        
+            <img src="http://localhost:1337<?php echo e($data['data']['attributes']['Rokopis']['data'][0]['attributes']['url']); ?>" class="rounded " style="max-width:100%;">
+        </div>    
+        <hr />
+    <?php endif; ?>    
+    <?php if(isset($data['data']['attributes']['clanki']['data'][0])): ?>
+        <div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                <div class="modal-header" style="display: flex; justify-content: center; align-items: center;">
+                    <h5 class="modal-title custom-title" id="exampleModalLabel">
+                        <?php echo e($data['data']['attributes']['Ime']); ?> <?php echo e($data['data']['attributes']['Priimek']); ?><br />
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                    <div class="modal-body">
+                        <div class="container-bookify">
+                            <div class="book-body">
+                                <button class="button-book" id="prev-btn">
+                                    <i class="fas fa-arrow-circle-left"></i>
+                                </button>
+                                <div id="book" class="book"></div>
+                                <button class="button-book" id="next-btn">
+                                    <i class="fas fa-arrow-circle-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3>Članki</h3>
+            </div>
+            <?php $__currentLoopData = $data['data']['attributes']['clanki']['data']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div class="col-md-3 mb-4">
+                <div class="card d-flex align-items-center justify-content-center">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Identifikacijska št. članka:<?php echo e($val['id']); ?></h5>
+                        <p class="card-text">Letnica knjige: <?php echo e($val['attributes']['Letnica_zbornika']); ?></p>
+                        <p class="card-text">Številka knjige: <?php echo e($val['attributes']['Stevilka_knjige']); ?></p>
+                        <p class="card-text">Strani v knjigi: <?php echo e($val['attributes']['Strani_od']); ?>-<?php echo e($val['attributes']['Strani_do']); ?></p>
+                        <button data-book="<?php echo e($val['id']); ?>" class="btn btn-primary bookLoader" data-bs-toggle="modal" data-bs-target="#bookModal">
+                        <span class="button-text">Preberi članek</span>
+                        <span class="button-hover"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </div>
+    </div>
+    <?php endif; ?>
+
+<script src="../resources/js/main.js"></script>
+<script src="../resources/js/bookifyPDF.min.js"></script>
+<script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+<script src="https://kit.fontawesome.com/b0f29e9bfe.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+$(document).ready(function() {
+    var defaultContent = $('.container-bookify').html();
+
+    $(".bookLoader").click(function() {
+    $('.container-bookify').html(defaultContent);
+    var bookValue = $(this).data("book");
+    fetch(`http://localhost:1337/api/clanki/${bookValue}?populate=*`)
+        .then(response => response.json())
+        .then(data => {
+            let uri = data.data.attributes.Clanek.data.attributes.url;
+            let url = "http://localhost:1337"+uri;        
+            readPDFasBook(url,"prev-btn","next-btn","book",1);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    });
+
+    let zivljenjepisId = "http://localhost:1337<?php echo $zivljenjepisId; ?>";
+    if (zivljenjepisId!=0) {
+        odtConverter(zivljenjepisId);
+    } else {
+        document.getElementById('outputZivljenjepis').textContent = "Član žal še ni objavil svojega življenjepisa";
+    }
+});
+</script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Asus\OneDrive\Desktop\LIKUS_mapa\LikusProjekt_plus_Microweber\Likus\Likus\LikusFrontend\resources\views/singlemember.blade.php ENDPATH**/ ?>

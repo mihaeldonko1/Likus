@@ -4,9 +4,9 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
             padding: 14px 50px 14px;
             margin-bottom: 25px;
-            display: flex;
+            /* display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: center; */
         }
 
         #logo {
@@ -18,7 +18,7 @@
             display: flex;
             flex-grow: 1;
             justify-content: center;
-            align-items: center;
+            align-items: center; 
         }
 
         .nav-link {
@@ -40,12 +40,25 @@
 </head>
 <body>
     <nav class="navbar">
-        <div class="navbar-brand">
-            <img id="logo" src="http://127.0.0.1:8000/userfiles/media/default/likus-logo2_3.png" alt="Logo">
+        <div class="col-lg-3 ">
+            <div class="navbar-brand">
+                <img id="logo" src="http://127.0.0.1:8000/userfiles/media/default/likus-logo2_3.png" alt="Logo">
+            </div>
         </div>
-        <div class="nav-links">
-            <a class="nav-link" href="#">O spletni čitalnici</a>
-            <a class="nav-link" href="/clani?page=1">Avtorji</a>
-            <a class="nav-link" href="/knjige">Knjige</a>
+        <div class="col-lg-6  text-center">
+            <div class="nav-links">
+                <div class="col-lg-4  text-center">
+                    <a class="nav-link" href="#">O spletni čitalnici</a>
+                </div>
+                <div class="col-lg-4  text-center">
+                    <a class="nav-link" href="/clani?page=1">Avtorji</a>
+                </div>
+                <div class="col-lg-4 text-center">    
+                    <a class="nav-link" href="/knjige">Knjige</a>
+                </div>    
+            </div>
+        </div>
+        <div class="col-lg-3">
+        
         </div>
     </nav><?php /**PATH C:\Users\Asus\OneDrive\Desktop\LIKUS_mapa\LikusProjekt_plus_Microweber\Likus\Likus\LikusFrontend\resources\views/layouts/header.blade.php ENDPATH**/ ?>
