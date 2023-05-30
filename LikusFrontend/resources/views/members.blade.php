@@ -152,7 +152,7 @@
             @foreach ($members->items() as $item)
                 <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4">
                     <div class="card text-center" onclick="location.href='clan/{{ $item['id'] }}';">
-                        @if (isset($item['attributes']['Profilna_slika']['data'][0]['attributes']['url']))
+                        @if (isset($item['attributes']['Profilna_slika']['data']['attributes']['url']))
                             <img src="http://localhost:1337{{ $item['attributes']['Profilna_slika']['data']['attributes']['url'] }}" class="card-img-top mx-auto d-block mt-3 card-img">
                         @else
                             <img src="https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg" class="card-img-top mx-auto d-block mt-3 card-img">
