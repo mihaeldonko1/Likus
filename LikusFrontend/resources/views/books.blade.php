@@ -63,8 +63,24 @@
 </style>
 
 <div id="content-books">
+<div class="container">
+        <div class="form-control" style="position: relative;">
+            <div class="input-group" style="display: flex; align-items: stretch;">
+                <input type="text" id="search" placeholder="Search" style="flex-grow: 1; padding: 10px; border: 1px solid #ccc; border-right: none; outline: none;">
+                <select class="custom-select" id="selectType" style="border: 1px solid #ccc; border-left: none; padding: 10px; width: auto; outline: none;">
+                    <option selected>Išči po</option>
+                    <option value="Naslov">Imenu knjige</option>
+                    <option value="Zbornik_st">Številki zbornika</option>
+                </select>
+                <button class="btn btn-primary" style="border: 1px solid #ccc; padding: 10px; margin-left: 5px;" id="searchButton">Iskanje</button>
+            </div>
+        </div>
+        <div class="clearData mt-3" style="align-items: center">
+            <button class="btn btn-secondary" style="margin-left: 5px;display: none" id="clearButton">Briši filter</button>
+        </div>
+    </div>
     <div class="d-flex justify-content-center">
-        <div class="pagination">
+        <div class="pagination" id="pages">
             <ul class="pagination">
                 <li class="page-item{{ ($members->currentPage() === 1) ? ' disabled' : '' }}">
                     <a class="page-link" href="{{ $members->previousPageUrl() }}" aria-label="Previous">
@@ -121,8 +137,12 @@
 
     <br>
     <br>
-
     <div class="container">
+        <div class="row" id="membersContainer">
+            <!-- Members will be dynamically populated here -->
+        </div>
+    </div>
+    <div class="container" id="container_maincard">
         <div class="row">
             @foreach ($members->items() as $item)
             <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4">
@@ -171,4 +191,107 @@
         }
     });
 </script>
+<script>
+function generateMemberCards(responseData) {
+  var members = responseData.data;
+  var container = document.getElementById("membersContainer");
+  container.innerHTML = "";
+
+  if (!Array.isArray(members)) {
+    console.log("Invalid data format received");
+    console.log(members);
+    return;
+  }
+
+  members.forEach(function(member) {
+  var item = member.attributes;
+
+  if (!item) {
+    console.error('Member does not have attributes:', member);
+    return;
+  }
+
+  var col = document.createElement("div");
+  col.className = "col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4";
+
+  var card = document.createElement("div");
+  card.className = "card text-center";
+  card.onclick = function() {
+    location.href = "knjiga/" + member.id;
+  };
+
+  // Profile picture
+  var img = document.createElement("img");
+  img.className = "card-img-top mx-auto d-block mt-3 card-img";
+
+  var profileImageUrl = "https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg";
+
+  if (
+    item.Slika_platnice &&
+    item.Slika_platnice.data &&
+    item.Slika_platnice.data[0] &&
+    item.Slika_platnice.data[0].attributes &&
+    item.Slika_platnice.data[0].attributes.url
+  ) {
+    profileImageUrl = "http://localhost:1337" + item.Slika_platnice.data[0].attributes.url;
+  }
+
+  img.src = profileImageUrl;
+  card.appendChild(img);
+
+  var cardBody = document.createElement("div");
+  cardBody.className = "card-body";
+
+  var cardTitle = document.createElement("h5");
+  cardTitle.className = "card-title";
+  var cardTitleLink = document.createElement("a");
+  cardTitleLink.href = "knjiga/" + member.id;
+  cardTitleLink.innerHTML = item.Naslov+" ("+item.Leto+")" + "<br>Zbornik: " + item.Zbornik_st;
+
+  cardTitle.appendChild(cardTitleLink);
+  cardBody.appendChild(cardTitle);
+  card.appendChild(cardBody);
+  col.appendChild(card);
+  container.appendChild(col);
+});
+
+document.getElementById("container_maincard").style.display = "none";
+document.getElementById("pages").style.display = "none";
+document.getElementById("clearButton").style.display = "block";
+}
+
+document.getElementById("clearButton").addEventListener("click", function () {
+  document.getElementById("search").value = "";
+  document.getElementById("membersContainer").innerHTML = "";
+  document.getElementById("pages").style.display = "block";
+  document.getElementById("clearButton").style.display = "none";
+  document.getElementById("container_maincard").style.display = "block";
+});
+
+
+    function fetchMembers() {
+        var search = document.getElementById("search").value;
+        var selectType = document.getElementById("selectType").value;
+        if (search && selectType) {
+            fetch(`http://localhost:1337/api/knjige?filters[${selectType}][$contains]=${search}&populate=*`)
+                .then(response => {
+                    if (!response.ok) {
+                        alert('Prosim izberite tip iskanja!');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    generateMemberCards(data);
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        } else {
+            alert('Prosim vpišite znake za iskanje!');
+        }
+    }
+
+    document.getElementById("searchButton").addEventListener("click", fetchMembers);
+</script>
+
 @endsection

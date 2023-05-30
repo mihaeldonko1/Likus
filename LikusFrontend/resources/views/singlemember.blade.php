@@ -74,8 +74,8 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
                 <span>Datum rojstva: {{ date('d-m-Y', strtotime($data['data']['attributes']['Rojstni_dan'])) }}</span>
             </div>
             <div class="row">
-                @if (isset($data['data']['attributes']['Profilna_slika']['data'][0]['attributes']['url']))
-                <img src="http://localhost:1337{{ $data['data']['attributes']['Profilna_slika']['data'][0]['attributes']['url'] }}">
+                @if (isset($data['data']['attributes']['Profilna_slika']['data']['attributes']['url']))
+                <img src="http://localhost:1337{{ $data['data']['attributes']['Profilna_slika']['data']['attributes']['url'] }}">
                 @else
                 <img src="https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg" style="transform: scale(0.5);">
                 @endif
@@ -150,6 +150,25 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
         </div>
     </div>
     @endif
+    @if(isset($data['data']['attributes']['Dodatni_clanki']['data']))
+    <hr>
+    <div class="row">
+    <h3>Dodatne objave člana</h3>
+        @foreach($data['data']['attributes']['Dodatni_clanki']['data'] as $val)
+        <div class="col-md-3 mb-4">
+                <div class="card d-flex align-items-center justify-content-center">
+                    <div class="card-body text-center">
+                        <p class="card-text">Ime članka: <br /> {{ str_replace('.pdf', '', $val['attributes']['name']) }}</p>
+                        <a class="btn btn-primary" href="http://localhost:1337{{$val['attributes']['url']}}" target="_blank">Preberi več</a>
+
+                    </div>
+                </div>
+            </div>
+        @endforeach
+        </div>
+        </div>
+    @endif
+    
 
 <script src="../resources/js/main.js"></script>
 <script src="../resources/js/bookifyPDF.min.js"></script>
