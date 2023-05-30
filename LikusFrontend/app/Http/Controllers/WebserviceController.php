@@ -127,6 +127,12 @@ class WebserviceController extends BaseController
         }
     }
 
+    public function getCitalnica()
+    {
+            return view('spletnacitalnica'); 
+        
+    }
+
     public function getClankiPerBook($id)
     {
         $client = new Client();

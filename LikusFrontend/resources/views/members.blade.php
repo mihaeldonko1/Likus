@@ -196,8 +196,6 @@
     });
 </script>
 <script>
-    // Function to generate the HTML for member cards
-// Function to generate the HTML for member cards
 function generateMemberCards(responseData) {
   var members = responseData.data;
   var container = document.getElementById("membersContainer");
@@ -282,7 +280,7 @@ document.getElementById("clearButton").addEventListener("click", function () {
             fetch(`http://localhost:1337/api/clanis?filters[${selectType}][$contains]=${search}&populate=*`)
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error("Network response was not OK");
+                        alert('Prosim izberite tip iskanja!');
                     }
                     return response.json();
                 })
@@ -293,7 +291,7 @@ document.getElementById("clearButton").addEventListener("click", function () {
                     console.log(error);
                 });
         } else {
-            alert('Please fill in the search box and select a valid type!');
+            alert('Prosim vpišite znake za iskanje!');
         }
     }
 

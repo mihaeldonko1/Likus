@@ -28,4 +28,7 @@ Route::get('/knjige', [WebserviceController::class, 'allBooks'])->name('knjige')
 Route::get('/knjiga/{id}', [WebserviceController::class, 'getBook']);
 Route::get('/preberi/{id}', [WebserviceController::class, 'getClankiPerBook']);
 
-//proxy
+//citalnica
+Route::get('/spletna-citalnica', [WebserviceController::class, 'getCitalnica']);
+
+
