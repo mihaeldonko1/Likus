@@ -10,12 +10,10 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
 
 <style>
     body {
-        background-color: beige;
-        max-width: 100vw;
+        background-color: beige !important;
     }
     .custom-title {
         color: #6ca7cc;
-        
         text-align: center;
         font-size: 30px;
     }
@@ -62,60 +60,69 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
     z-index: 1;
 }
 
-.centerImg {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+h1, h3 {
+color: #6ca7cc;
 }
-
-hr {
-    width: 70%;
-}
+    
+    
+    
 
 </style>
 
 <div class="container mt-4">
-    <div class="row">
-        <div class="text-center">
-            <h5>Informacije o članu</h5>
-            <br />
-        </div>
-    </div>
     <div class="row text-center">
-        <div class="col-lg-offset-4 col-lg-4 mol-md-offset-4 col-md-4 col-sm-offset-2 col-sm-8 text-center centerImg">
-            <?php if(isset($data['data']['attributes']['Profilna_slika']['data'][0]['attributes']['url'])): ?>
-            <img src="http://localhost:1337<?php echo e($data['data']['attributes']['Profilna_slika']['data'][0]['attributes']['url']); ?>" class="rounded " style="max-width:100%;" >
-            <?php else: ?>
-            <img src="https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg" class="rounded " style="max-width:100%;">
-            <?php endif; ?>
-        </div>
+      <h1 style="font-size: 3.5em;">Informacije o članu:</h1>
+     
     </div>
+    <br>
     <div class="row">
-        <div class="text-center">
-            <br />
-            <span><?php echo e($data['data']['attributes']['Ime']); ?> <?php echo e($data['data']['attributes']['Priimek']); ?></span><br />
-            <span>Datum rojstva: <?php echo e(date('d-m-Y', strtotime($data['data']['attributes']['Rojstni_dan']))); ?></span> <br />
-            <span>Spol: <?php echo e($data['data']['attributes']['Spol']); ?></span>
-            <br />
-        </div>    
-    </div> 
-    <hr />
-    <?php if(isset($data['data']['attributes']['Zivljenjepis']['data'])): ?>         
+       
         <div class="row text-center">
-            <h5>Življenjepis <?php echo e($data['data']['attributes']['Ime']); ?> <?php echo e($data['data']['attributes']['Priimek']); ?></h5>
+        <span style="font-size: 2.0em;"><?php echo e($data['data']['attributes']['Ime']); ?> <?php echo e($data['data']['attributes']['Priimek']); ?></span><br>
+        <span style="font-size: 1.2em;">Datum rojstva: <?php echo e(date('d-m-Y', strtotime($data['data']['attributes']['Rojstni_dan']))); ?></span>
+        <span style="font-size: 1.2em;">Spol: <?php echo e($data['data']['attributes']['Spol']); ?></span><br>
+   
+
+                <br>
+                <br>
+                <br>
+            </div>
+            <div class="col-md-4">
+            <div class="row">
+
+                <?php if(isset($data['data']['attributes']['Profilna_slika']['data']['attributes']['url'])): ?>
+                <img src="http://localhost:1337<?php echo e($data['data']['attributes']['Profilna_slika']['data']['attributes']['url']); ?>" >
+                <?php else: ?>
+                <img src="https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg" style="transform: scale(0.5);" >
+                <?php endif; ?>
+            </div>
+        
+        </div>
+        <?php if(isset($data['data']['attributes']['Zivljenjepis']['data'])): ?>
+        <div class="col-md-8">
+            <h3>Življenjepis <?php echo e($data['data']['attributes']['Ime']); ?> <?php echo e($data['data']['attributes']['Priimek']); ?></h4>
             <div id="outputZivljenjepis"></div>
         </div>
-        <hr />
+        <?php endif; ?>
+    </div>
+    <?php if(isset($data['data']['attributes']['Rokopis']['data'])): ?>
+    <hr>
+    <br>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1>Rokopis:</h1>
+            <br>
+            <div id="rokopisContainer">
+                <img src="http://localhost:1337<?php echo e($data['data']['attributes']['Rokopis']['data'][0]['attributes']['url']); ?>" style="width: 50%;">
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+    <hr>
     <?php endif; ?>
-    <?php if(isset($data['data']['attributes']['Rokopis']['data'])): ?>           
-        <div class="row text-center">               
-            <h3>Rokopis</h3>
-        </div> 
-        <div class="col-lg-offset-3 col-lg-6 mol-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 text-center centerImg">        
-            <img src="http://localhost:1337<?php echo e($data['data']['attributes']['Rokopis']['data'][0]['attributes']['url']); ?>" class="rounded " style="max-width:100%;">
-        </div>    
-        <hr />
-    <?php endif; ?>    
     <?php if(isset($data['data']['attributes']['clanki']['data'][0])): ?>
         <div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
@@ -144,7 +151,11 @@ hr {
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <h3>Članki</h3>
+                <br>
+                <br>
+                <h1>Članki:</h1>
+                <br>
+                <br>
             </div>
             <?php $__currentLoopData = $data['data']['attributes']['clanki']['data']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-md-3 mb-4">
@@ -165,6 +176,25 @@ hr {
         </div>
     </div>
     <?php endif; ?>
+    <?php if(isset($data['data']['attributes']['Dodatni_clanki']['data'])): ?>
+    <hr>
+    <div class="row">
+    <h3>Dodatne objave člana</h3>
+        <?php $__currentLoopData = $data['data']['attributes']['Dodatni_clanki']['data']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <div class="col-md-3 mb-4">
+                <div class="card d-flex align-items-center justify-content-center">
+                    <div class="card-body text-center">
+                        <p class="card-text">Ime članka: <br /> <?php echo e(str_replace('.pdf', '', $val['attributes']['name'])); ?></p>
+                        <a class="btn btn-primary" href="http://localhost:1337<?php echo e($val['attributes']['url']); ?>" target="_blank">Preberi več</a>
+
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </div>
+        </div>
+    <?php endif; ?>
+    
 
 <script src="../resources/js/main.js"></script>
 <script src="../resources/js/bookifyPDF.min.js"></script>

@@ -3,7 +3,7 @@
 
 <style>
     body {
-        background-color: beige;
+        background-color: beige !important;
     }
 
     .card {
@@ -68,23 +68,8 @@
 </div>
 
 <div id="content" style="display: none;">
-    <div class="container">
-        <div class="form-control" style="position: relative;">
-            <div class="input-group" style="display: flex; align-items: stretch;">
-                <input type="text" id="search" placeholder="Search" style="flex-grow: 1; padding: 10px; border: 1px solid #ccc; border-right: none; outline: none;">
-                <select class="custom-select" id="selectType" style="border: 1px solid #ccc; border-left: none; padding: 10px; width: auto; outline: none;">
-                    <option selected>Išči po</option>
-                    <option value="Ime">Imenu</option>
-                    <option value="Priimek">Priimku</option>
-                </select>
-                <button class="btn btn-primary" style="border: 1px solid #ccc; padding: 10px; margin-left: 5px;" id="searchButton">Iskanje</button>
-            </div>
-        </div>
-        <div class="clearData mt-3" style="align-items: center">
-            <button class="btn btn-secondary" style="margin-left: 5px;display: none" id="clearButton">Briši filter</button>
-        </div>
-    </div>
-    <div class="d-flex justify-content-center">
+
+<div class="d-flex justify-content-center">
     <div class="pagination" id="pages">
             <ul class="pagination">
                 <li class="page-item<?php echo e(($members->currentPage() === 1) ? ' disabled' : ''); ?>">
@@ -141,6 +126,26 @@
     </div>
 
     <br>
+
+    <div class="container">
+        <div class="form-control" style="position: relative;">
+            <div class="input-group" style="display: flex; align-items: stretch;">
+                <input type="text" id="search" placeholder="Search" style="flex-grow: 1; padding: 10px; border: 1px solid #ccc; border-right: none; outline: none;">
+                <select class="custom-select" id="selectType" style="border: 1px solid #ccc; border-left: none; padding: 10px; width: auto; outline: none;">
+                    <option selected>Išči po</option>
+                    <option value="Ime">Imenu</option>
+                    <option value="Priimek">Priimku</option>
+                </select>
+                <button class="btn btn-primary" style="border: 1px solid #ccc; padding: 10px; margin-left: 5px;" id="searchButton">Iskanje</button>
+            </div>
+        </div>
+        <div class="clearData mt-3" style="align-items: center">
+            <button class="btn btn-secondary" style="margin-left: 5px;display: none" id="clearButton">Briši filter</button>
+        </div>
+    </div>
+    
+
+    <br>
     <br>
     <div class="container">
         <div class="row" id="membersContainer">
@@ -152,7 +157,7 @@
             <?php $__currentLoopData = $members->items(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4">
                     <div class="card text-center" onclick="location.href='clan/<?php echo e($item['id']); ?>';">
-                        <?php if(isset($item['attributes']['Profilna_slika']['data'][0]['attributes']['url'])): ?>
+                        <?php if(isset($item['attributes']['Profilna_slika']['data']['attributes']['url'])): ?>
                             <img src="http://localhost:1337<?php echo e($item['attributes']['Profilna_slika']['data']['attributes']['url']); ?>" class="card-img-top mx-auto d-block mt-3 card-img">
                         <?php else: ?>
                             <img src="https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg" class="card-img-top mx-auto d-block mt-3 card-img">
@@ -197,8 +202,6 @@
     });
 </script>
 <script>
-    // Function to generate the HTML for member cards
-// Function to generate the HTML for member cards
 function generateMemberCards(responseData) {
   var members = responseData.data;
   var container = document.getElementById("membersContainer");
@@ -283,7 +286,7 @@ document.getElementById("clearButton").addEventListener("click", function () {
             fetch(`http://localhost:1337/api/clanis?filters[${selectType}][$contains]=${search}&populate=*`)
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error("Network response was not OK");
+                        alert('Prosim izberite tip iskanja!');
                     }
                     return response.json();
                 })
@@ -294,12 +297,18 @@ document.getElementById("clearButton").addEventListener("click", function () {
                     console.log(error);
                 });
         } else {
-            alert('Please fill in the search box and select a valid type!');
+            alert('Prosim vpišite znake za iskanje!');
         }
     }
 
     document.getElementById("searchButton").addEventListener("click", fetchMembers);
 </script>
+
+
+<br>
+<br>
+<br>
+<br>
 
 <?php $__env->stopSection(); ?>
 

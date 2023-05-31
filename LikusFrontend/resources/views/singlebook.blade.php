@@ -3,7 +3,7 @@
 @section('content')
 <style>
     body {
-        background-color: beige;
+        background-color: beige !important;
     }
 
     .container {

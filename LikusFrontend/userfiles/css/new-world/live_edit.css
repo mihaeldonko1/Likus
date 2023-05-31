@@ -85,6 +85,7 @@
 #element_1685375217726 {
 	padding-left: 0px;
 	margin-left: 0px;
+	color: #e89443;
 }
 #mw-selector-1685376704651 {
 	font-size: 15px;
@@ -250,6 +251,7 @@
 }
 #element_1685373018660 {
 	padding-top: 30px;
+	font-size: 13px;
 }
 .edit[field="layout-skin-10-layouts-20230529151057"][rel="module"] {
 	padding-top: 35px;
@@ -411,9 +413,11 @@
 	border-top-right-radius: 10px;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
+	font-size: 1px;
 }
 #element_1685394828441 {
 	margin-top: 0px;
+	padding-top: 0px;
 }
 #element_1685398270748 {
 	line-height: 32px;
@@ -532,12 +536,13 @@
 	padding-top: 0px;
 }
 #element_1685400629396 {
-	font-size: 24px;
+	font-size: 40px;
 	font-weight: 500;
 	padding-top: 0px;
 	padding-bottom: 0px;
 	margin-top: 0px;
 	margin-bottom: 0px;
+	line-height: 71px;
 }
 #mw-selector-1685400984301 {
 	font-size: 24px;
@@ -566,6 +571,8 @@
 #element_1685400633917 {
 	padding-left: 0px;
 	margin-left: 0px;
+	color: #e89443;
+	font-size: 18px;
 }
 #mw-selector-1685403338285 {
 	color: #f5f5f5;
@@ -575,33 +582,42 @@
 }
 #mw-selector-1685403338337 {
 	color: #e89443;
+	font-size: 22px;
 }
 #mw-selector-1685403338346 {
 	color: #e89443;
+	font-size: 22px;
 }
 #mw-selector-1685403338349 {
 	color: #e89443;
+	font-size: 22px;
 }
 #mw-selector-1685403338352 {
 	color: #e89443;
+	font-size: 22px;
 }
 #mw-selector-1685403338355 {
 	color: #e89443;
+	font-size: 22px;
 }
 #mw-selector-1685403338358 {
 	color: #e89443;
+	font-size: 22px;
 }
 #mw-selector-1685403338340 {
 	color: #e89443;
 }
 #mw-selector-1685403338362 {
 	color: #e89443;
+	font-size: 16px;
 }
 #mw-selector-1685403747772 {
 	color: #e89443;
+	font-size: 22px;
 }
 #mw-selector-1685403747779 {
 	color: #e89443;
+	font-size: 22px;
 }
 .edit[field="layout-skin-1-layouts-20230529233922"][rel="module"] {
 	font-size: 16px;
@@ -611,8 +627,8 @@
 }
 .edit[field="layout-skin-2-layouts-20230529232029"][rel="module"] {
 	margin-top: auto;
-	padding-top: 49px;
-	padding-bottom: 0px;
+	padding-top: 60px;
+	padding-bottom: 90px;
 }
 .edit[field="layout-skin-2-layouts-20230530120709"][rel="module"] {
 	padding-bottom: 0px;
@@ -627,12 +643,14 @@
 	padding-right: 60px;
 	padding-top: 15px;
 	padding-bottom: 15px;
+	font-size: 20px;
 }
 #btn-btn-20230530134931 {
 	padding-top: 20px;
 	padding-bottom: 20px;
 	padding-left: 100px;
 	padding-right: 100px;
+	font-size: 20px;
 }
 #mw-selector-1685455666653 {
 	padding-left: 0px;
@@ -645,6 +663,7 @@
 	margin-left: 7px;
 	padding-top: 0px;
 	margin-top: 0px;
+	font-size: 34px;
 }
 #mw-selector-1685455666662 {
 	padding-top: 0px;
@@ -686,10 +705,13 @@
 	line-height: 60px;
 }
 #mw-selector-1685456701068 {
-	padding-left: 12px;
+	padding-left: 0px;
 	margin-left: 0px;
 	padding-right: 12px;
 	padding-top: 0px;
+	margin-top: 100px;
+	padding-bottom: 0px;
+	margin-bottom: 100px;
 }
 #element_1685373018700 {
 	font-family: Oxygen;
@@ -713,4 +735,253 @@
 }
 #mw-selector-1685448451792 {
 	font-weight: 500;
+}
+#mw-selector-1685488884802 {
+	padding-left: 0px;
+	margin-left: 51px;
+}
+#mw-selector-1685488884822 {
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+#mw-selector-1685488884830 {
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+#mw-selector-1685491259414 {
+	padding-top: 0px;
+	padding-left: 12px;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	margin-left: 0px;
+}
+#mw-selector-1685491259419 {
+	margin-top: 0px;
+}
+#element_1685490822257 {
+	font-style: italic;
+	color: #e89443;
+	font-size: 40px;
+}
+#element_1685490822155 {
+	color: #e89443;
+	font-style: italic;
+	font-size: 40px;
+}
+#element_1685490822905 {
+	color: #e89443;
+	font-style: italic;
+	font-size: 40px;
+}
+#element_1685490823033 {
+	color: #e89443;
+	font-style: italic;
+	font-size: 40px;
+}
+#element_1685488610721 {
+	font-size: 60px;
+}
+#element_1685488610592 {
+	font-size: 22px;
+	line-height: 35px;
+}
+#spacer-647691a468b21 {
+	height: 20px;
+}
+#mw-selector-1685491892614 {
+	margin-bottom: 100px;
+	padding-bottom: 35px;
+}
+.edit[field="layout-info-blocks-skin-4-layouts-20230531000414"][rel="module"] {
+	padding-bottom: 0px;
+	margin-bottom: 100px;
+}
+#mw-selector-1685491892617 {
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	padding-left: 48px;
+	padding-top: 0px;
+	margin-top: 100px;
+}
+#mw-selector-1685491259456 {
+	padding-bottom: 0px;
+	margin-bottom: 15px;
+}
+.edit[field="layout-info-blocks-skin-4-layouts-20230531000422"][rel="module"] {
+	padding-bottom: 0px;
+	margin-bottom: 100px;
+}
+#mw-selector-1685491892627 {
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	padding-top: 0px;
+	margin-top: 0px;
+	padding-left: 0px;
+	margin-left: 75px;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+#element_1685490820134 {
+	font-size: 60px;
+}
+.edit[field="layout-skin-2-layouts-20230530231212"][rel="module"] {
+	margin-top: 50px;
+}
+.edit[field="layout-skin-10-layouts-20230530232259"][rel="module"] {
+	margin-top: 100px;
+}
+.edit[field="layout-skin-2-layouts-20230530235811"][rel="module"] {
+	margin-top: 60px;
+	padding-top: 50px;
+	padding-bottom: 10px;
+}
+#mw-selector-1685492386277 {
+	padding-top: 100px;
+	margin-top: 39px;
+}
+#mw-selector-1685492386283 {
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	padding-left: 0px;
+	margin-top: 0px;
+}
+#mw-selector-1685492386292 {
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	font-size: 16px;
+	padding-top: 0px;
+	margin-top: 0px;
+	padding-left: 0px;
+	margin-left: 0px;
+	padding-bottom: 0px;
+}
+#mw-selector-1685492386295 {
+	padding-left: 100px;
+	padding-top: 100px;
+	margin-top: 0px;
+}
+#mw-selector-1685491892589 {
+	padding-top: 0px;
+}
+#mw-selector-1685492386264 {
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+#mw-selector-1685491892606 {
+	padding-left: 76px;
+}
+#mw-selector-1685491259470 {
+	margin-top: 0px;
+}
+#element_1685490822908 {
+	margin-top: 49px;
+}
+#element_1685490822150 {
+	margin-top: 100px;
+}
+#element_1685490823175 {
+	margin-top: 20px;
+}
+#element_1685488801533 {
+	line-height: 40px;
+	font-style: italic;
+}
+#mw-selector-1685488884819 {
+	font-size: 18px;
+	font-weight: 600;
+}
+#element_1685488801578 {
+	margin-top: 60px;
+	font-size: 18px;
+}
+#mw-selector-1685373092621 {
+	font-size: 50px;
+	font-style: normal;
+}
+#element_1685373018652 {
+	font-size: 0px;
+}
+#mw-selector-1685493926623 {
+	font-size: 28px;
+	font-style: italic;
+	margin-top: 0px;
+	padding-top: 0px;
+	margin-bottom: 0px;
+}
+#element_1685394828506 {
+	padding-top: 0px;
+	margin-top: 0px;
+	font-size: 50px;
+}
+#mw-selector-1685494097971 {
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+#mw-selector-1685494097976 {
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+#mw-selector-1685456701071 {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+#mw-selector-1685494507043 {
+	padding-bottom: 90px;
+}
+#mw-selector-1685456701063 {
+	padding-bottom: 0px;
+	padding-top: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+#element_1685454883933 {
+	padding-top: 50px;
+	margin-top: 0px;
+}
+#mw-selector-1685494507054 {
+	margin-top: 100px;
+	padding-bottom: 0px;
+	margin-bottom: 100px;
+}
+#mw-selector-1685494507057 {
+	padding-bottom: 0px;
+	margin-top: 100px;
+	padding-top: 90px;
+}
+#element_1685456483543 {
+	margin-top: 90px;
+}
+#mw-selector-1685494507066 {
+	font-size: 50px;
+}
+#mw-selector-1685494507123 {
+	font-size: 16px;
+}
+#element_1685402382434 {
+	font-size: 22px;
+}
+#element_1685375218257 {
+	color: #e89443;
+}
+#element_1685375218500 {
+	color: #e89443;
+}
+#element_1685398910620 {
+	font-size: 22px;
 }

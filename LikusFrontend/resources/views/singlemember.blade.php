@@ -10,7 +10,7 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
 
 <style>
     body {
-        background-color: beige;
+        background-color: beige !important;
     }
     .custom-title {
         color: #6ca7cc;
@@ -60,42 +60,64 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
     z-index: 1;
 }
 
+h1, h3 {
+color: #6ca7cc;
+}
+    
+    
+    
+
 </style>
 
 <div class="container mt-4">
-    <div class="row">
-        <h5>Informacije o članu</h5>
+    <div class="row text-center">
+      <h1 style="font-size: 3.5em;">Informacije o članu:</h1>
+     
     </div>
+    <br>
     <div class="row">
-        <div class="col-md-4">
-        <div class="row">
-                <span>{{ $data['data']['attributes']['Ime'] }} {{ $data['data']['attributes']['Priimek'] }}</span><br>
-                <span>Spol: {{ $data['data']['attributes']['Spol'] }}</span>
-                <span>Datum rojstva: {{ date('d-m-Y', strtotime($data['data']['attributes']['Rojstni_dan'])) }}</span>
+       
+        <div class="row text-center">
+        <span style="font-size: 2.0em;">{{ $data['data']['attributes']['Ime'] }} {{ $data['data']['attributes']['Priimek'] }}</span><br>
+        <span style="font-size: 1.2em;">Datum rojstva: {{ date('d-m-Y', strtotime($data['data']['attributes']['Rojstni_dan'])) }}</span>
+        <span style="font-size: 1.2em;">Spol: {{ $data['data']['attributes']['Spol'] }}</span><br>
+   
+
+                <br>
+                <br>
+                <br>
             </div>
+            <div class="col-md-4">
             <div class="row">
+
                 @if (isset($data['data']['attributes']['Profilna_slika']['data']['attributes']['url']))
-                <img src="http://localhost:1337{{ $data['data']['attributes']['Profilna_slika']['data']['attributes']['url'] }}">
+                <img src="http://localhost:1337{{ $data['data']['attributes']['Profilna_slika']['data']['attributes']['url'] }}" >
                 @else
-                <img src="https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg" style="transform: scale(0.5);">
+                <img src="https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg" style="transform: scale(0.5);" >
                 @endif
             </div>
         
         </div>
         @if(isset($data['data']['attributes']['Zivljenjepis']['data']))
         <div class="col-md-8">
-            <h5>Življenjepis {{ $data['data']['attributes']['Ime'] }} {{ $data['data']['attributes']['Priimek'] }}</h5>
+            <h3>Življenjepis {{ $data['data']['attributes']['Ime'] }} {{ $data['data']['attributes']['Priimek'] }}</h4>
             <div id="outputZivljenjepis"></div>
         </div>
         @endif
     </div>
     @if(isset($data['data']['attributes']['Rokopis']['data']))
     <hr>
+    <br>
     <div class="row">
-        <div class="col-md-12">
-            <h3>Rokopis</h3>
+        <div class="col-md-12 text-center">
+            <h1>Rokopis:</h1>
+            <br>
             <div id="rokopisContainer">
                 <img src="http://localhost:1337{{ $data['data']['attributes']['Rokopis']['data'][0]['attributes']['url'] }}" style="width: 50%;">
+                <br>
+                <br>
+                <br>
+                <br>
             </div>
         </div>
     </div>
@@ -128,8 +150,12 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
-                <h3>Članki</h3>
+            <div class="col-md-12 text-center">
+                <br>
+                <br>
+                <h1>Članki:</h1>
+                <br>
+                <br>
             </div>
             @foreach($data['data']['attributes']['clanki']['data'] as $val)
             <div class="col-md-3 mb-4">

@@ -3,7 +3,7 @@
 
 <style>
     body {
-        background-color: beige;
+        background-color: beige !important;
     }
 
     .card {
@@ -68,23 +68,8 @@
 </div>
 
 <div id="content" style="display: none;">
-    <div class="container">
-        <div class="form-control" style="position: relative;">
-            <div class="input-group" style="display: flex; align-items: stretch;">
-                <input type="text" id="search" placeholder="Search" style="flex-grow: 1; padding: 10px; border: 1px solid #ccc; border-right: none; outline: none;">
-                <select class="custom-select" id="selectType" style="border: 1px solid #ccc; border-left: none; padding: 10px; width: auto; outline: none;">
-                    <option selected>Išči po</option>
-                    <option value="Ime">Imenu</option>
-                    <option value="Priimek">Priimku</option>
-                </select>
-                <button class="btn btn-primary" style="border: 1px solid #ccc; padding: 10px; margin-left: 5px;" id="searchButton">Iskanje</button>
-            </div>
-        </div>
-        <div class="clearData mt-3" style="align-items: center">
-            <button class="btn btn-secondary" style="margin-left: 5px;display: none" id="clearButton">Briši filter</button>
-        </div>
-    </div>
-    <div class="d-flex justify-content-center">
+
+<div class="d-flex justify-content-center">
     <div class="pagination" id="pages">
             <ul class="pagination">
                 <li class="page-item{{ ($members->currentPage() === 1) ? ' disabled' : '' }}">
@@ -139,6 +124,26 @@
             </ul>
         </div>
     </div>
+
+    <br>
+
+    <div class="container">
+        <div class="form-control" style="position: relative;">
+            <div class="input-group" style="display: flex; align-items: stretch;">
+                <input type="text" id="search" placeholder="Search" style="flex-grow: 1; padding: 10px; border: 1px solid #ccc; border-right: none; outline: none;">
+                <select class="custom-select" id="selectType" style="border: 1px solid #ccc; border-left: none; padding: 10px; width: auto; outline: none;">
+                    <option selected>Išči po</option>
+                    <option value="Ime">Imenu</option>
+                    <option value="Priimek">Priimku</option>
+                </select>
+                <button class="btn btn-primary" style="border: 1px solid #ccc; padding: 10px; margin-left: 5px;" id="searchButton">Iskanje</button>
+            </div>
+        </div>
+        <div class="clearData mt-3" style="align-items: center">
+            <button class="btn btn-secondary" style="margin-left: 5px;display: none" id="clearButton">Briši filter</button>
+        </div>
+    </div>
+    
 
     <br>
     <br>
@@ -297,5 +302,11 @@ document.getElementById("clearButton").addEventListener("click", function () {
 
     document.getElementById("searchButton").addEventListener("click", fetchMembers);
 </script>
+
+
+<br>
+<br>
+<br>
+<br>
 
 @endsection
