@@ -519,6 +519,7 @@
 .edit[field="layout-contacts-skin-3-layouts-20230529225041"][rel="module"] {
 	padding-bottom: 100px;
 	padding-top: 0px;
+	margin-top: 0px;
 }
 #mw-selector-1685400984263 {
 	padding-top: 30px;
@@ -539,6 +540,9 @@
 	margin-left: 0px;
 	padding-left: 0px;
 	padding-top: 0px;
+	margin-top: 0px;
+	font-size: 16px;
+	line-height: 16px;
 }
 #element_1685400629396 {
 	font-size: 40px;
@@ -758,16 +762,16 @@
 	margin-left: 51px;
 }
 #mw-selector-1685488884822 {
-	border-top-left-radius: 15px;
-	border-top-right-radius: 15px;
-	border-bottom-left-radius: 15px;
-	border-bottom-right-radius: 15px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
 }
 #mw-selector-1685488884830 {
-	border-top-left-radius: 15px;
-	border-top-right-radius: 15px;
-	border-bottom-right-radius: 15px;
-	border-bottom-left-radius: 15px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
 }
 #mw-selector-1685491259414 {
 	padding-top: 0px;
@@ -852,11 +856,12 @@
 	margin-top: 0px;
 }
 .edit[field="layout-skin-10-layouts-20230530232259"][rel="module"] {
-	margin-top: 20px;
+	margin-top: 0px;
+	padding-top: 0px;
 }
 .edit[field="layout-skin-2-layouts-20230530235811"][rel="module"] {
 	margin-top: 0px;
-	padding-top: 0px;
+	padding-top: 36px;
 	padding-bottom: 10px;
 }
 #mw-selector-1685492386277 {
@@ -917,8 +922,9 @@
 	font-style: italic;
 }
 #mw-selector-1685488884819 {
-	font-size: 18px;
+	font-size: 23px;
 	font-weight: 600;
+	line-height: 32px;
 }
 #element_1685488801578 {
 	margin-top: 60px;
@@ -1073,8 +1079,9 @@
 	margin-top: 15px;
 }
 #mw-selector-1685555261947 {
-	padding-top: 30px;
+	padding-top: 0px;
 	padding-bottom: 0px;
+	margin-top: 0px;
 }
 #mw-selector-1685373092630 {
 	margin-top: 10px;
@@ -1215,4 +1222,193 @@
 .edit[field="layout-skin-9-layouts-20230530231829"][rel="module"] {
 	padding-top: 25px;
 	padding-bottom: 0px;
+}
+#element_1685571839495 {
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
+	border-bottom-left-radius: 25px;
+	padding-left: 0px;
+}
+#mw-selector-1685634497498 {
+	border-top-left-radius: 200px;
+	border-top-right-radius: 200px;
+	border-bottom-left-radius: 200px;
+	border-bottom-right-radius: 200px;
+}
+#mw-selector-1685634497504 {
+	margin-top: 100px;
+}
+#mw-selector-1685634497507 {
+	margin-top: 0px;
+	padding-top: 0px;
+}
+#mw-selector-1685634723731 {
+	margin-top: 0px;
+}
+.edit[field="layout-contacts-skin-2-layouts-20230531222430"][rel="module"] {
+	margin-top: 0px;
+	padding-top: 0px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	padding-bottom: 0px;
+}
+#mw-selector-1685634838164 {
+	margin-top: 0px;
+}
+#mw-selector-1685634497501 {
+	margin-top: 60px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+#element_1685634924394 {
+	color: #000000;
+}
+#element_1685634167999 {
+	font-weight: 600;
+	font-size: 20px;
+	color: #e89443;
+}
+.edit[field="layout-info-blocks-skin-2-layouts-20230531225333"][rel="module"] {
+	margin-top: 10px;
+}
+.edit[field="layout-info-blocks-skin-1-layouts-20230531225329"][rel="module"] {
+	margin-top: 10px;
+}
+.edit[field="layout-info-blocks-skin-1-layouts-20230531223652"][rel="module"] {
+	margin-top: 10px;
+}
+.edit[field="content"][rel="content"] {
+	padding-bottom: 15px;
+}
+#mw-selector-1685637214107 {
+	padding-top: 0px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	padding-left: 0px;
+	margin-left: 41px;
+}
+#mw-selector-1685637214110 {
+	padding-left: 0px;
+	margin-left: 100px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+}
+#mw-selector-1685637214115 {
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	margin-left: 30px;
+}
+#mw-selector-1685637214118 {
+	margin-left: 100px;
+	margin-top: 100px;
+	padding-top: 0px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+}
+#element_1685573577245 {
+	margin-top: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+.edit[field="layout-skin-2-layouts-20230601172044"][rel="module"] {
+	margin-top: 40px;
+	padding-top: 0px;
+}
+.edit[field="layout-info-blocks-skin-3-layouts-20230601172139"][rel="module"] {
+	padding-top: 0px;
+}
+#mw-selector-1685640352645 {
+	font-size: 14px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 0px;
+	margin-top: 0px;
+}
+#mw-selector-1685640352648 {
+	padding-top: 0px;
+}
+#element_1685640010225 {
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 45px;
+	padding-top: 15px;
+}
+#element_1685640010208 {
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 45px;
+	padding-top: 0px;
+}
+#mw-selector-1685640352655 {
+	padding-left: 0px;
+}
+#mw-selector-1685640352642 {
+	margin-top: 0px;
+}
+#element_1685640009901 {
+	margin-top: 20px;
+}
+.edit[field="layout-info-blocks-skin-1-layouts-20230601174053"][rel="module"] {
+	margin-top: 0px;
+	padding-top: 0px;
+}
+.edit[field="layout-skin-2-layouts-20230601174214"][rel="module"] {
+	padding-top: 80px;
+	padding-bottom: 11px;
+}
+#element_1685640962839 {
+	padding-top: 42px;
+}
+#mw-selector-1685641264914 {
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+}
+#mw-selector-1685641264970 {
+	background-color: #ffffff;
+}
+#mw-selector-1685641264963 {
+	color: #000000;
+}
+#element_1685640964315 {
+	color: #000000;
+}
+#mw-selector-1685641264999 {
+	color: #000000;
+}
+#mw-selector-1685641264996 {
+	font-weight: 600;
+	color: #000000;
+}
+#mw-selector-1685641265010 {
+	color: #000000;
+}
+#mw-selector-1685641265018 {
+	font-weight: 600;
+}
+#element_1685640966358 {
+	color: #000000;
+}
+#mw-selector-1685641265031 {
+	color: #000000;
+}
+#mw-selector-1685641265021 {
+	font-weight: 600;
+	color: #000000;
+}
+#mw-selector-1685641265041 {
+	color: #ffffff;
 }

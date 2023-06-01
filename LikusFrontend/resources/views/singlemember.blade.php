@@ -13,7 +13,7 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
         background-color: beige !important;
     }
     .custom-title {
-        color: #6ca7cc;
+        color:  #e89443;
         text-align: center;
         font-size: 30px;
     }
@@ -62,10 +62,7 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
 
 h1, h3 {
 color: #e89443;
-}
-    
-    
-    
+} 
 
 </style>
 
