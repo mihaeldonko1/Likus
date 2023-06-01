@@ -2,7 +2,7 @@
     .navbar {
         background-color: #EDEDC2;
         box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        padding: 14px 50px 14px;
+        padding: 20px 60px 20px;
         margin-bottom: 25px;
         display: flex;
         align-items: center;
@@ -28,23 +28,31 @@
     }
 
     .nav-link:hover {
-        color: #6ca7cc;
+        color: #e89443;
     }
 
     .btn {
-        background-color: #6ca7cc;
-        border: 1px solid #6ca7cc;
+        background-color: #e89443;
+        border: 1px solid #e89443;
         transition: background-color 0.3s ease;
     }
 
     .btn:hover {
-        background-color: #438cba;
-        border-color: #4e85a8;
+        background-color: #c9721e;
+        border-color: #c9721e;
     }
 
     .nav-buttons {
         margin-left: auto;
     }
+
+    .btn-icon {
+        height: 16px;
+        width: 16px;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -72,10 +80,12 @@ try {
         <a class="nav-link" href="/knjige">Knjige</a>
     </div>
     <div class="nav-buttons">
-        @if(isset($userMail) && ($userMail != null || $userMail != "" || $userMail != 0))
-            <button onclick="OpenProfile()" class="btn btn-primary">Vaš profil</button>
-        @endif
-    </div>
+    @if(isset($userMail) && ($userMail != null || $userMail != "" || $userMail != 0))
+        <button onclick="OpenProfile()" class="btn btn-primary">
+            <img src="path/to/your/icon.png" alt="User Profile Icon" class="btn-icon">Vaš profil
+        </button>
+    @endif
+</div>
 </nav>
 
 <script>

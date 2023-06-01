@@ -30,7 +30,7 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
     position: relative;
     display: inline-block;
     padding: 10px 20px;
-    background-color: #6ca7cc;
+    background-color: #e89443;
     color: #fff;
     font-size: 16px;
     border: none;
@@ -61,7 +61,7 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
 }
 
 h1, h3 {
-color: #6ca7cc;
+color: #e89443;
 }
     
     
@@ -69,14 +69,37 @@ color: #6ca7cc;
 
 </style>
 
+
+<br>
+
+
 <div class="container mt-4">
     <div class="row text-center">
       <h1 style="font-size: 3.5em;">Informacije o članu:</h1>
      
     </div>
+
     <br>
+    <br>
+
     <div class="row">
+
+    <div class="col-md-12">
+
+            <div class="row justify-content-center align-items-center">
+            @if (isset($data['data']['attributes']['Profilna_slika']['data']['attributes']['url']))
+                <img src="http://localhost:1337{{ $data['data']['attributes']['Profilna_slika']['data']['attributes']['url'] }}" style="width: 300px; border-radius: 50%;">
+            @else
+                <img src="https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg" style="width: 300px; border-radius: 50%;">
+            @endif
+             </div>
        
+
+
+             <br>
+             <br>
+
+
         <div class="row text-center">
         <span style="font-size: 2.0em;">{{ $data['data']['attributes']['Ime'] }} {{ $data['data']['attributes']['Priimek'] }}</span><br>
         <span style="font-size: 1.2em;">Datum rojstva: {{ date('d-m-Y', strtotime($data['data']['attributes']['Rojstni_dan'])) }}</span>
@@ -87,20 +110,12 @@ color: #6ca7cc;
                 <br>
                 <br>
             </div>
-            <div class="col-md-4">
-            <div class="row">
-
-                @if (isset($data['data']['attributes']['Profilna_slika']['data']['attributes']['url']))
-                <img src="http://localhost:1337{{ $data['data']['attributes']['Profilna_slika']['data']['attributes']['url'] }}" >
-                @else
-                <img src="https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg" style="transform: scale(0.5);" >
-                @endif
-            </div>
+            
         
         </div>
         @if(isset($data['data']['attributes']['Zivljenjepis']['data']))
-        <div class="col-md-8">
-            <h3>Življenjepis {{ $data['data']['attributes']['Ime'] }} {{ $data['data']['attributes']['Priimek'] }}</h4>
+        <div class="col-md-12 text-center">
+            <h3>Življenjepis {{ $data['data']['attributes']['Ime'] }} {{ $data['data']['attributes']['Priimek'] }}</h3>
             <div id="outputZivljenjepis"></div>
         </div>
         @endif
@@ -193,6 +208,9 @@ color: #6ca7cc;
         @endforeach
         </div>
         </div>
+
+   
+        
     @endif
     
 

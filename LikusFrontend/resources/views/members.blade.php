@@ -22,8 +22,22 @@
     }
 
     .card:hover .card-title a {
-        color: #6ca7cc;
+        color: #e89443;
     }
+
+    #searchButton,
+  #clearButton {
+    background-color: #e89443;
+    border-color: #e89443;
+    color: #fff;
+    transition: background-color 0.3s;
+  }
+
+  #searchButton:hover,
+  #clearButton:hover {
+    background-color: #c9721e;
+    border-color: #c9721e;
+  }
 
     .pagination {
         display: flex;
@@ -37,6 +51,8 @@
         list-style-type: none;
     }
 
+
+
     .pagination .page-link {
         display: inline-block;
         padding: 10px 16px; 
@@ -49,11 +65,11 @@
     }
 
     .pagination .page-link:hover {
-        background-color: #6ca7cc;
+        background-color: #e89443;
     }
 
     .pagination .page-item.active .page-link {
-        background-color: #6ca7cc;
+        background-color: #e89443;
         color: #fff;
     }
 
@@ -64,7 +80,7 @@
 </style>
 
 <div id="loader" style="background-color: beige;">
-    <h1 id="loader-text" style="font-size: 32px; font-family: 'Lato', sans-serif;">Dobrodošli v spletni čitalnici Likusa</h1>
+    <h1 id="loader-text" style="font-size: 45px; font-family: 'Lato', sans-serif;">Dobrodošli v spletni čitalnici Likusa</h1>
 </div>
 
 <div id="content" style="display: none;">
@@ -128,24 +144,24 @@
     <br>
 
     <div class="container">
-        <div class="form-control" style="position: relative;">
-            <div class="input-group" style="display: flex; align-items: stretch;">
-                <input type="text" id="search" placeholder="Search" style="flex-grow: 1; padding: 10px; border: 1px solid #ccc; border-right: none; outline: none;">
-                <select class="custom-select" id="selectType" style="border: 1px solid #ccc; border-left: none; padding: 10px; width: auto; outline: none;">
-                    <option selected>Išči po</option>
-                    <option value="Ime">Imenu</option>
-                    <option value="Priimek">Priimku</option>
-                </select>
-                <button class="btn btn-primary" style="border: 1px solid #ccc; padding: 10px; margin-left: 5px;" id="searchButton">Iskanje</button>
-            </div>
-        </div>
-        <div class="clearData mt-3" style="align-items: center">
-            <button class="btn btn-secondary" style="margin-left: 5px;display: none" id="clearButton">Briši filter</button>
-        </div>
+  <div class="form-control" style="position: relative;">
+    <div class="input-group" style="display: flex; align-items: stretch;">
+      <input type="text" id="search" placeholder="Search" style="flex-grow: 1; padding: 10px; border: 1px solid #ccc; border-right: none; outline: none;">
+      <select class="custom-select" id="selectType" style="border: 1px solid #ccc; border-left: none; padding: 10px; width: auto; outline: none;">
+        <option selected>Išči po</option>
+        <option value="Ime">Imenu</option>
+        <option value="Priimek">Priimku</option>
+      </select>
+      <button class="btn btn-primary" style="border: 1px solid #ccc; padding: 10px; margin-left: 5px;" id="searchButton">Iskanje</button>
     </div>
-    
+  </div>
+  <div class="clearData mt-3" style="align-items: center">
+  <button class="btn btn-secondary" style="margin-left: 5px; display: none; width: 150px;" id="clearButton">Briši filter</button>
+</div>
+</div>
 
-    <br>
+
+    
     <br>
     <div class="container">
         <div class="row" id="membersContainer">

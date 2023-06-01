@@ -21,7 +21,7 @@
     }
 
     .card:hover .card-title a {
-        color: #6ca7cc;
+        color: #e89443;
     }
 
     .pagination {
@@ -48,11 +48,11 @@
     }
 
     .pagination .page-link:hover {
-        background-color: #6ca7cc;
+        background-color: #e89443;
     }
 
     .pagination .page-item.active .page-link {
-        background-color: #6ca7cc;
+        background-color: #e89443;
         color: #fff;
     }
 
