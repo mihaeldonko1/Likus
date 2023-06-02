@@ -1064,6 +1064,7 @@
 }
 .edit[field="layout-skin-9-layouts-20230531174726"][rel="module"] {
 	padding-bottom: 0px;
+	padding-top: 5px;
 }
 #mw-selector-1685555261977 {
 	font-size: 16px;
@@ -1438,4 +1439,96 @@
 }
 #element_1685707379137 {
 	margin-left: 100px;
+}
+.edit[field="layout-features-skin-1-layouts-20230602124108"][rel="module"] {
+	padding-top: 15px;
+	margin-top: 0px;
+}
+.edit[field="layout-features-skin-1-layouts-20230602124112"][rel="module"] {
+	margin-top: 0px;
+	padding-top: 0px;
+}
+.edit[field="layout-skin-2-layouts-20230602124104"][rel="module"] {
+	font-style: italic;
+}
+#element_1685709615471 {
+	font-style: italic;
+	font-size: 19px;
+}
+#element_1685709615128 {
+	font-style: italic;
+	line-height: 31.5px;
+	font-size: 19px;
+}
+#mw-selector-1685709696744 {
+	font-size: 22px;
+}
+#element_1685709614992 {
+	font-size: 19px;
+	font-style: italic;
+}
+#element_1685709615119 {
+	font-style: italic;
+	font-size: 19px;
+}
+#element_1685709616242 {
+	font-style: italic;
+	font-size: 19px;
+}
+#element_1685709616203 {
+	font-size: 19px;
+	font-style: italic;
+}
+#element_1685709615017 {
+	font-style: normal;
+}
+#element_1685710674692 {
+	font-size: 35px;
+}
+.edit[field="layout-skin-2-layouts-20230602130127"][rel="module"] {
+	margin-top: 0px;
+	padding-bottom: 10px;
+}
+#mw-selector-1685710774594 {
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+}
+#layouts-20230602125851-btn {
+	margin-top: 0px;
+}
+#btn-layouts-20230602125851-btn {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+.edit[field="layout-info-blocks-skin-2-layouts-20230602131630"][rel="module"] {
+	margin-top: 0px;
+	padding-top: 0px;
+}
+#btn-layouts-20230602131630-btn {
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+#mw-selector-1685711848503 {
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+}
+.edit[field="layout-info-blocks-skin-2-layouts-20230602132957"][rel="module"] {
+	margin-top: 50px;
+	padding-top: 55px;
+}
+#mw-selector-1685712601545 {
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	padding-top: 0px;
+	margin-top: 40px;
 }
