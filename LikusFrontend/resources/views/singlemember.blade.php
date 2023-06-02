@@ -71,51 +71,43 @@ color: #e89443;
 
 
 <div class="container mt-4">
-    <div class="row text-center">
+    <div class="row text-center mb-5">
       <h1 style="font-size: 3.5em;">Informacije o članu:</h1>
-     
     </div>
-
-    <br>
-    <br>
 
     <div class="row">
 
-    <div class="col-md-12">
-
-            <div class="row justify-content-center align-items-center">
-            @if (isset($data['data']['attributes']['Profilna_slika']['data']['attributes']['url']))
-                <img src="http://localhost:1337{{ $data['data']['attributes']['Profilna_slika']['data']['attributes']['url'] }}" style="width: 300px; border-radius: 50%;">
-            @else
-                <img src="https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg" style="width: 300px; border-radius: 50%;">
-            @endif
-             </div>
-       
-
-
-             <br>
-             <br>
-
-
-        <div class="row text-center">
-        <span style="font-size: 2.0em;">{{ $data['data']['attributes']['Ime'] }} {{ $data['data']['attributes']['Priimek'] }}</span><br>
-        <span style="font-size: 1.2em;">Datum rojstva: {{ date('d-m-Y', strtotime($data['data']['attributes']['Rojstni_dan'])) }}</span>
-        <span style="font-size: 1.2em;">Spol: {{ $data['data']['attributes']['Spol'] }}</span><br>
-   
-
-                <br>
-                <br>
-                <br>
+    <div class="col-md-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row justify-content-center align-items-center">
+                    @if (isset($data['data']['attributes']['Profilna_slika']['data']['attributes']['url']))
+                        <img src="http://localhost:1337{{ $data['data']['attributes']['Profilna_slika']['data']['attributes']['url'] }}" style="width: 80%;">
+                    @else
+                        <img src="https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg" style="width: 80%;">
+                    @endif
+                    </div>
+                </div>
+                <div class="col-md-12 text-center">
+                    <div class="row">
+                        <span style="font-size: 2.0em;">{{ $data['data']['attributes']['Ime'] }} {{ $data['data']['attributes']['Priimek'] }}</span><br>
+                        <span style="font-size: 1.2em;">Datum rojstva: {{ date('d-m-Y', strtotime($data['data']['attributes']['Rojstni_dan'])) }}</span>
+                        <span style="font-size: 1.2em;">Spol: {{ $data['data']['attributes']['Spol'] }}</span><br>
+                    </div>
+                </div>
             </div>
-            
-        
-        </div>
-        @if(isset($data['data']['attributes']['Zivljenjepis']['data']))
-        <div class="col-md-12 text-center">
-            <h3>Življenjepis {{ $data['data']['attributes']['Ime'] }} {{ $data['data']['attributes']['Priimek'] }}</h3>
-            <div id="outputZivljenjepis"></div>
+    </div>
+    <div class="col-md-7">
+     @if(isset($data['data']['attributes']['Zivljenjepis']['data']))
+        <div class="col-md-12">
+            <div class="rounded p-3" style="background-color: white">
+                <h3>Življenjepis {{ $data['data']['attributes']['Ime'] }} {{ $data['data']['attributes']['Priimek'] }}</h3>
+                <div id="outputZivljenjepis"></div>
+            </div>
         </div>
         @endif
+    </div>
+
     </div>
     @if(isset($data['data']['attributes']['Rokopis']['data']))
     <hr>

@@ -150,6 +150,7 @@
         <div class="row">
             @foreach ($members->items() as $item)
             <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4">
+            <a href="knjiga/{{ $item['id'] }}">
                 <div class="card text-center">
                     @if (isset($item['attributes']['Slika_platnice']['data'][0]['attributes']['url']))
                     <img src="http://localhost:1337{{ $item['attributes']['Slika_platnice']['data'][0]['attributes']['url'] }}" class="card-img-top mx-auto d-block mt-3 card-img">
@@ -165,6 +166,7 @@
                         </h5>
                     </div>
                 </div>
+                </a>
             </div>
             @endforeach
         </div>

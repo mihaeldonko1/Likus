@@ -79,6 +79,12 @@ document.getElementById('pictureUpload').addEventListener('change', function(e) 
     reader.readAsDataURL(this.files[0]);
 });
 </script>
+<script>
+    var profileImage = document.getElementById("profileImage");
+    profileImage.onerror = function() {
+        profileImage.src = "https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg";
+    };
+</script>
 
 
 
@@ -99,7 +105,7 @@ document.getElementById('pictureUpload').addEventListener('change', function(e) 
         <div class="form-group mb-2">
     <label for="pictureUpload">
         <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: inline-block; margin-right: 10px;">
-            <img src="http://localhost:1337<?php print $user['Profilna']; ?>" alt="test" style="cursor: pointer; width: 100%; height: 100%; object-fit: cover;">
+            <img  id="profileImage" src="http://localhost:1337<?php print $user['Profilna']; ?>" alt="test" style="cursor: pointer; width: 100%; height: 100%; object-fit: cover;">
         </div>
     </label>
 </div>

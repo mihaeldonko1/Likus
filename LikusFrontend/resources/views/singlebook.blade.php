@@ -49,9 +49,9 @@
             <div class="row">
                 <div class="col-md-12">
                     @if (isset($item['attributes']['Slika_platnice']['data'][0]['attributes']['url']))
-                        <img src="http://localhost:1337{{ $item['attributes']['Slika_platnice']['data'][0]['attributes']['url'] }}" class="card-img-top mx-auto d-block mt-3">
+                        <img src="http://localhost:1337{{ $item['attributes']['Slika_platnice']['data'][0]['attributes']['url'] }}" class="card-img-top mx-auto d-block mt-3" style="width: 50%;">
                     @else
-                        <img src="https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg" class="card-img-top mx-auto d-block mt-3">
+                        <img src="https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg" class="card-img-top mx-auto d-block mt-3" style="width: 50%;">
                     @endif
                 </div>
             </div>
@@ -88,7 +88,7 @@
             </div>
         </div>
         <div class="text-center">
-        <a href="/preberi/{{$data['data']['attributes']['Stevilka_knjige']}}" class="custom-button">Začni z branjem</a>
+        <a href="/preberi/{{$data['data']['attributes']['Stevilka_knjige']}}" class="custom-button mb-5">Začni z branjem</a>
         </div>
     </div>
 </div>
