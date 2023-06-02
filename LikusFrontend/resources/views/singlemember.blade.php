@@ -5,6 +5,12 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
     $zivljenjepisId = 0;
 }
 ?>
+<?php
+    use Carbon\Carbon;
+    $birthday = Carbon::createFromFormat('Y-m-d', $data['data']['attributes']['Rojstni_dan']);
+    $currentDate = Carbon::now();
+    $yearsDifference = $birthday->diffInYears($currentDate);
+?>
 @extends('layouts.app')
 @section('content')
 
@@ -77,6 +83,7 @@ color: #e89443;
 
     <div class="row">
 
+
     <div class="col-md-5">
             <div class="row">
                 <div class="col-md-12">
@@ -93,6 +100,7 @@ color: #e89443;
                         <span style="font-size: 2.0em;">{{ $data['data']['attributes']['Ime'] }} {{ $data['data']['attributes']['Priimek'] }}</span><br>
                         <span style="font-size: 1.2em;">Datum rojstva: {{ date('d-m-Y', strtotime($data['data']['attributes']['Rojstni_dan'])) }}</span>
                         <span style="font-size: 1.2em;">Spol: {{ $data['data']['attributes']['Spol'] }}</span><br>
+                        <span style="font-size: 1.2em;">Starost: {{ $yearsDifference }}</span><br>
                     </div>
                 </div>
             </div>
@@ -178,7 +186,6 @@ color: #e89443;
             </div>
             @endforeach
         </div>
-    </div>
     @endif
     @if(isset($data['data']['attributes']['Dodatni_clanki']['data']))
     <hr>
@@ -196,12 +203,9 @@ color: #e89443;
             </div>
         @endforeach
         </div>
-        </div>
-
-   
-        
+        </div>  
     @endif
-    
+    </div>
 
 <script src="../resources/js/main.js"></script>
 <script src="../resources/js/bookifyPDF.min.js"></script>

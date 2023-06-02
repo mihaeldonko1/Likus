@@ -27,7 +27,7 @@ class WebserviceController extends BaseController
 
         $client = new Client(); 
         try {
-            $response = $client->get("http://localhost:1337/api/clanis?populate=*&pagination[page]={$page}&pagination[pageSize]=28");
+            $response = $client->get("http://localhost:1337/api/clanis?populate=*&pagination[page]={$page}&pagination[pageSize]=28&sort[0]=Ime%3Aasc");
             
             $data = json_decode($response->getBody()->getContents(), true);
 
