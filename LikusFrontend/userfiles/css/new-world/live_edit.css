@@ -1217,7 +1217,13 @@
 #mw-selector-1685574258069 {
 	margin-top: 0px;
 	padding-left: 0px;
-	padding-bottom: 63px;
+	padding-bottom: 0px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	margin-bottom: 0px;
+	padding-top: 0px;
 }
 .edit[field="layout-skin-9-layouts-20230530231829"][rel="module"] {
 	padding-top: 25px;
@@ -1266,10 +1272,12 @@
 }
 #element_1685634924394 {
 	color: #000000;
+	font-weight: 600;
+	font-style: italic;
 }
 #element_1685634167999 {
-	font-weight: 600;
-	font-size: 20px;
+	font-weight: 800;
+	font-size: 27ž5px;
 	color: #e89443;
 }
 .edit[field="layout-info-blocks-skin-2-layouts-20230531225333"][rel="module"] {
@@ -1411,4 +1419,23 @@
 }
 #mw-selector-1685641265041 {
 	color: #ffffff;
+}
+#mw-selector-1685707402060 {
+	margin-top: 0px;
+}
+#mw-selector-1685707402063 {
+	margin-top: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+#element_1685707378397 {
+	padding-left: 0px;
+	margin-left: 0px;
+}
+#element_1685707378893 {
+	padding-left: 0px;
+	margin-left: 100px;
+}
+#element_1685707379137 {
+	margin-left: 100px;
 }
