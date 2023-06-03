@@ -44,4 +44,4 @@
     <p>&copy; All Rights Reserved &copy; - Likus.si</p>
   </footer>
 </body>
-</html>
+</html><?php /**PATH C:\Users\Miha\Desktop\Praktikum2\Likus\LikusFrontend\resources\views/layouts/footer.blade.php ENDPATH**/ ?>
