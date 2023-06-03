@@ -1,16 +1,15 @@
-<p>Dear {{username}},</p>
+<p>Spoštovani,</p>
 <br/>
-<p>
-    Recently a request was submitted to reset your password for our client area from ip {{ip}}. If you did not request
-    this, please ignore this email. It will expire and become useless in 2 hours time.
-</p>
+<p>Pred kratkim ste nam poslali prošnjo, za spremembo vaštega gesla, če to niste bili vi, prosimo, da ignorirate to sporočilo.</p>
 <br/>
+<p>Spodnja povezava poteče čez 2 uri</p>
 <p>
-    To reset your password, please visit the url below:
+    Če želite spremeniti geslo pritisnite na spodnjo povezavo:
     <br/>
     {{reset_password_link}}
 </p>
 <br/>
-<p>When you visit the link above, you will have the opportunity to choose a new password.</p>
-
-<p>{{created_at}}</p>
+<p>Ko kliknete na spodnjo povezavo, boste imeli možnost nastavitve novega gesla.</p>
+<br />
+<p>Vaš Likus.si</p><br/>
+<img src="http://127.0.0.1:8000/userfiles/media/default/likus-logo-nobackground_3.png" alt="likus-logo" style="width: 100px">

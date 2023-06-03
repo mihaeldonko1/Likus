@@ -71,21 +71,28 @@
       console.log(file);
 
       var formData = new FormData();
-      formData.append('files.Dodatni_clanki', file);
-      formData.append('data', JSON.stringify({}));
+      formData.append('files.Clanek', file);
+      formData.append('data', JSON.stringify({
+        publishedAt: null, clan: {connect: [mainId]}
+      }));
 
-      fetch(`http://localhost:1337/api/clanis/${mainId}`, {
-        method: 'PUT',
+      fetch(`http://localhost:1337/api/dodatne-objave`, {
+        method: 'POST',
         body: formData
       })
         .then(updatedResponse => updatedResponse.json())
         .then(updatedData => {
           console.log("success")
           $('#uploadClanek').empty();
-          var greenHeading = $('<h3>').text('Uspešno ste objavili članek, Hvala!');
-          greenHeading.css('color', 'green');
-          greenHeading.css('margin-bottom', '100px');
-          $('#uploadClanek').append(greenHeading);
+          $('#uploadClanek').empty();
+            var greenHeading = $('<h3>').html('Članek je uspešno objavljen v pregled administratorja, če je skladen z navodili, bo objavljen v najkrajšem možnem času. <br /><br /> Za objavo se vam zahvaljuje Likus!');
+            greenHeading.css('color', 'green');
+            greenHeading.css('margin-bottom', '100px');
+            $('#uploadClanek').append(greenHeading);
+
+            var image = $('<img>').attr('src', 'http://127.0.0.1:8000/userfiles/media/default/likus-logo-nobackground_3.png');
+            image.css('width', '40%');
+            $('#uploadClanek').append(image);
         })
         .catch(error => {
           console.error('Error:', error);

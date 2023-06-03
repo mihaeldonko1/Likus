@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dodatne_objave",
+  "info": {
+    "singularName": "dodatna-objava",
+    "pluralName": "dodatne-objave",
+    "displayName": "Dodatne_objave",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Clanek": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "clan": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::clani.clani",
+      "inversedBy": "dodatne_objave"
+    }
+  }
+}

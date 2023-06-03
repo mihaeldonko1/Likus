@@ -129,15 +129,11 @@
         "SLPS"
       ]
     },
-    "Dodatni_clanki": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": true
+    "dodatne_objave": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dodatna-objava.dodatna-objava",
+      "mappedBy": "clan"
     }
   }
 }
