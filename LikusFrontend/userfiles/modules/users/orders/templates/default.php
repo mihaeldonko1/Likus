@@ -57,7 +57,6 @@
         return;
       }
 
-      // Check if file type is PDF
       if (file.type !== 'application/pdf') {
         $('#uploadClanek').empty();
             var redHeading = $('<h3>').text('Vaš članek ni uspešno naložen, tip datoteke ni pravilen!');
