@@ -23,8 +23,11 @@
                 .then(responseData => {
                     const mainId = responseData['data'][0]['id']; 
                     var fileInput = document.querySelector('#pictureUpload');
+                    var fileInput1 = document.querySelector('#zivljenjepisUpload');
+                    var file2 = fileInput1.files[0];
                     var file = fileInput.files[0];
                     var formData = new FormData();
+                    formData.append('files.Zivljenjepis', file2);
                     formData.append('files.Profilna_slika', file);
                     formData.append('data', JSON.stringify({
                         Ime: data.first_name,
@@ -97,23 +100,23 @@ document.getElementById('pictureUpload').addEventListener('change', function(e) 
         </div>
         <div class="mw-ui-box mw-ui-box-important mw-ui-box-content" id="errnotification" style="display: none;margin-bottom: 12px;"></div>
 
-  <!--      <div class="form-group mb-2">
-            <label class="control-label mb-2"><?php// _lang("Uporabniško ime", "templates/new-world"); ?></label>
-            <input class="form-control input-lg" type="text" name="username" value="<?php// print $user['username']; ?>" placeholder="<?php// _lang('Uporabniško ime', "templates/new-world"); ?>">
-        </div> -->
 
         <div class="form-group mb-2">
-    <label for="pictureUpload">
-        <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: inline-block; margin-right: 10px;">
-            <img  id="profileImage" src="http://localhost:1337<?php print $user['Profilna']; ?>" alt="test" style="cursor: pointer; width: 100%; height: 100%; object-fit: cover;">
+            <label for="pictureUpload">
+                <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: inline-block; margin-right: 10px;">
+                    <img  id="profileImage" src="http://localhost:1337<?php print $user['Profilna']; ?>" alt="test" style="cursor: pointer; width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </label>
         </div>
-    </label>
-</div>
-<div class="form-group mb-2" style="display: none;">
-    <label class="control-label mb-2"><?php _lang("Izberite sliko", "templates/new-world"); ?></label>
-    <input class="form-control-file" type="file" name="profilna" id="pictureUpload" accept="image/*">
-</div>
+        <div class="form-group mb-2" style="display: none;">
+            <label class="control-label mb-2"><?php _lang("Izberite sliko", "templates/new-world"); ?></label>
+            <input class="form-control-file" type="file" name="profilna" id="pictureUpload" accept="image/*">
+        </div>
 
+        <div class="form-group mb-2">
+            <label class="control-label mb-2"><?php _lang("Posodobite življenjepis", "templates/new-world"); ?></label>
+            <input class="form-control-file" type="file"  id="zivljenjepisUpload" accept="application/vnd.oasis.opendocument.text">
+        </div>
 
         <div class="form-group mb-2">
             <label class="control-label mb-2"><?php _lang("Email", "templates/new-world"); ?></label>
