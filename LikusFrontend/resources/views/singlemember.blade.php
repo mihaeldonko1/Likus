@@ -165,6 +165,7 @@ color: #e89443;
                                 <button id="next" class="flipbook-button">&#8250;</button>
                             </div>
                         </div>
+
                         </div>
                     </div>
                 </div>
@@ -229,7 +230,7 @@ color: #e89443;
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
 $(document).ready(function() {
-    var defaultContent = $('.container-bookify').html();
+    var defaultContent = $('.body-book').html();
 
     $(".bookLoader").click(function() {
     $('.container-bookify').html(defaultContent);
