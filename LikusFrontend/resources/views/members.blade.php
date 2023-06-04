@@ -254,11 +254,10 @@ function generateMemberCards(responseData) {
     if (
       item.Profilna_slika &&
       item.Profilna_slika.data &&
-      item.Profilna_slika.data[0] &&
-      item.Profilna_slika.data[0].attributes &&
-      item.Profilna_slika.data[0].attributes.url
+      item.Profilna_slika.data.attributes &&
+      item.Profilna_slika.data.attributes.url
     ) {
-      profileImageUrl = "http://localhost:1337" + item.Profilna_slika.data[0].attributes.url;
+      profileImageUrl = "http://localhost:1337" + item.Profilna_slika.data.attributes.url;
     }
 
     img.src = profileImageUrl;

@@ -55,8 +55,6 @@
 
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
 <?php
 try {
     $user = get_user_by_id(user_id());

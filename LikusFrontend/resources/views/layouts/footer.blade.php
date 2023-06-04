@@ -4,10 +4,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.worker.min.js" integrity="sha512-lHibs5XrZL9hXP3Dhr/d2xJgPy91f2mhVAasrSbMkbmoTSm2Kz8DuSWszBLUg31v+BM6tSiHSqT72xwjaNvl0g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-
-<!DOCTYPE html>
-<html>
-<head>
   <style>
     * {
       margin: 0;
@@ -34,14 +30,8 @@
       font-size: 17px;
     }
   </style>
-</head>
-<body>
-  <main>
-    <!-- Your page content goes here -->
-  </main>
+
   
   <footer>
     <p>&copy; All Rights Reserved &copy; - Likus.si</p>
   </footer>
-</body>
-</html>
