@@ -12,10 +12,11 @@
                         </a>
                     </div>
                     <?php //include('parts/mobile_search_bar.php'); ?>
-                    <?php include('parts/mobile_profile_link.php'); ?>
+
                    <div class="mw-module-container-center">
                        <module  type="menu" name="header_menu" id="header_menu" template="navbar"/>
                    </div>
+                   <?php include('parts/mobile_profile_link.php'); ?>
                 </div>
             </div>
             <ul class="member-nav main-member-nav visible-search">
@@ -34,6 +35,5 @@
             </ul>
         </div>
     </div>
-
     <?php include('parts/header_posts_holder.php'); ?>
 </nav>
