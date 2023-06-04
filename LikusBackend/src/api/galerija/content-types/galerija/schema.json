@@ -4,7 +4,8 @@
   "info": {
     "singularName": "galerija",
     "pluralName": "galerije",
-    "displayName": "Galerija"
+    "displayName": "Galerija",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,24 +13,29 @@
   "pluginOptions": {},
   "attributes": {
     "Naslovna_slika": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "Galerija_slik": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "Ime_galerije": {
+      "type": "text"
     }
   }
 }

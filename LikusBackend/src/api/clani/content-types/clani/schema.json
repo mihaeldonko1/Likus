@@ -134,6 +134,9 @@
       "relation": "oneToMany",
       "target": "api::dodatna-objava.dodatna-objava",
       "mappedBy": "clan"
+    },
+    "Oseba_umrla": {
+      "type": "boolean"
     }
   }
 }
