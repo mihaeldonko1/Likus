@@ -72,6 +72,8 @@
 	}
 }
 
+/* iste media querije za vse ekrane med 540,525,500,..... do 300 je treba dopolnit */
+
 /* Screen size: 380px and above */
 @media (max-width: 475px) {
 	.flipbook-viewport .container{
