@@ -113,9 +113,15 @@ color: #e89443;
                 <div id="outputZivljenjepis"></div>
             </div>
         </div>
-        @endif
+    @else
+        <div class="col-md-12">
+            <div class="rounded p-3" style="background-color: white">
+                <h3>Življenjepis {{ $data['data']['attributes']['Ime'] }} {{ $data['data']['attributes']['Priimek'] }}</h3>
+                <div class="missingZivljenjepis">Oseba še ni objavila življenjepisa, poskusite kasneje</div>
+            </div>
+        </div>
+    @endif
     </div>
-
     </div>
     @if(isset($data['data']['attributes']['Rokopis']['data']))
     <hr>
@@ -176,7 +182,11 @@ color: #e89443;
             <div class="col-md-3 mb-4">
                 <div class="card d-flex align-items-center justify-content-center">
                     <div class="card-body text-center">
-                        <h5 class="card-title">Identifikacijska št. članka:{{ $val['id'] }}</h5>
+                        @if ($val['attributes']['Stevilka_knjige'] < 69)
+                            <img src="/resources/img/icons/knjige/{{ $val['attributes']['Stevilka_knjige'] }}-knjiga.jpg" class="card-img-top mx-auto d-block mt-3 card-img" style="height:300px !important">
+                        @else
+                            <img src="https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg" class="card-img-top mx-auto d-block mt-3 card-img" style="height:300px !important">
+                        @endif
                         <p class="card-text">Letnica knjige: {{ $val['attributes']['Letnica_zbornika'] }}</p>
                         <p class="card-text">Številka knjige: {{ $val['attributes']['Stevilka_knjige'] }}</p>
                         <p class="card-text">Strani v knjigi: {{ $val['attributes']['Strani_od'] }}-{{ $val['attributes']['Strani_do'] }}</p>
@@ -229,7 +239,6 @@ $(document).ready(function() {
         .then(data => {
             let uri = data.data.attributes.Clanek.data.attributes.url;
              let fullurl = "http://localhost:1337"+uri;        
-        //tu se zacne book
             var flipBookWidth = 1080;
             var flipBookHeight = 703;
             const flipBookWidthFinal = 1080;
