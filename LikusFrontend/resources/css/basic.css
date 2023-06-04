@@ -16,82 +16,121 @@
 	top:45%;
 	left:50%;
 }
+
+
 /* Screen size: 1980px and above */
 @media (max-width: 1980px) {
-	.flipbook-viewport .container{
-		left:46%;
+	.flipbook-viewport .container {
+	  left: 46%;
 	}
-}
+  }
+  
+  /* Screen size: 1780px and above */
+  @media (max-width: 1780px) {
+	.flipbook-viewport .container {
+	  left: 46%;
+	}
+  }
+  
+  /* Screen size: 1580px and above */
+  @media (max-width: 1580px) {
+	.flipbook-viewport .container {
+	  left: 45%;
+	}
+  }
+  
+  /* Screen size: 1380px and above */
+  @media (max-width: 1380px) {
+	.flipbook-viewport .container {
+	  left: 44%;
+	}
+  }
+  
+  /* Screen size: 1180px and above */
+  @media (max-width: 1180px) {
+	.flipbook-viewport .container {
+	  left: 43%;
+	}
+  }
+  
+  /* Screen size: 980px and above */
+  @media (max-width: 980px) {
+	.flipbook-viewport .container {
+	  left: 46%;
+	}
+  }
+  
+  /* Screen size: 780px and above */
+  @media (max-width: 780px) {
+	.flipbook-viewport .container {
+	  left: 45%;
+	}
+  }
+  
+  /* Screen size: 580px and above */
+  @media (max-width: 580px) {
+	.flipbook-viewport .container {
+	  left: 44%;
+	}
+  }
+  
+  /* Screen size: 540px and above */
+  @media (max-width: 540px) {
+	.flipbook-viewport .container {
+	  left: 46%;
+	}
+  }
+  
+  /* Screen size: 450px and above */
+  @media (max-width: 450px) {
+	.flipbook-viewport .container {
+	  left: 50%;
+	}
+  }
+  
+  /* Screen size: 425px and above */
+  @media (max-width: 425px) {
+	.flipbook-viewport .container {
+	  left: 52%;
+	}
+  }
+  
+  /* Screen size: 400px and above */
+  @media (max-width: 400px) {
+	.flipbook-viewport .container {
+	  left: 53%;
+	}
+  }
+  
+  /* Screen size: 325px and above */
+  @media (max-width: 325px) {
+	.flipbook-viewport .container {
+	  left: 69%;
+	}
+  }
+  
+  /* Screen size: 475px and above */
+  @media (max-width: 475px) {
+	.flipbook-viewport .container {
+	  left: 48%;
+	}
+  }
+  
+  /* Screen size: 375px and above */
+  @media (max-width: 375px) {
+	.flipbook-viewport .container {
+	  left: 63%;
+	}
+  }
+  
+  /* Screen size: 300px and above */
+  @media (max-width: 300px) {
+	.flipbook-viewport .container {
+	  left: 77%;
+	}
+  }
 
-/* Screen size: 1780px and above */
-@media (max-width: 1780px) {
-	.flipbook-viewport .container{
-		left:46%;
-	}
-}
-
-/* Screen size: 1580px and above */
-@media (max-width: 1580px) {
-	.flipbook-viewport .container{
-		left:45%;
-	}
-}
-
-/* Screen size: 1380px and above */
-@media (max-width: 1380px) {
-	.flipbook-viewport .container{
-		left:44%;
-	}
-}
-
-/* Screen size: 1180px and above */
-@media (max-width: 1180px) {
-	.flipbook-viewport .container{
-		left:43%;
-	}
-}
-
-/* Screen size: 980px and above */
-@media (max-width: 980px) {
-	.flipbook-viewport .container{
-		left:46%;
-	}
-}
-
-/* Screen size: 780px and above */
-@media (max-width: 780px) {
-	.flipbook-viewport .container{
-		left:45%;
-	}
-}
-
-/* Screen size: 580px and above */
-@media (max-width: 580px) {
-	.flipbook-viewport .container{
-		left:44%;
-	}
-}
-
-/* iste media querije za vse ekrane med 540,525,500,..... do 300 je treba dopolnit */
-
-/* Screen size: 380px and above */
-@media (max-width: 475px) {
-	.flipbook-viewport .container{
-		left:48%;
-	}
-}
-
-/* Screen size: 300px and above */
-@media (max-width: 375px) {
-	.flipbook-viewport .container{
-		left:63%;
-	}
-}
-@media (max-width: 300px) {
-	.flipbook-viewport .container{
-		left:77%;
-	}
-}
+  
 
 
 .flipbook-viewport .flipbook{
@@ -187,3 +226,7 @@
 #next {
 	margin-left: 10px;
 }
+
+
+
+

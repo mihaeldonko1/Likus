@@ -53,8 +53,93 @@
         vertical-align: middle;
     }
 
+    .hamburger-menu {
+        display: none;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    .hamburger-menu .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #000;
+        margin-bottom: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .hamburger-menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-menu.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger-menu.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        padding: 10px;
+        z-index: 1000;
+    }
+
+    .dropdown-menu.open {
+        display: block;
+    }
+
+    .dropdown-menu a {
+        display: block;
+        margin: 5px 0;
+        font-family: "Lato", sans-serif;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    .dropdown-menu a:hover {
+        color: #e89443;
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+
+        .nav-buttons {
+            margin-left: 0;
+        }
+
+        .hamburger-menu {
+            display: block;
+        }
+
+        .dropdown-menu {
+            position: static;
+            box-shadow: none;
+            padding: 0;
+            background-color: transparent;
+        }
+
+        .dropdown-menu a {
+            margin: 0;
+        }
+
+        .profil{
+            display: none
+        }
+    }
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
 <?php
 try {
     $user = get_user_by_id(user_id());
@@ -78,26 +163,49 @@ try {
         <a class="nav-link" href="/knjige">Knjige</a>
     </div>
     <div class="nav-buttons">
-    @if(isset($userMail) && ($userMail != null || $userMail != "" || $userMail != 0))
-        <button onclick="OpenProfile()" class="btn btn-primary">
-            <img src="path/to/your/icon.png" alt="User Profile Icon" class="btn-icon">Vaš profil
-        </button>
-    @endif
-</div>
+        @if(isset($userMail) && ($userMail != null || $userMail != "" || $userMail != 0))
+            <button onclick="OpenProfile()" class="btn btn-primary profil">
+                <img src="path/to/your/icon.png" alt="User Profile Icon" class="btn-icon">Vaš profil
+            </button>
+        @endif
+    </div>
+    <div class="hamburger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div class="dropdown-menu">
+        <a class="nav-link" href="/spletna-citalnica">O spletni čitalnici</a>
+        <a class="nav-link" href="/clani?page=1">Avtorji</a>
+        <a class="nav-link" href="/knjige">Knjige</a>
+        @if(isset($userMail) && ($userMail != null || $userMail != "" || $userMail != 0))
+            <button onclick="OpenProfile()" class="btn btn-primary ">
+                <img src="path/to/your/icon.png" alt="User Profile Icon" class="btn-icon">Vaš profil
+            </button>
+        @endif
+    </div>
 </nav>
 
 <script>
-function OpenProfile() {
-    var userMail = "<?php echo $userMail; ?>";
-    fetch(`http://localhost:1337/api/clanis?filters[Email][$eq]=${userMail}`)
-    .then(response => response.json())
-    .then(data => {
-        personID = data['data'][0]['id'];
-        window.location.href = "/clan/"+personID;
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Prišlo je do napake pri nalaganju vašega računa.')
+    var hamburgerMenu = document.querySelector('.hamburger-menu');
+    var dropdownMenu = document.querySelector('.dropdown-menu');
+
+    hamburgerMenu.addEventListener('click', function () {
+        this.classList.toggle('active');
+        dropdownMenu.classList.toggle('open');
     });
-}
+
+    function OpenProfile() {
+        var userMail = "<?php echo $userMail; ?>";
+        fetch(`http://localhost:1337/api/clanis?filters[Email][$eq]=${userMail}`)
+            .then(response => response.json())
+            .then(data => {
+                personID = data['data'][0]['id'];
+                window.location.href = "/clan/" + personID;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Prišlo je do napake pri nalaganju vašega računa.')
+            });
+    }
 </script>
