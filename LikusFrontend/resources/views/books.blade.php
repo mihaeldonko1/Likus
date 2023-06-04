@@ -228,18 +228,19 @@ function generateMemberCards(responseData) {
 
   // Profile picture
   var img = document.createElement("img");
-  img.className = "card-img-top mx-auto d-block mt-3 card-img";
+img.className = "card-img-top mx-auto d-block mt-3 card-img";
+img.style.height = "300px";
+
 
   var profileImageUrl = "https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg";
 
   if (
     item.Slika_platnice &&
     item.Slika_platnice.data &&
-    item.Slika_platnice.data[0] &&
-    item.Slika_platnice.data[0].attributes &&
-    item.Slika_platnice.data[0].attributes.url
+    item.Slika_platnice.data.attributes &&
+    item.Slika_platnice.data.attributes.url
   ) {
-    profileImageUrl = "http://localhost:1337" + item.Slika_platnice.data[0].attributes.url;
+    profileImageUrl = "http://localhost:1337" + item.Slika_platnice.data.attributes.url;
   }
 
   img.src = profileImageUrl;

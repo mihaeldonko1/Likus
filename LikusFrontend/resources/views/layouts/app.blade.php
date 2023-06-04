@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../resources/css/basic.css">
 <style>
     .card-img {
-        height: 200px !important;
+        height: 200px ;
         width: 200px !important;
         object-fit: cover;
     }
