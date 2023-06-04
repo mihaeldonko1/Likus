@@ -119,6 +119,7 @@ class WebserviceController extends BaseController
         try {
             $response = $client->get("http://localhost:1337/api/knjige/{$id}?populate=*");        
             $data = json_decode($response->getBody()->getContents(), true);
+
     
             return view('singlebook', compact('data')); 
         
