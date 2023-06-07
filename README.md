@@ -38,7 +38,7 @@
 <!-- ABOUT THE PROJECT -->
 ## O Projektu
 
-<img src="_PROMOCIJA/Screenshots/ss1" alt="Slika1">
+<img src="_PROMOCIJA/Screenshots/ss1.png" alt="Slika1">
 
 Pri praktikumu nam je bilo predstavljenih veliko različnih projektov, vendar nas je delo pri prostovoljnem neprofitnem društvu Likus najbolj pritegnilo. Ta projekt nam je bil zanimiv predvsem zaradi tega, ker smo imeli možnost spoznati veliko novih tehnologij, kot so uporaba microweberja, selitev podatkovnih baz ter postavitev spletnega strežnika, prav tako pa je vso opravljeno delo bilo za dober namen.
 
