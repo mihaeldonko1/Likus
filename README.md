@@ -1,57 +1,149 @@
-# Likus
+<a name="readme-top">Likus</a>
 
-Aplikacija Likus::
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/mihaeldonko1/Likus">
+    <img src="LikusFrontend/resources/img/random_slike/LIKUS_logo.png" alt="Logo" width="400">
+  </a>
+</div>
 
-- Naziv, kratka vizija (stavek, dva), namen informacijske rešitve
-    *TO JE ŽIVA KNJIGA AVTORJEV (540), KI NASTAJA 35 LET, Namenjena ja ohranjanju zapisov v elektronski obliki (ne zgolj knjižni)
-	
-- Predvideni uporabniki in glavne funkcionalnosti po uporabnikih (nujne, opcijske)	
-    *KNJIGA JE JAVNA. REGISTRIRANIM AVTORJEM JE OMOGOČENO UREJANJE SVOJIH PODATKOV, ŽIVLJENJEPISA, FOTOGRAFIJ, DODAJANJE DRUGIH DATOTEK, MEDSEBOJNA KOMUNIKACIJA.. (ŠE KAJ PO DOGOVORU).
-	
-	
-- Predvideni uporabniški vmesniki (spletni, namizni, mobilni)
-	*ČE PRAV RAZUMEM DOSTOP PREKO SPLETA TUDI S TELEFONOM
-	
-	
-- Tehnološke zahteve in omejitve (opcijsko; jezik, ogrodje, platforma, oblačne storitve…; morda lahko ponudite kakšno svojo platformo, na kateri lahko gradijo dalje)
-    *NA SPLETU JE NAREJENA BAZA VSEH ČLANOV IN AVTORJEV V OBLAKU. VMESNIK JE NEPREGLEDEN IN BI LAHKO VSEBOVAL EVIDENCO ČLANARIN,
-	
-	
-- Druge omejitve, morda kakšen diagramček poslovnega procesa, ki bi ga bilo treba informatizirati…	
-    *MORDA BI SE LAHKO IZDELALO OKNO PODOBNO KNJIGI KAMOR BI VATOR VNESEL SVOJ TEKST IN BI RAČUNALNIK SAMODEJNO NAREDIL PREDVIDEN PRELOM IZGLED KNJIGE IN POKAZAL ŠTEVILO STRANI GLEDE NA TEKST.
-	
 
-- Viri / podobne rešitve / primeri dokumentov / vhodnih podatkov / pričakovani izhodi…
-    *IZDELANA JE EXEL TABELA OBJAV PO AVTORJIH IN IZDANIH KNJIGAH, TEKSTI SO ŠIŠRIRANI IN DIGITALIZIRANI (pretvorjeni iz pdf v odt). OBSTAJA SEZNAM AVTORJEV IN SEZNAM ZBORNIKOV.
 
-	*PO KLIKU NA AVTORJA SE PRIKAŽE FOTOGRAFIJA, KRATEK ŽIVLJENJEPIS IN SEZNAM OBJAVLJENIH DEL TER SEVEDA V POVEZAVO Z NASLOVOM ZBORNIKA. LAHKO SE PRIKAŽE ŠE KAKŠNA FOTOGRAFIJA, ROKOPIS, KAKŠEN DRUGI ZAPIS, ČE JE.
+<!-- KAZALO -->
+<details>
+  <summary>Kazalo</summary>
+  <ol>
+    <li>
+      <a href="#o-projektu">O Projektu</a>
+      <ul>
+        <li><a href="#built-with">Izgrajeno z</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#začetek">Začetek</a>
+      <ul>
+        <li><a href="#predpogoji">Predpogoji</a></li>
+        <li><a href="#inštalacija">Inštalacija</a></li>
+      </ul>
+    </li>
+    <li><a href="#uporaba">Uporaba</a></li>
+    <li><a href="#sodelujoči">Sodelujoči</a></li>
+  </ol>
+</details>
 
-    Za uporabo REST API-jev v Strapiju lahko uporabite naslednje končne točke:
 
-        -http://localhost:1337/api/{$pural_ime_tabele}/ - ta končna točka vrne vse podatke iz določene tabele.
-        -tabele so omejene na 25max podatkov na en klic če hočeš dobiti več mores zgornjemu stavku dodati 
-         http://localhost:1337/api/{$pural_ime_tabele}?pagination[pageSize]={$number} number je število podatkov, ki jih želiš dobiti.
 
-        -http://localhost:1337/api/{$pural_ime_tabele}/{$id} - ta končna točka vrne podatke za določenega elementa v tabeli, ki ga identificira ID.
-        -Zgornji povezavi vrneta samo enolične vrednosti iz tabele, kar pomeni, da ne vrne povezav z drugimi tabelami ali morfizmi. 
-        
-        Če želite dobiti vse povezave, lahko uporabite naslednje parametre:
-         -Če želite dobiti vse povezane podatke, lahko uporabite http://localhost:1337/api/{$pural_ime_tabele}?populate=*. Uporaba populate=*        vrne vse povezane podatke za želeno poizvedbo.
+<!-- ABOUT THE PROJECT -->
+## O Projektu
 
-         -Če želite dobiti samo določeno povezavo, na primer samo povezavo na slike, uporabite populate=image. To bo vrnilo samo povezavo na slike.
+<img src="https://i.ibb.co/PFhG2fh/likusmain.jpg" alt="Logo">
 
-        env: 
-        HOST=0.0.0.0
-        PORT=1337
-        APP_KEYS=nrBBv0OzlosOz4o4hq0J9g==,QRkQQKKT5CRPY9XFoTbxOA==,iS66uVBFeR5jEEeRTQlmGg==,Dk8tJtqLBFKInfTuvISf3Q==
-        API_TOKEN_SALT=jNiVOyptfk2eKv4t5v0Luw==
-        ADMIN_JWT_SECRET=VG3+rKB50voNn0qO6yIzgA==
-        TRANSFER_TOKEN_SALT=oHHx7e26KR4hxWGNKNsbgw==
-        # Database
-        DATABASE_CLIENT=mysql
-        DATABASE_HOST=127.0.0.1
-        DATABASE_PORT=3306
-        DATABASE_NAME=strapi
-        DATABASE_USERNAME=root
-        DATABASE_PASSWORD=
-        JWT_SECRET=0k/aqZleD8R7LPc9/4hw6g==
+There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+
+Here's why:
+* Your time should be focused on creating something amazing. A project that solves a problem and helps others
+* You shouldn't be doing the same tasks over and over like creating a README from scratch
+* You should implement DRY principles to the rest of your life :smile:
+
+Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+
+Use the `BLANK_README.md` to get started.
+
+<p align="right">(<a href="#readme-top">nazaj na vrh</a>)</p>
+
+
+
+### Izgrajeno z
+
+* [![Microweber][Microweber.com]][Microweber-url]
+* [![NodeJS][NodeJS.com]][NodeJS-url]
+* [![Strapi][Strapi.com]][Strapi-url]
+* [![Laravel][Laravel.com]][Laravel-url]
+* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+* [![JQuery][JQuery.com]][JQuery-url]
+
+
+<p align="right">(<a href="#readme-top">nazaj na vrh</a>)</p>
+
+
+
+<!-- Začetek -->
+## Začetek
+
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
+
+### predpogoji
+
+This is an example of how to list things you need to use the software and how to install them.
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Inštalacija
+
+_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+
+1. Get a free API Key at [https://example.com](https://example.com)
+2. Clone the repo
+   ```sh
+   git clone https://github.com/your_username_/Project-Name.git
+   ```
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+4. Enter your API in `config.js`
+   ```js
+   const API_KEY = 'ENTER YOUR API';
+   ```
+
+<p align="right">(<a href="#readme-top">nazaj na vrh</a>)</p>
+
+
+
+<!-- Uporaba -->
+## Uporaba
+
+SCREENSHOTS
+
+<p align="right">(<a href="#readme-top">nazaj na vrh</a>)</p>
+
+
+
+<!-- Sodelujoči -->
+## Sodelujoči
+  <ul>
+    <li>
+      Mihael Donko
+    </li>
+    <li>
+      Jan Volovšek
+    </li>
+    <li>
+      Miha Horvt
+    </li>
+  </ul>
+
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[NodeJS.com]: e
+[NodeJS-url]: https://nodejs.org/en
+[Strapi.com]: e
+[Strapi-url]: https://strapi.io/
+[Microweber.com]: e
+[Microweber-url]: https://microweber.com/
+[MySQL.com]: e
+[MySQL-url]: https://www.mysql.com/
+
+[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
+[Laravel-url]: https://laravel.com
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com
+[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
+[JQuery-url]: https://jquery.com 
