@@ -183,7 +183,8 @@ color: #e89443;
                     <h5 class="modal-title custom-title" id="exampleModalLabel">
                         <?php echo e($data['data']['attributes']['Ime']); ?> <?php echo e($data['data']['attributes']['Priimek']); ?><br />
                     </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button id="closeButton" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
                 </div>
                     <div class="modal-body">
                         <div class="body-book">
@@ -387,28 +388,12 @@ $(document).ready(function() {
 </script>
 
 <script>
-  $(document).ready(function() {
-    var defaultContent = $('.body-book').html();
-
-    $(".bookLoader").click(function() {
-      $('.container-bookify').html(defaultContent);
-      var bookValue = $(this).data("book");
-      fetch(`http://localhost:1337/api/clanki/${bookValue}?populate=*`)
-        .then(response => response.json())
-        .then(data => {
-          let uri = data.data.attributes.Clanek.data.attributes.url;
-          let fullurl = "http://localhost:1337" + uri;
-
-          $(".flipbook").html("");
-          $(".flipbook").BookifyPDF(fullurl);
-
-          $("#bookModal").on("hidden.bs.modal", function() {
-            window.location.reload(); // Reload the page
-          });
-        });
-    });
+  document.getElementById("closeButton").addEventListener("click", function() {
+    location.reload();
   });
 </script>
+
+
 
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Asus\OneDrive\Desktop\LIKUS_mapa\LikusProjekt_plus_Microweber\Likus\Likus\LikusFrontend\resources\views/singlemember.blade.php ENDPATH**/ ?>

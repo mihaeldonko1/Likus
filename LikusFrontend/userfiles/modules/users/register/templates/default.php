@@ -57,9 +57,11 @@ description: Default register template
                 <div class="form-group">
                     <label class="control-label"><?php _e('Izberite tip spola'); ?></label>
                     <div>
+                        <br />
                         <input type="radio" id="option3" name="Spol" value="Moški">
                         <label for="option3"><?php _e('Moški'); ?></label>
                     </div>
+                    <br />
                     <div>
                         <input type="radio" id="option4" name="Spol" value="Ženski">
                         <label for="option4"><?php _e('Ženski'); ?></label>
@@ -100,6 +102,7 @@ description: Default register template
                         <div class="form-group">
                         <label class="control-label"><?php _e('Izberite tip članarine'); ?></label>
                         <div>
+                            <br />
                             <input type="radio" id="option1" name="Tip_clana" value="LIKUS">
                             <label for="option1"><?php _e('LIKUS'); ?></label>
                         </div><br />
@@ -139,8 +142,9 @@ description: Default register template
                         in za druge namene, opisane v naši"); ?> <a href="#"><?php _e("politiki zasebnosti"); ?></a>.</p>
                 </div>
             </div>
-
-            <button type="submit" class="btn btn-outline-primary btn-lg btn-block my-3 text-center justify-content-center">Postani nov član</button>
+<div class="text-center justify-content-center">
+            <button type="submit" class="btn btn-outline-primary btn-lg btn-block my-3">Postani nov član</button>
+            </div>
         </form>
     </div>
 <?php else: ?>
