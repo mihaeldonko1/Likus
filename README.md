@@ -1,4 +1,4 @@
-
+<a name="readme-top"></a>
 
 <!-- PROJECT LOGO -->
 <br />
@@ -71,28 +71,16 @@ Naš namen je tako bil vzpostaviti aplikacijo, preko katere lahko vsak uporabnik
 Priporočene verzije:
   <ul>
     <li>
-      Microweber
-        ```sh
-        1.2
-        ```
+      Microweber 1.2
     </li>
     <li>
-      Strapi
-        ```sh
-        4.10.5
-        ```
+      Strapi 4.10.5
     </li>
     <li>
-      NodeJS
-        ```sh
-        18.16.0
-        ```
+      NodeJS 18.16.0
     </li>
     <li>
-      PHP
-        ```sh
-        8.2.6
-        ```
+      PHP 8.2.6
     </li>
   </ul>
 
