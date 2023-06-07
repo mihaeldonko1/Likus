@@ -9,6 +9,7 @@
     .card {
         transition: transform 0.3s;
         cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
     }
 
     .card:hover {
@@ -25,6 +26,11 @@
         color: #e89443;
     }
 
+    .form-control {
+        position: relative;
+    }
+
+
     #searchButton,
   #clearButton {
     background-color: #e89443;
@@ -38,6 +44,7 @@
     background-color: #c9721e;
     border-color: #c9721e;
   }
+
 
     .pagination {
         display: flex;
@@ -79,11 +86,8 @@
     }
 </style>
 
-<div id="loader" style="background-color: beige;">
-    <h1 id="loader-text" style="font-size: 45px; font-family: 'Lato', sans-serif;">Dobrodošli v spletni čitalnici Likusa</h1>
-</div>
 
-<div id="content" style="display: none;">
+<div id="content">
 
 <div class="d-flex justify-content-center">
     <div class="pagination" id="pages">
@@ -144,7 +148,7 @@
     <br>
 
     <div class="container">
-  <div class="form-control" style="position: relative;">
+  <div class="form-control">
     <div class="input-group" style="display: flex; align-items: stretch;">
       <input type="text" id="search" placeholder="Search" style="flex-grow: 1; padding: 10px; border: 1px solid #ccc; border-right: none; outline: none;">
       <select class="custom-select" id="selectType" style="border: 1px solid #ccc; border-left: none; padding: 10px; width: auto; outline: none;">
@@ -192,30 +196,6 @@
     </div>
 </div>
 
-<script>
-    window.addEventListener("load", function () {
-        if (window.location.href === "http://127.0.0.1:8000/clani") {
-            const loaderText = document.getElementById("loader-text");
-            const textContent = loaderText.textContent;
-            loaderText.textContent = "";
-            let counter = 0;
-            const timer = setInterval(function () {
-                loaderText.textContent += textContent[counter];
-                counter++;
-                if (counter >= textContent.length) {
-                    clearInterval(timer);
-                    setTimeout(function () { 
-                        document.getElementById("loader").style.display = "none";
-                        document.getElementById("content").style.display = "block";
-                    }, 1500); 
-                }
-            }, 50); 
-        } else {
-            document.getElementById("loader").style.display = "none";
-            document.getElementById("content").style.display = "block";
-        }
-    });
-</script>
 <script>
 function generateMemberCards(responseData) {
   var members = responseData.data;
@@ -319,7 +299,6 @@ document.getElementById("clearButton").addEventListener("click", function () {
 </script>
 
 
-<br>
 <br>
 <br>
 <br>

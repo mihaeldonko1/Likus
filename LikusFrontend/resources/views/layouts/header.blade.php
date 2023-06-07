@@ -2,15 +2,9 @@
     .navbar {
         background-color: #EDEDC2;
         box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        padding: 20px 60px 20px;
-        margin-bottom: 25px;
+        padding: 15px 54px 23px;
         display: flex;
         align-items: center;
-    }
-
-    #logo {
-        height: 33px;
-        width: auto;
     }
 
     .nav-links {
@@ -92,8 +86,15 @@
         z-index: 1000;
     }
 
+
+
     .dropdown-menu.open {
         display: block;
+        background-color: #ffffff;
+        position: absolute;
+        width: 40%;
+        left: 60%;
+        padding: 0 5px;
     }
 
     .dropdown-menu a {
@@ -136,7 +137,11 @@
             display: none
         }
     }
+
 </style>
+
+
+
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -145,6 +150,8 @@ try {
     $user = get_user_by_id(user_id());
     if ($user !== false) {
         $userMail = $user['email'];
+        $userName = $user['username'];
+
     } else {
         throw new Exception("User not found.");
     }
@@ -154,19 +161,25 @@ try {
 ?>
 
 <nav class="navbar">
-    <div class="navbar-brand">
-        <img id="logo" src="http://localhost:1337/uploads/thumbnail_LIKUS_logo_ccf9d45065.png" alt="Logo">
-    </div>
+
+<div style="padding-top: 1px; padding-bottom: 3px;">
+    <img id="logo" src="/resources/img/random_slike/LIKUS_logo2.png" style="width: 86px; height: auto;" alt="Logo">
+</div>
+
     <div class="nav-links">
         <a class="nav-link" href="/spletna-citalnica">O spletni čitalnici</a>
         <a class="nav-link" href="/clani?page=1">Avtorji</a>
         <a class="nav-link" href="/knjige">Knjige</a>
     </div>
+    
     <div class="nav-buttons">
         @if(isset($userMail) && ($userMail != null || $userMail != "" || $userMail != 0))
-            <button onclick="OpenProfile()" class="btn btn-primary profil">
-                <img src="path/to/your/icon.png" alt="User Profile Icon" class="btn-icon">Vaš profil
-            </button>
+        <button onclick="OpenProfile()" class="btn btn-primary profil" style="display: flex; align-items: center;">
+    <img id="logo" src="/resources/img/random_slike/ikona_pfp.png" alt="User Profile Icon" class="btn-icon-small" style="width: 24px; height: auto; margin-right: 6px;">
+    <span style="color: white;"><?php echo $userName; ?></span>
+</button>
+
+
         @endif
     </div>
     <div class="hamburger-menu">

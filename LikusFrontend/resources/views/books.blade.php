@@ -8,6 +8,7 @@
 
     .card {
         transition: transform 0.3s;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
     }
 
     .card:hover {

@@ -13,9 +13,7 @@
         width: 200px !important;
         object-fit: cover;
     }
-    #content {
-      display: none;
-    }
+
     #loader {
       background-color: white;
       position: fixed;
