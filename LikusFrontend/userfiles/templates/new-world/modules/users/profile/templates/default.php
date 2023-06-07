@@ -95,13 +95,13 @@ document.getElementById('pictureUpload').addEventListener('change', function(e) 
 
     <form class="col-12 mb-5 mx-auto" method="post" id="user-data">
     <div class="my-3">
-            <h5 class="mb-2"><?php _lang('Uredi profil', "templates/new-world"); ?></h5>
-            <small class="text-muted d-block mb-2"><?php _lang('Tukaj lahko uredite vaš profil', "templates/new-world"); ?></small>
+            <h5 class="mb-2 text-align center"><?php _lang('Uredi profil', "templates/new-world"); ?></h5>
+            <small class="text-muted d-block mb-2 text-align center"><?php _lang('Tukaj lahko uredite vaš profil', "templates/new-world"); ?></small>
         </div>
         <div class="mw-ui-box mw-ui-box-important mw-ui-box-content" id="errnotification" style="display: none;margin-bottom: 12px;"></div>
 
 
-        <div class="form-group mb-2">
+        <div class="form-group mb-2 text-align center">
             <label for="pictureUpload">
                 <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: inline-block; margin-right: 10px;">
                     <img  id="profileImage" src="http://localhost:1337<?php print $user['Profilna']; ?>" alt="test" style="cursor: pointer; width: 100%; height: 100%; object-fit: cover;">
@@ -113,61 +113,65 @@ document.getElementById('pictureUpload').addEventListener('change', function(e) 
             <input class="form-control-file" type="file" name="profilna" id="pictureUpload" accept="image/*">
         </div>
 
-        <div class="form-group mb-2">
+        <div class="form-group mb-2 text-align center">
             <label class="control-label mb-2"><?php _lang("Posodobite življenjepis", "templates/new-world"); ?></label>
-            <input class="form-control-file" type="file"  id="zivljenjepisUpload" accept="application/vnd.oasis.opendocument.text">
+            <input style="margin-right: -75px;" class="form-control-file" type="file"  id="zivljenjepisUpload" accept="application/vnd.oasis.opendocument.text"> 
         </div>
+        <br />
 
         <div class="form-group mb-2">
-            <label class="control-label mb-2"><?php _lang("Email", "templates/new-world"); ?></label>
+            <label class="control-label mb-2"><?php _lang("Email :", "templates/new-world"); ?></label>
             <input class="form-control input-lg" type="email" name="email" value="<?php print $user['email']; ?>" placeholder="<?php _lang('Email', "templates/new-world"); ?>" readonly>
         </div>
 
         <div class="form-group mb-2">
-            <label class="control-label mb-2"><?php _lang("Ime", "templates/new-world"); ?></label>
+            <label class="control-label mb-2"><?php _lang("Ime :", "templates/new-world"); ?></label>
             <input class="form-control input-lg" type="text" name="first_name" value="<?php print $user['first_name']; ?>" placeholder="<?php _lang('Ime', "templates/new-world"); ?>">
         </div>
 
         <div class="form-group mb-2">
-            <label class="control-label mb-2"><?php _lang("Priimek", "templates/new-world"); ?></label>
+            <label class="control-label mb-2"><?php _lang("Priimek :", "templates/new-world"); ?></label>
             <input class="form-control input-lg" type="text" name="last_name" value="<?php print $user['last_name']; ?>" placeholder="<?php _lang('Priimek', "templates/new-world"); ?>">
         </div>
 
         <div class="form-group mb-2">
-            <label class="control-label mb-2"><?php _lang("Naslov", "templates/new-world"); ?></label>
+            <label class="control-label mb-2"><?php _lang("Naslov :", "templates/new-world"); ?></label>
             <input class="form-control input-lg" type="text" name="Naslov" value="<?php print $user['Naslov']; ?>" placeholder="<?php _lang('Naslov', "templates/new-world"); ?>">
         </div>
 
         <div class="form-group mb-2">
-            <label class="control-label mb-2"><?php _lang("Pošta", "templates/new-world"); ?></label>
+            <label class="control-label mb-2"><?php _lang("Pošta :", "templates/new-world"); ?></label>
             <input class="form-control input-lg" type="text" name="Posta" value="<?php print $user['Posta']; ?>" placeholder="<?php _lang('Pošta', "templates/new-world"); ?>">
         </div>
 
         <div class="form-group mb-2">
-            <label class="control-label mb-2"><?php _lang("Poštna številka", "templates/new-world"); ?></label>
+            <label class="control-label mb-2"><?php _lang("Poštna številka :", "templates/new-world"); ?></label>
             <input class="form-control input-lg" type="text" name="Postna_stevilka" value="<?php print $user['Postna_stevilka']; ?>" placeholder="<?php _lang('Poštna številka', "templates/new-world"); ?>">
         </div>
 
         <div class="form-group mb-2">
-            <label class="control-label mb-2"><?php _lang("Država", "templates/new-world"); ?></label>
+            <label class="control-label mb-2"><?php _lang("Država :", "templates/new-world"); ?></label>
             <input class="form-control input-lg" type="text" name="Drzava" value="<?php print $user['Drzava']; ?>" placeholder="<?php _lang('Država', "templates/new-world"); ?>">
         </div>
 
         <div class="form-group mb-2">
-            <label class="control-label mb-2"><?php _lang("Telefon", "templates/new-world"); ?></label>
+            <label class="control-label mb-2"><?php _lang("Telefon :", "templates/new-world"); ?></label>
             <input class="form-control input-lg" type="text" name="phone" value="<?php print $user['phone']; ?>" placeholder="<?php _lang('Telefon', "templates/new-world"); ?>">
         </div>
 
         <div class="form-group mb-2">
-            <label class="control-label mb-2"><?php _lang("Novo geslo", "templates/new-world"); ?></label>
+            <label class="control-label mb-2"><?php _lang("Novo geslo :", "templates/new-world"); ?></label>
             <input class="form-control input-lg" type="password" name="password" placeholder="<?php _lang('Novo geslo', "templates/new-world"); ?>">
         </div>
 
         <div class="form-group mb-2">
-            <label class="control-label mb-2"><?php _lang("Potrdi geslo", "templates/new-world"); ?></label>
+            <label class="control-label mb-2"><?php _lang("Potrdi geslo :", "templates/new-world"); ?></label>
             <input class="form-control input-lg" type="password" name="password2" placeholder="<?php _lang('Potrdi geslo', "templates/new-world"); ?>">
         </div>
+        <br />
         
+        <div class="text-align center">
         <button type="button" class="btn btn-default btn-lg btn-block m-t-10" onclick="saveuserdata()"><?php _lang('Shrani nove podatke', "templates/new-world"); ?></button>
+        </div>
     </form>
 

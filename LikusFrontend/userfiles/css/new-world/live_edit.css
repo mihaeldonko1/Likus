@@ -1653,9 +1653,14 @@
 }
 #mw-selector-1686166210846 {
 	font-size: 30px;
+	font-weight: 700;
+	color: #e89443;
+	margin-bottom: 11px;
 }
 #mw-selector-1686166210851 {
 	font-size: 30px;
+	font-weight: 700;
+	color: #e89443;
 }
 #mw-selector-1686165790298 {
 	font-size: 30px;
@@ -1663,13 +1668,58 @@
 #mw-selector-1686165790303 {
 	font-size: 18px;
 	margin-top: 0px;
-	padding-top: 11px;
+	padding-top: 0px;
 	line-height: 26px;
+	color: #e89443;
+	font-weight: 600;
 }
 #mw-selector-1686166210856 {
 	font-size: 18px;
 	line-height: 26px;
+	font-weight: 600;
+	color: #e89443;
 }
 #mw-selector-1686166210861 {
 	line-height: 26px;
+	font-weight: 600;
+	color: #e89443;
+}
+#mw-selector-1686166210864 {
+	font-weight: 600;
+	color: #e89443;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	padding-top: 0px;
+}
+#mw-selector-1686166210867 {
+	font-weight: 600;
+	margin-top: 50px;
+	padding-top: 0px;
+}
+#mw-selector-1686166210874 {
+	font-weight: 700;
+}
+#mw-selector-1686166210877 {
+	margin-top: 100px;
+	padding-top: 100px;
+}
+#mw-cl-id-1686166164889 {
+	font-size: 30px;
+	font-weight: 700;
+	color: #e89443;
+}
+#mw-cl-id-1686166164890 {
+	font-weight: 600;
+	color: #e89443;
+	line-height: 26px;
+}
+#element_1686166165445 {
+	font-size: 53px;
+}
+.edit[field="layout-skin-2-layouts-20230607194050"][rel="module"] {
+	padding-top: 51px;
+	padding-bottom: 0px;
+}
+.edit[field="layout-features-skin-3-layouts-20230607192826"][rel="module"] {
+	padding-top: 0px;
 }

@@ -56,10 +56,16 @@
     color: #b6b6b6
   }
 
+  .footer-container{
+    padding-left: 28px;
+    padding-right: 28px;
+
+  }
+
 </style>
 
 <footer>
-  <div class="container"> 
+  <div class="footer-container"> 
     <div class="row">
       <div class="col-md-4 col-sm-12">
         <img src="/resources/img/random_slike/slps_sivo.png" alt="Logo" class="footer-logo">
