@@ -183,7 +183,8 @@ color: #e89443;
                     <h5 class="modal-title custom-title" id="exampleModalLabel">
                         {{ $data['data']['attributes']['Ime'] }} {{ $data['data']['attributes']['Priimek'] }}<br />
                     </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button id="closeButton" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
                 </div>
                     <div class="modal-body">
                         <div class="body-book">
@@ -385,4 +386,13 @@ $(document).ready(function() {
     }
 });
 </script>
+
+<script>
+  document.getElementById("closeButton").addEventListener("click", function() {
+    location.reload();
+  });
+</script>
+
+
+
 @endsection
