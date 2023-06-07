@@ -1,36 +1,41 @@
 <div id="uploadClanek">
-    <div class="infoText">
+    <div class="infoText text-align center">
         <h4>Objavi samostojen članek</h4><br /><br />
         <h5>Na tej platformi imate priložnost objaviti svoj lasten članek, ki ni del urejanja zbornika Likusa. Tukaj je nekoliko podrobnejši vodič, kako to storiti:</h5><br /><br />
-        <h5>Pripravite članek:</h5>
+        <h5>Pripravite članek :</h5><br />
         <span>
             Pred objavo se prepričajte, da je vaš članek v skladu z našimi smernicami in standardi. Članek naj bo originalen, neobjavljen in ne del urejanja zbornika Likusa.
         </span><br /><br />
-        <h5>Kako objaviti:</h5>
+        <h5>Kako objaviti :</h5><br />
         <span>
             Ko je vaš članek pripravljen za objavo, ga preprosto povlečite ali naložite v spodnjo polje in kliknite objavi, da se objavi na naši spletni platformi
             <b>(Pazite da je članek v formatu PDF)</b>.
         </span><br /><br />
-        <h5>Privolitev:</h5>
+        <h5>Privolitev :</h5><br />
         <span>
             Z objavo vašega članka na naši spletni strani nam avtomatično dajete pravico, da ga prikažemo na naši spletni strani. To pomeni, da smo po objavi vašega članka pridobili dovoljenje, da ga lahko uporabljamo, prikazujemo in delimo na naši spletni strani.
         </span><br /><br />
-        <h5>Objava:</h5>
+        <h5>Objava :</h5><br />
         <span>
             Ko je vaš članek uspešno objavljen, bo na voljo za ogled na naši spletni strani. Upoštevajte, da v primeru neprimernih objav bo članek v skladu z našimi standardi in pravili izbrisan.
         </span><br /><br />
         <span>Upamo, da ta podrobnejša navodila olajšajo postopek objave. Veselimo se vašega prispevka!</span>
     </div>
+    <div class="text-align center">
     <form class="col-12 mb-5 mx-auto" method="post" id="pdf-data">
         <div style="margin-bottom: 10px; margin-top: 20px">
-            <b><label style="margin-bottom: 10px;">Naložite vaš članek</label></b><br />
-            <button class="btn btn-primary" onclick="handleButtonClick(event)">Naloži</button>
+        <br><label style="margin-bottom: 10px; font-size: 18px;">Naložite vaš članek</label></br>
+
+            <button class="btn btn-primary" onclick="handleButtonClick(event)" style="width: 200px;">Naloži</button>
             <input type="file" id="pdfUpload" name="Clanek" style="display:none" accept=".pdf" onchange="displayFileName(this)">
             <span id="fileUploadedText" style="display:none;color: green">Datoteka uspešno naložena</span>
         </div>
     </form>
+    </div>
     <hr>
-    <button type="button" class="btn btn-default btn-lg btn-block m-t-10" onclick="uploadPDFdata()">Objavi</button>
+    <div class ="text-align center">
+    <button type="button" style="width: 200px;" class="btn btn-default btn-lg btn-block m-t-10" onclick="uploadPDFdata()">Objavi</button>
+</div>
 </div>
 <script>
   function handleButtonClick(event) {
