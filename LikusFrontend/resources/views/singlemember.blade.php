@@ -6,11 +6,16 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
 }
 ?>
 <?php
-    use Carbon\Carbon;
+use Carbon\Carbon;
+try {
     $birthday = Carbon::createFromFormat('Y-m-d', $data['data']['attributes']['Rojstni_dan']);
     $currentDate = Carbon::now();
     $yearsDifference = $birthday->diffInYears($currentDate);
+} catch (Exception $e) {
+    $yearsDifference = 0;
+}
 ?>
+
 @extends('layouts.app')
 @section('content')
 
@@ -124,10 +129,10 @@ color: #e89443;
                 
                 <div class="col-md-12 text-center">
                     <div class="row">
-                        <span style="font-size: 2.5em; color: #e89443;  margin-bottom: 2px; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);">{{ $data['data']['attributes']['Ime'] }} {{ $data['data']['attributes']['Priimek'] }}</span><br>
-                        <span style="font-size: 1.2em;  margin-bottom: 2px">Datum rojstva: <i>{{ date('d-m-Y', strtotime($data['data']['attributes']['Rojstni_dan'])) }} </i></span>
-                        <span style="font-size: 1.2em;  margin-bottom: 2px">Spol:  <i>{{ $data['data']['attributes']['Spol'] }} </i></span><br>
-                        <span style="font-size: 1.2em;  margin-bottom: 2px">Starost:  <i>{{ $yearsDifference }} </i></span><br>
+                        <span style="font-size: 2.0em;">{{ $data['data']['attributes']['Ime'] }} {{ $data['data']['attributes']['Priimek'] }}</span><br>
+                        <span style="font-size: 1.2em;">Datum rojstva: {{ date('d-m-Y', strtotime($data['data']['attributes']['Rojstni_dan'])) }}</span>
+                        <span style="font-size: 1.2em;">Spol: {{ $data['data']['attributes']['Spol'] }}</span><br>
+                        <span style="font-size: 1.2em;">Starost: {{ $yearsDifference }}</span><br>
                     </div>
                 </div>
             </div>
