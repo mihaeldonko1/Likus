@@ -1,4 +1,4 @@
-<a name="readme-top">Likus</a>
+
 
 <!-- PROJECT LOGO -->
 <br />
@@ -11,6 +11,7 @@
 
 
 <!-- KAZALO -->
+## Kazalo
 <details>
   <summary>Kazalo</summary>
   <ol>
@@ -50,7 +51,7 @@ Naš namen je tako bil vzpostaviti aplikacijo, preko katere lahko vsak uporabnik
 
 
 
-### Izgrajeno z
+## Izgrajeno z
 
 * [![Microweber][Microweber.com]][Microweber-url]
 * [![NodeJS][NodeJS.com]][NodeJS-url]
@@ -66,35 +67,35 @@ Naš namen je tako bil vzpostaviti aplikacijo, preko katere lahko vsak uporabnik
 
 
 <!-- Inštalacija -->
-### Inštalacija
+## Inštalacija
 
 Priporočene verzije:
-  <ol>
+  <ul>
     <li>
-      <a>Microweber</a>
-         ```sh
+      Microweber
+        ```sh
         1.2
         ```
     </li>
     <li>
-      <a>Strapi</a>
-         ```sh
+      Strapi
+        ```sh
         4.10.5
         ```
     </li>
     <li>
-      <a>NodeJS</a>
-         ```sh
+      NodeJS
+        ```sh
         18.16.0
         ```
     </li>
     <li>
-      <a>PHP</a>
-         ```sh
+      PHP
+        ```sh
         8.2.6
         ```
     </li>
-  </ol>
+  </ul>
 
 
 1. Kloniranje repozitorija
@@ -141,9 +142,11 @@ Priporočene verzije:
       Jan Volovšek
     </li>
     <li>
-      Miha Horvt
+      Miha Horvat
     </li>
   </ul>
+
+  <p align="right">(<a href="#readme-top">nazaj na vrh</a>)</p>
 
 
 
