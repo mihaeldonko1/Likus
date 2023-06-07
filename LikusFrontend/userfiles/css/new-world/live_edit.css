@@ -1124,7 +1124,7 @@
 	padding-top: 100px;
 }
 #mw-selector-1685570020120 {
-	font-size: 50px;
+	font-size: 55px;
 }
 #btn-layouts-20230531173002-btn {
 	padding-left: 40px;
@@ -1537,4 +1537,10 @@
 }
 .edit[field="layout-skin-2-layouts-20230604203404"][rel="module"] {
 	padding-bottom: 0px;
+}
+#mw-selector-1685569886851 {
+	font-size: 16px;
+}
+#mw-selector-1686139809241 {
+	color: #e89443;
 }

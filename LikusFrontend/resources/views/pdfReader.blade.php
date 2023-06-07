@@ -6,8 +6,43 @@
     $jsonPdfArray = json_encode($pdfArray);
     ?>
 
-    <button class="prevChapter">Prejšnji članek</button>
-    <button class="nextChapter">Naslednji članek</button>
+
+<style>
+
+.custom-button {
+        display: block; 
+        width: 45%; 
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #e89443;
+        color: #fff;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        border: none; 
+        border-radius: 5px; 
+    }
+
+    .custom-button:hover {
+        background-color: #c9721e;
+        color: black;
+    }
+
+
+</style>
+
+<div class="container">
+    <div class="row text-center">
+        <div class="col-md-6"><br>
+            <button class="prevChapter custom-button"><   Prejšnji članek</button>
+        </div>
+
+        <div class="col-md-6"><br>
+            <button class="nextChapter custom-button">Naslednji članek   ></button>
+        </div>
+    </div>
+    <br>
+</div>
+
     <div class="body-book container-bookify">
         <div class="flipbook-container">
             <div class="flipbook-viewport">

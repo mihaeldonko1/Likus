@@ -1,47 +1,106 @@
+<style>
+
+footer {
+      background-color: #333;
+      color: #fff;
+      padding: 35px;
+      text-align: center;
+      font-size: 25px;
+      font-family: Arial, sans-serif;
+    }
+
+    footer p.italic {
+      font-style: italic;
+      margin-top: -2px; 
+    } 
+
+
+
+
+</style>
+
+
+
+
 <?php if ($footer == 'true'): ?>
-    <footer class="p-t-60 p-b-60">
-        <div class="container">
-            <div class="edit nodrop safe-mode" field="new-world_footer" rel="global">
-                <div class="row">
-                    <div class="col-12 col-lg-12 col-lg-3 mx-auto logo-column text-center text-lg-start m-b-20 allow-drop">
-                        <div class="m-b-10">
-                            <img src="<?php print template_url(); ?>assets/img/logo_footer.png" alt="" />
-                            <br/>
-                            <br/>
-                        </div>
-                    </div>
 
-                    <div class="col-12 col-lg-12 col-lg-5 mx-auto text-center text-lg-start m-b-40 allow-drop">
-                        <module type="menu" template="simple" id="footer_menu" name="footer_menu"/>
-                        <br/>
-                        <p><?php _lang('Microweber is free open source drag and drop website builder and CMS. It is under MIT license and we use Laravel PHP framework', 'templates/new-world'); ?></p>
-                    </div>
 
-                    <div class="col-12 col-sm col-lg-6 col-lg mx-auto text-white allow-drop">
-                        <h6 class="m-b-10 m-t-5">Subscribe for Newsletter</h6>
-                        <module type="contact_form" template="footer" id="footer_newsletter"/>
-                        <?php /* <module type="newsletter" id="footer_newsletter"/> */ ?>
-                    </div>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  main {
+    flex: 1;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #979aa6;
+    padding: 27px;
+  }
 
-                    <div class="col-12 col-sm col-lg-6 col-lg mx-auto text-white text-center text-sm-end allow-drop">
-                        <h6 class="m-t-5"><?php _lang('Social Networks', 'templates/new-world'); ?></h6>
+  footer p {
+    margin: 0;
+    padding: 3px 0; 
+    color: #b6b6b6 !important;
+    font-size: 16px;
+  }
+  
 
-                        <module type="social_links" id="footer_socials"/>
-                    </div>
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start edit" field="new-world_footer_copyright" rel="global">
-                    <p>All Rights Reserved © <?php date('Y'); ?> - Your Brand Ltd.</p>
-                </div>
+  footer p.italic {
+    font-style: italic;
+    margin-top: 0px; 
+  }
 
-                <div class="col-md-6 text-center text-md-end">
-                    <p><?php print powered_by_link(); ?></p>
-                </div>
-            </div>
-        </div>
-    </footer>
+  .footer-logo {
+  top: 5px;
+  left: 5px;
+  height: 75px;
+  text-align: left;
+  width: auto;
+}
+
+.social_media_footer {
+    text-align: right;
+}
+
+
+</style>
+
+<footer>
+  <div class="container"> 
+    <div class="row">
+      <div class="col-md-4 col-sm-12 text-left">
+      <img src="/resources/img/random_slike/slps_sivo.png" alt="Logo" class="footer-logo">
+        <img src="/resources/img/random_slike/likus_circle_logo.png" alt="Logo" class="footer-logo">
+        <img src="/resources/img/random_slike/volcji_tabor_logo_BrezOzadja.png" alt="Logo" class="footer-logo">
+      </div> 
+      <div class="col-md-4 col-sm-12 text-center sredina_footerja">
+        <p class="rights_reserved">&copy; All Rights Reserved &copy; - Likus.si</p>
+        <p class="italic">Created by: Mihael Donko, Jan Volovšek,
+           Miha Horvat</p>
+      </div> 
+      <div class="social_media_footer col-md-4 col-sm-12 ">
+        <p style="color: white !important; font-size: 15px ;margin-bottom: 6px;">Socialna omrežja:</p>
+        <a href="https://www.facebook.com/people/LIKUS-Literarni-klub-upokojencev-Slovenije/100063764491636/?locale=fr_FR" target="_blank"><i class="fab fa-facebook fa-2x" style="color: white; margin-right: 10px;"></i></a>
+        <a href="https://www.youtube.com/channel/UCGy5CJ-UeHQQgHs7hljvoMg" target="_blank"><i class="fab fa-youtube fa-2x" style="color: white; margin-right: 10px;"></i></a>
+        <a href="https://www.instagram.com/your-instagram-profile" target="_blank"><i class="fab fa-instagram fa-2x" style="color: white;"></i></a>
+      </div>
+    </div>    
+  </div>
+</footer>
+
 
     <div class="bg-pines d-block d-lg-none bg-default" style="height: 50px;"></div>
 <?php endif; ?>
