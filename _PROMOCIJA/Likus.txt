@@ -1,0 +1,23 @@
+Likus
+
+Likus je spletna aplikacija za branje in objavljanje člankov ter knjig.
+
+Leto izdelave: 2023
+
+Avtorji:
+- Mihael Donko
+- Jan Volovšek
+- Miha Horvat
+
+Domača stran: 
+
+Vir podatkov:
+- template: https://microweber.org/templates/microweber-templates/new-world
+
+Koda: https://github.com/mihaeldonko1/Likus
+
+Kategorizacija: Celovita informacijska rešitev
+
+Oznake: GitHub, REST, MySQL, MySQL Lite, JavaScript, NodeJS, Bootstrap, JQuery, Laravel, Strapi, Microweber
+
+Opis: Aplikacija je namenjana objavljanju in branju knjig in člankov. Uporabnik je lahko hkrati bralec in objavljevalec, vendar mora za obe funkciji biti registriran. V primeru da je uporabnik neregistriran bo lahko samo bral članke drugih ter si ogledoval profile. Ob registraciji se mora uporabnik odločiti med uporabo dveh društev (SLPS - brez članarine, LIKUS - z članarino). Registriran uporabnik lahko prav tako ureja svoj profil (slika, telefonska, email, naslov), prav tako pa lahko naloži tudi svoj rokopis ter življenjepis. V primeru da registriran uporabnik pozabi geslo, ga lahko vedno ponastavi preko vnešenega maila z klikom na gumb "pozabljeno geslo".
