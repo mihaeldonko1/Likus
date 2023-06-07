@@ -11,7 +11,7 @@
 
 
 <!-- KAZALO -->
-## Kazalo
+
 <details>
   <summary>Kazalo</summary>
   <ol>
@@ -22,7 +22,7 @@
     <a href="#izgrajeno-z">Izgrajeno z</a>
     </li>
     <li>
-    <a href="#inštalacija">Inštalacija</a>
+    <a href="#vzpostavitev">Vzpostavitev</a>
     </li>
     <li>
     <a href="#uporaba">Uporaba</a>
@@ -43,7 +43,6 @@
 Pri praktikumu nam je bilo predstavljenih veliko različnih projektov, vendar nas je delo pri prostovoljnem neprofitnem društvu Likus najbolj pritegnilo. Ta projekt nam je bil zanimiv predvsem zaradi tega, ker smo imeli možnost spoznati veliko novih tehnologij, kot so uporaba microweberja, selitev podatkovnih baz ter postavitev spletnega strežnika, prav tako pa je vso opravljeno delo bilo za dober namen.
 
 Likus ohranja sloves največje organiziranje literarnih piscev v Republiki Sloveniji (ljubiteljev) z več kot 30 letno tradicijo pisanja. Združuje ljudsko besedo takšno kot je v prozi in pesmih. Izražena je ljubezen, veselje, žalost, bolečina, grenki in vedri spomini na življenje ljudi, dogodke, ki so se zgodili, spomini na čase, ki jih nikoli več ne bo. Z veliko mero solidarnosti in sočutnosti omogoča ustvarjanje zbirke vsem, ki to želijo in izražajo s pisanem v izvirni obliki, tako kot jo je nekdo doživel in čutil. Umetniška vrednost je manj pomembna od vsebine in ravno zato je ta dokument časa širši. Pisanje ni omejeno na peščico piscev ampak, je omogočena objava vsebin, ki je sicer nebi bilo.
-‌Likus kot krovna organizacija literarnih piscev (LIKUS in SLPS), kot nevladna organizacija v javnem interesu na področju kulture, ne izločevalno povezuje vse pisce, v digitalni in tiskani obliki ter ohranja največji dokument zbranih del in suvereno zaokrožuje svoj prispevek k literarni dejavnosti v Republiki Sloveniji in zamejstvu.
 
 Naš namen je tako bil vzpostaviti aplikacijo, preko katere lahko vsak uporabnik prosto bere vse že objavljene knjige in članke. V primeru, da uporabnik ni registriran se mu ponudi možnost registracije ter izbira članstva v društvu. Izbira lahko med prijavo v enega izmed dveh društev (SLPS - brez članarine, LIKUS - s članarino). Registriran uporabnik lahko nato ureja svoj profil (slika, telefonska številka, email, naslov), prav tako pa lahko naloži tudi svoj rokopis ter življenjepis. Glavna funkcionalnost registriranega uporabnika pa je predvsem objavljanje člankov ter knjig ki jih je napisal (te objave morajo biti potrjene s strani administratorja). V primeru, da registriran uporabnik pozabi geslo, ga lahko vedno ponastavi preko vnešenega maila z klikom na gumb "pozabljeno geslo".
 
@@ -66,8 +65,8 @@ Naš namen je tako bil vzpostaviti aplikacijo, preko katere lahko vsak uporabnik
 
 
 
-<!-- Inštalacija -->
-## Inštalacija
+<!-- Vzpostavitev -->
+## Vzpostavitev 
 
 Priporočene verzije:
   <ul>
