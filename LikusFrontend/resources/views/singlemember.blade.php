@@ -6,11 +6,16 @@ if (isset($data['data']['attributes']['Zivljenjepis']['data']) && $data['data'][
 }
 ?>
 <?php
-    use Carbon\Carbon;
+use Carbon\Carbon;
+try {
     $birthday = Carbon::createFromFormat('Y-m-d', $data['data']['attributes']['Rojstni_dan']);
     $currentDate = Carbon::now();
     $yearsDifference = $birthday->diffInYears($currentDate);
+} catch (Exception $e) {
+    $yearsDifference = 0;
+}
 ?>
+
 @extends('layouts.app')
 @section('content')
 
@@ -100,7 +105,11 @@ color: #e89443;
                         <span style="font-size: 2.0em;">{{ $data['data']['attributes']['Ime'] }} {{ $data['data']['attributes']['Priimek'] }}</span><br>
                         <span style="font-size: 1.2em;">Datum rojstva: {{ date('d-m-Y', strtotime($data['data']['attributes']['Rojstni_dan'])) }}</span>
                         <span style="font-size: 1.2em;">Spol: {{ $data['data']['attributes']['Spol'] }}</span><br>
-                        <span style="font-size: 1.2em;">Starost: {{ $yearsDifference }}</span><br>
+                        @if($yearsDifference==0)
+                            <span style="font-size: 1.2em;">Oseba ni vnesla podatka o starosti</span><br>
+                        @else
+                            <span style="font-size: 1.2em;">Starost: {{ $yearsDifference }}</span><br>
+                        @endif
                     </div>
                 </div>
             </div>
