@@ -13,6 +13,9 @@ Domača stran:
 
 Vir podatkov:
 - template: https://microweber.org/templates/microweber-templates/new-world
+- strapi: https://docs.strapi.io/
+- laravel: https://laravel.com/docs/10.x/readme
+- likus: https://www.likus.si/
 
 Koda: https://github.com/mihaeldonko1/Likus
 
