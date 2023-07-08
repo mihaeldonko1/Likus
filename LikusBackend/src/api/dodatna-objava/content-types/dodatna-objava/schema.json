@@ -28,6 +28,12 @@
       "relation": "manyToOne",
       "target": "api::clani.clani",
       "inversedBy": "dodatne_objave"
+    },
+    "natecaj": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::natecaj.natecaj",
+      "inversedBy": "dodatne_objave"
     }
   }
 }

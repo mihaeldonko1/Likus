@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "natecaji",
+  "info": {
+    "singularName": "natecaj",
+    "pluralName": "natecaji",
+    "displayName": "Natecaj",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Pdf_natecaja": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Ime": {
+      "type": "string"
+    },
+    "dodatne_objave": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dodatna-objava.dodatna-objava",
+      "mappedBy": "natecaj"
+    }
+  }
+}

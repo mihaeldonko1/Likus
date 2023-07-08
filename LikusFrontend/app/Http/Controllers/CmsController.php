@@ -49,6 +49,27 @@ class CmsController extends BaseController
             return $error;
         }
     }
+
+    public static function getNatecaji($id)
+    {
+        $error = "id se ne ujema z bazo podatkov";
+
+        Log::info($id);
+    
+        $client = new Client();
+    
+        try {
+            $response = $client->get("http://localhost:1337/api/natecaji/{$id}?populate=*");        
+            $data = json_decode($response->getBody()->getContents(), true);
+            Log::info("asdasdghagsdjghagjhsdghjasgjdh");
+            Log::info($data); 
+    
+            return $data; 
+    
+        } catch (\Exception $e) {
+            return $error;
+        }
+    }
     
 
  
