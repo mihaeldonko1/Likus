@@ -45,11 +45,13 @@
       "type": "string"
     },
     "Email": {
-      "type": "email"
+      "type": "email",
+      "required": false,
+      "default": "none@likus.si"
     },
     "Rojstni_dan": {
       "type": "date",
-      "required": true
+      "required": false
     },
     "Datum_vstopa": {
       "type": "date"

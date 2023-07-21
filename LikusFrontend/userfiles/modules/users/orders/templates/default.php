@@ -24,6 +24,12 @@
     <div class="text-align center">
     <form class="col-12 mb-5 mx-auto" method="post" id="pdf-data">
         <div style="margin-bottom: 10px; margin-top: 20px">
+            <br><label style="margin-bottom: 10px; font-size: 18px;">Izberite natečaj</label></br>
+            <select class="natecajCombo">
+                <option value="null">Ne želim sodelovati v natečaju.</option>
+            </select>
+        </div>
+        <div style="margin-bottom: 10px; margin-top: 20px">
         <br><label style="margin-bottom: 10px; font-size: 18px;">Naložite vaš članek</label></br>
 
             <button class="btn btn-primary" onclick="handleButtonClick(event)" style="width: 200px;">Naloži</button>
@@ -42,6 +48,42 @@
     event.preventDefault();
     document.getElementById('pdfUpload').click();
   }
+
+
+
+
+  $(document).ready(function() {
+  fetch('http://localhost:1337/api/natecaji')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("HTTP status " + response.status);
+      }
+      return response.json();
+    })
+    .then(result => {
+      let data = result.data;  // Use the 'data' property of the returned object
+
+      if (Array.isArray(data)) {
+        data.forEach(item => {
+          if (item && item.hasOwnProperty('id') && item.attributes.hasOwnProperty('Ime')) {
+            var option = $('<option>', {
+              value: item.id,
+              text: item.attributes.Ime  // Adjusted to access 'Ime' property inside 'attributes'
+            });
+            $('.natecajCombo').append(option);
+          }
+        });
+      } else {
+        throw new Error("Returned 'data' is not an array");
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+});
+
+
+
 </script>
 <script>
   function uploadPDFdata() {
@@ -74,11 +116,24 @@
       console.log(mainId);
       console.log(file);
 
-      var formData = new FormData();
-      formData.append('files.Clanek', file);
-      formData.append('data', JSON.stringify({
-        publishedAt: null, clan: {connect: [mainId]}
-      }));
+      let selectElement = document.querySelector('.natecajCombo');
+      let selectedValue = selectElement.value;
+
+        console.log(selectedValue + "izbran select");
+
+        var formData = new FormData();
+        formData.append('files.Clanek', file);
+        var data = {
+          publishedAt: null,
+          clan: {connect: [mainId]}
+        };
+
+        if (selectedValue !== "null") {
+          data.natecaj = {connect: [selectedValue]};
+        }
+
+        formData.append('data', JSON.stringify(data));
+
 
       fetch(`http://localhost:1337/api/dodatne-objave`, {
         method: 'POST',

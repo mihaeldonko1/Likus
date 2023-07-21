@@ -1,5 +1,9 @@
 <?php
+$autoloadPath = base_path('vendor/autoload.php');
+require_once $autoloadPath;
 require_once(dirname(__FILE__) . DS . 'functions.php');
+
+$likus_api_urlMain = config('likusConfig.likus_api_urlMain');
 
 $id_skupine = get_option('id_natecaja', $params['id']);
 $text_natecaja = get_option('text_natecaja', $params['id']);
@@ -7,7 +11,7 @@ $text_natecaja = get_option('text_natecaja', $params['id']);
 $items = getNatecaji($id_skupine);
 
 try{
-    $natecaj_url = "http://localhost:1337".$items['data']['attributes']['Pdf_natecaja']['data']['attributes']['url'];
+    $natecaj_url = $likus_api_urlMain.$items['data']['attributes']['Pdf_natecaja']['data']['attributes']['url'];
     } catch (Exception $e) {
      $natecaj_url = $e;
     }

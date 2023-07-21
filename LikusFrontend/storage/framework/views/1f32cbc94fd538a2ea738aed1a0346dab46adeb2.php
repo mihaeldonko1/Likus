@@ -178,7 +178,7 @@
                 <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4">
                     <div class="card text-center" onclick="location.href='clan/<?php echo e($item['id']); ?>';">
                         <?php if(isset($item['attributes']['Profilna_slika']['data']['attributes']['url'])): ?>
-                            <img src="http://localhost:1337<?php echo e($item['attributes']['Profilna_slika']['data']['attributes']['url']); ?>" class="card-img-top mx-auto d-block mt-3 card-img">
+                            <img src="<?php echo e(config('likusConfig.likus_api_urlMain')); ?><?php echo e($item['attributes']['Profilna_slika']['data']['attributes']['url']); ?>" class="card-img-top mx-auto d-block mt-3 card-img">
                         <?php else: ?>
                             <img src="https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg" class="card-img-top mx-auto d-block mt-3 card-img">
                         <?php endif; ?>
@@ -238,7 +238,7 @@ function generateMemberCards(responseData) {
       item.Profilna_slika.data.attributes &&
       item.Profilna_slika.data.attributes.url
     ) {
-      profileImageUrl = "http://localhost:1337" + item.Profilna_slika.data.attributes.url;
+      profileImageUrl = "<?php echo e(config('likusConfig.likus_api_urlMain')); ?>" + item.Profilna_slika.data.attributes.url;
     }
 
     img.src = profileImageUrl;
@@ -278,7 +278,7 @@ document.getElementById("clearButton").addEventListener("click", function () {
         var search = document.getElementById("search").value;
         var selectType = document.getElementById("selectType").value;
         if (search && selectType) {
-            fetch(`http://localhost:1337/api/clanis?filters[${selectType}][$contains]=${search}&populate=*`)
+            fetch(`<?php echo e(config('likusConfig.likus_api_url')); ?>/clanis?filters[${selectType}][$contains]=${search}&populate=*`)
                 .then(response => {
                     if (!response.ok) {
                         alert('Prosim izberite tip iskanja!');

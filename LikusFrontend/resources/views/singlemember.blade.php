@@ -22,6 +22,7 @@ try {
 <style>
     body {
         background-color: beige !important;
+        overflow-x: hidden;
     }
     .custom-title {
         color:  #e89443;
@@ -120,7 +121,7 @@ color: #e89443;
                 <div class="col-md-12">
                     <div class="row justify-content-center align-items-center">
                     @if (isset($data['data']['attributes']['Profilna_slika']['data']['attributes']['url']))
-                        <img src="http://localhost:1337{{ $data['data']['attributes']['Profilna_slika']['data']['attributes']['url'] }}" style="width: 80%; margin-bottom: 10px; border-radius: 20px">
+                        <img src="{{ config('likusConfig.likus_api_urlMain') }}{{ $data['data']['attributes']['Profilna_slika']['data']['attributes']['url'] }}" style="width: 80%; margin-bottom: 10px; border-radius: 20px">
                     @else
                         <img src="https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg" style="width: 80%; margin-bottom: 10px; border-radius: 20px">
                     @endif
@@ -170,7 +171,7 @@ color: #e89443;
             <br>
             <br>
             <div id="rokopisContainer">
-                <img src="http://localhost:1337{{ $data['data']['attributes']['Rokopis']['data'][0]['attributes']['url'] }}" style="width: 50%;">
+                <img src="{{ config('likusConfig.likus_api_urlMain') }}{{ $data['data']['attributes']['Rokopis']['data'][0]['attributes']['url'] }}" style="width: 50%;">
                 <br>
                 <br>
                 <br>
@@ -247,16 +248,28 @@ color: #e89443;
             @endforeach
         </div>
     @endif
-    @if(isset($data['data']['attributes']['Dodatni_clanki']['data']))
+
+
+    @if(isset($data['data']['attributes']['dodatne_objave']['data'][0]))
     <hr class="style-hr">
     <div class="row">
     <h3>Dodatne objave člana</h3>
-        @foreach($data['data']['attributes']['Dodatni_clanki']['data'] as $val)
+        @foreach($data['data']['attributes']['dodatne_objave']['data'] as $val)
         <div class="col-md-3 mb-4">
                 <div class="card d-flex align-items-center justify-content-center">
                     <div class="card-body text-center">
-                        <p class="card-text">Ime članka: <br /> {{ str_replace('.pdf', '', $val['attributes']['name']) }}</p>
-                        <a class="btn btn-primary" href="http://localhost:1337{{$val['attributes']['url']}}" target="_blank">Preberi več</a>
+                        @if(isset($val['data']['attributes']['natecaj']['id']))
+                        <img src="{{ config('likusConfig.likus_api_urlMain') }}{{ $val['data']['attributes']['natecaj']['attributes']['Naslovnica']['data']['attributes']['url'] }}" class="card-img-top mx-auto d-block mt-3 card-img" style="height:300px !important"> <br>
+                        @else
+                            <img src="" class="card-img-top mx-auto d-block mt-3 card-img" style="height:300px !important"> <br>
+                        @endif
+                        <p class="card-text">{{ $data['data']['attributes']['Ime'] }} {{ $data['data']['attributes']['Priimek'] }} članek {{$val['data']['id']}}</p>
+                        @if(isset($val['data']['attributes']['natecaj']['id']))
+                        <p class="card-text">Natečaj: {{$val['data']['attributes']['natecaj']['attributes']['Ime']}}</p>
+                        @else
+                        <p class="card-text">Samostojna objava</p>
+                        @endif
+                        <a class="btn btn-primary" href="{{ config('likusConfig.likus_api_urlMain') }}{{$val['data']['attributes']['Clanek']['data']['attributes']['url']}}" target="_blank">Preberi več</a>
 
                     </div>
                 </div>
@@ -284,11 +297,11 @@ color: #e89443;
         $(".bookLoader").click(function() {
         $('.container-bookify').html(defaultContent);
         var bookValue = $(this).data("book");
-        fetch(`http://localhost:1337/api/clanki/${bookValue}?populate=*`)
+        fetch(`{{ config('likusConfig.likus_api_url') }}/clanki/${bookValue}?populate=*`)
             .then(response => response.json())
             .then(data => {
                 let uri = data.data.attributes.Clanek.data.attributes.url;
-                let fullurl = "http://localhost:1337"+uri;        
+                let fullurl = "{{ config('likusConfig.likus_api_urlMain') }}"+uri;        
                 var flipBookWidth = 1080;
                 var flipBookHeight = 703;
                 const flipBookWidthFinal = 1080;
@@ -380,7 +393,7 @@ color: #e89443;
             });
         });
 
-    let zivljenjepisId = "http://localhost:1337<?php echo $zivljenjepisId; ?>";
+    let zivljenjepisId = "{{ config('likusConfig.likus_api_urlMain') }}<?php echo $zivljenjepisId; ?>";
     if (zivljenjepisId!=0) {
         odtConverter(zivljenjepisId);
     } else {

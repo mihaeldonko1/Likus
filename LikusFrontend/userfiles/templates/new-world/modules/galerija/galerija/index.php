@@ -1,5 +1,9 @@
 <?php
+$autoloadPath = base_path('vendor/autoload.php');
+require_once $autoloadPath;
 require_once(dirname(__FILE__) . DS . 'functions.php');
+
+$likus_api_urlMain = config('likusConfig.likus_api_urlMain');
 
 $id_skupine = get_option('id_skupine', $params['id']);
 $text_galerije = get_option('text_galerije', $params['id']);
@@ -10,7 +14,7 @@ $naslovnaSlika = "";
 
 try { 
     $vseSlike = $items['vseSlike'] ?? "";
-    $naslovnaSlika = "http://localhost:1337" . ($items['naslovnaSlika'] ?? "");
+    $naslovnaSlika = $likus_api_urlMain . ($items['naslovnaSlika'] ?? "");
 } catch (Exception $e) {
     echo 'Caught exception: ' . $e->getMessage();
 }
@@ -37,7 +41,7 @@ try {
 
     if (is_array($vseSlike)) {
         foreach ($vseSlike as $slika) {
-            $fullImageUrl = "http://localhost:1337" . $slika;
+            $fullImageUrl = $likus_api_urlMain . $slika;
             echo '<a href="'.$fullImageUrl.'" data-fancybox="gallery'.$id_skupine.'" style="display:none;"><img src="'.$fullImageUrl.'" alt="Image"></a>';
         }
     }

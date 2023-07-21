@@ -210,7 +210,7 @@ try {
 
     function OpenProfile() {
         var userMail = "<?php echo $userMail; ?>";
-        fetch(`http://localhost:1337/api/clanis?filters[Email][$eq]=${userMail}`)
+        fetch(`<?php echo e(config('likusConfig.likus_api_url')); ?>/clanis?filters[Email][$eq]=${userMail}`)
             .then(response => response.json())
             .then(data => {
                 personID = data['data'][0]['id'];

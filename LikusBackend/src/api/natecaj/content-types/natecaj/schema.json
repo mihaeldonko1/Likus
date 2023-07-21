@@ -31,6 +31,19 @@
       "relation": "oneToMany",
       "target": "api::dodatna-objava.dodatna-objava",
       "mappedBy": "natecaj"
+    },
+    "Aktivnost": {
+      "type": "boolean"
+    },
+    "Naslovnica": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

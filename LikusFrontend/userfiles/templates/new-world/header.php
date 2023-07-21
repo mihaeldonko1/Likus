@@ -43,7 +43,12 @@
 
     <?php print get_template_stylesheet(); ?>
 
+    <style>
+        span[aria-hidden="true"] {
+            display: none !important;
+        }
 
+    </style>
 
 
     <?php include('template_settings.php'); ?>

@@ -101,7 +101,7 @@ h1{
             <div class="row">
                 <div class="col-md-12">
                     @if (isset($data['data']['attributes']['Slika_platnice']['data']['attributes']['url']))
-                        <img src="http://localhost:1337{{ $data['data']['attributes']['Slika_platnice']['data']['attributes']['url'] }}" class="card-img-top mx-auto d-block" style="width: 60%; margin-bottom: 15px;">
+                        <img src="{{ config('likusConfig.likus_api_urlMain') }}{{ $data['data']['attributes']['Slika_platnice']['data']['attributes']['url'] }}" class="card-img-top mx-auto d-block" style="width: 60%; margin-bottom: 15px;">
                     @else
                         <img src="https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg" class="card-img-top mx-auto d-block" style="width: 60%; margin-bottom: 15px;">
                     @endif

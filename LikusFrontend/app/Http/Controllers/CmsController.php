@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Config;
 
 
 class CmsController extends BaseController
@@ -25,7 +26,8 @@ class CmsController extends BaseController
         $client = new Client();
     
         try {
-            $response = $client->get("http://localhost:1337/api/galerije/{$id}?populate=*");        
+            $apiUrl = Config::get('likusConfig.likus_api_url');
+            $response = $client->get("$apiUrl/galerije/{$id}?populate=*");        
             $data = json_decode($response->getBody()->getContents(), true);
             
             $dataAttributes = $data['data']['attributes'];

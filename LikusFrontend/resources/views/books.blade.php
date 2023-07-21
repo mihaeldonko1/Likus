@@ -154,7 +154,7 @@
             <a href="knjiga/{{ $item['id'] }}">
                 <div class="card text-center">
                     @if (isset($item['attributes']['Slika_platnice']['data']['attributes']['url']))
-                    <img src="http://localhost:1337{{ $item['attributes']['Slika_platnice']['data']['attributes']['url'] }}" class="card-img-top mx-auto d-block mt-3 card-img" style="height:300px !important">
+                    <img src="{{ config('likusConfig.likus_api_urlMain') }}{{ $item['attributes']['Slika_platnice']['data']['attributes']['url'] }}" class="card-img-top mx-auto d-block mt-3 card-img" style="height:300px !important">
                     @else
                     <img src="https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg" class="card-img-top mx-auto d-block mt-3 card-img" style="height:300px !important">
                     @endif
@@ -174,30 +174,7 @@
     </div>
 </div>
 
-<script>
-    window.addEventListener("load", function () {
-        if (window.location.href === "http://127.0.0.1:8000/clani") {
-            const loaderText = document.getElementById("loader-text");
-            const textContent = loaderText.textContent;
-            loaderText.textContent = "";
-            let counter = 0;
-            const timer = setInterval(function () {
-                loaderText.textContent += textContent[counter];
-                counter++;
-                if (counter >= textContent.length) {
-                    clearInterval(timer);
-                    setTimeout(function () { // Reduce the delay here (e.g., 2000 for 2 seconds)
-                        document.getElementById("loader").style.display = "none";
-                        document.getElementById("content").style.display = "block";
-                    }, 1500); // Adjust the delay (in milliseconds) as desired
-                }
-            }, 50); // Adjust the delay between each letter (in milliseconds)
-        } else {
-            document.getElementById("loader").style.display = "none";
-            document.getElementById("content").style.display = "block";
-        }
-    });
-</script>
+
 <script>
 function generateMemberCards(responseData) {
   var members = responseData.data;
@@ -211,61 +188,59 @@ function generateMemberCards(responseData) {
   }
 
   members.forEach(function(member) {
-  var item = member.attributes;
+    var item = member.attributes;
 
-  if (!item) {
-    console.error('Member does not have attributes:', member);
-    return;
-  }
+    if (!item) {
+      console.error('Member does not have attributes:', member);
+      return;
+    }
 
-  var col = document.createElement("div");
-  col.className = "col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4";
+    var col = document.createElement("div");
+    col.className = "col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4";
 
-  var card = document.createElement("div");
-  card.className = "card text-center";
-  card.onclick = function() {
-    location.href = "knjiga/" + member.id;
-  };
+    var card = document.createElement("div");
+    card.className = "card text-center";
+    card.onclick = function() {
+      location.href = "knjiga/" + member.id;
+    };
 
-  // Profile picture
-  var img = document.createElement("img");
-img.className = "card-img-top mx-auto d-block mt-3 card-img";
-img.style.height = "300px";
+    var img = document.createElement("img");
+    img.className = "card-img-top mx-auto d-block mt-3 card-img";
+    img.style.height = "300px";
 
+    var profileImageUrl = "https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg";
 
-  var profileImageUrl = "https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-7.jpg";
+    if (
+      item.Slika_platnice &&
+      item.Slika_platnice.data &&
+      item.Slika_platnice.data.attributes &&
+      item.Slika_platnice.data.attributes.url
+    ) {
+      profileImageUrl = "{{ config('likusConfig.likus_api_urlMain') }}" + item.Slika_platnice.data.attributes.url;
+    }
 
-  if (
-    item.Slika_platnice &&
-    item.Slika_platnice.data &&
-    item.Slika_platnice.data.attributes &&
-    item.Slika_platnice.data.attributes.url
-  ) {
-    profileImageUrl = "http://localhost:1337" + item.Slika_platnice.data.attributes.url;
-  }
+    img.src = profileImageUrl;
+    card.appendChild(img);
 
-  img.src = profileImageUrl;
-  card.appendChild(img);
+    var cardBody = document.createElement("div");
+    cardBody.className = "card-body";
 
-  var cardBody = document.createElement("div");
-  cardBody.className = "card-body";
+    var cardTitle = document.createElement("h5");
+    cardTitle.className = "card-title";
+    var cardTitleLink = document.createElement("a");
+    cardTitleLink.href = "knjiga/" + member.id;
+    cardTitleLink.innerHTML = item.Naslov+" ("+item.Leto+")" + "<br>Zbornik: " + item.Zbornik_st;
 
-  var cardTitle = document.createElement("h5");
-  cardTitle.className = "card-title";
-  var cardTitleLink = document.createElement("a");
-  cardTitleLink.href = "knjiga/" + member.id;
-  cardTitleLink.innerHTML = item.Naslov+" ("+item.Leto+")" + "<br>Zbornik: " + item.Zbornik_st;
+    cardTitle.appendChild(cardTitleLink);
+    cardBody.appendChild(cardTitle);
+    card.appendChild(cardBody);
+    col.appendChild(card);
+    container.appendChild(col);
+  });
 
-  cardTitle.appendChild(cardTitleLink);
-  cardBody.appendChild(cardTitle);
-  card.appendChild(cardBody);
-  col.appendChild(card);
-  container.appendChild(col);
-});
-
-document.getElementById("container_maincard").style.display = "none";
-document.getElementById("pages").style.display = "none";
-document.getElementById("clearButton").style.display = "block";
+  document.getElementById("container_maincard").style.display = "none";
+  document.getElementById("pages").style.display = "none";
+  document.getElementById("clearButton").style.display = "block";
 }
 
 document.getElementById("clearButton").addEventListener("click", function () {
@@ -276,31 +251,31 @@ document.getElementById("clearButton").addEventListener("click", function () {
   document.getElementById("container_maincard").style.display = "block";
 });
 
-
-    function fetchMembers() {
-        var search = document.getElementById("search").value;
-        var selectType = document.getElementById("selectType").value;
-        if (search && selectType) {
-            fetch(`http://localhost:1337/api/knjige?filters[${selectType}][$contains]=${search}&populate=*`)
-                .then(response => {
-                    if (!response.ok) {
-                        alert('Prosim izberite tip iskanja!');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    generateMemberCards(data);
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        } else {
-            alert('Prosim vpišite znake za iskanje!');
+function fetchMembers() {
+  var search = document.getElementById("search").value;
+  var selectType = document.getElementById("selectType").value;
+  if (search && selectType) {
+    fetch(`{{ config('likusConfig.likus_api_url') }}/knjige?filters[${selectType}][$contains]=${search}&populate=*`)
+      .then(response => {
+        if (!response.ok) {
+          alert('Prosim izberite tip iskanja!');
         }
-    }
+        return response.json();
+      })
+      .then(data => {
+        generateMemberCards(data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  } else {
+    alert('Prosim vpišite znake za iskanje!');
+  }
+}
 
-    document.getElementById("searchButton").addEventListener("click", fetchMembers);
+document.getElementById("searchButton").addEventListener("click", fetchMembers);
 </script>
+
 
 <br>
 <br>
