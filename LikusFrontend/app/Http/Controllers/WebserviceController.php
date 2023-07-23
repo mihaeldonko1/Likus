@@ -138,6 +138,49 @@ class WebserviceController extends BaseController
         }
     }
 
+    public function allNatecaji(Request $request)
+    {
+        $page = $request->query('page');
+        if ($page == null) {
+            $page = 1;
+        }
+
+        $client = new Client();
+        try {
+            $apiUrl = Config::get('likusConfig.likus_api_url');
+            $response = $client->get("$apiUrl/natecaji?populate=*&pagination[page]={$page}&pagination[pageSize]=28");
+
+            $data = json_decode($response->getBody()->getContents(), true);
+
+            //dd($data);
+            
+            $members = $data['data'];
+            $pagination = $data['meta']['pagination'];
+
+            $currentPage = $pagination['page'];
+            $totalPages = $pagination['pageCount'];
+
+            $perPage = 28;
+            $totalItems = $pagination['total'];
+            $membersCollection = collect($members);
+            $membersPaginated = new LengthAwarePaginator(
+                $membersCollection,
+                $totalItems,
+                $perPage,
+                $currentPage,
+                ['path' => url()->current()]
+            );
+            return view('natecaji', [
+                'members' => $membersPaginated,
+                'currentPage' => $currentPage,
+                'totalPages' => $totalPages,
+            ]);
+
+        } catch (\Exception $e) {
+            return view('error', ['error' => $e->getMessage()])->status(500);
+        }
+    }
+
     public function getBook($id)
     {
         $client = new Client();

@@ -31,4 +31,6 @@ Route::get('/preberi/{id}', [WebserviceController::class, 'getClankiPerBook']);
 //citalnica
 Route::get('/spletna-citalnica', [WebserviceController::class, 'getCitalnica']);
 
+//Routes za Natecaje
+Route::get('/natecaji', [WebserviceController::class, 'allNatecaji'])->name('natecaji');
 

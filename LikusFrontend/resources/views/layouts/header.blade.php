@@ -163,13 +163,16 @@ try {
 <nav class="navbar">
 
 <div style="padding-top: 1px; padding-bottom: 3px;">
-    <img id="logo" src="/resources/img/random_slike/LIKUS_logo2.png" style="width: 86px; height: auto;" alt="Logo">
+    <a href="/">
+        <img id="logo" src="/resources/img/random_slike/LIKUS_logo2.png" style="width: 86px; height: auto;" alt="Logo">
+    </a>
 </div>
 
     <div class="nav-links">
         <a class="nav-link" href="/spletna-citalnica">O spletni čitalnici</a>
         <a class="nav-link" href="/clani?page=1">Avtorji</a>
         <a class="nav-link" href="/knjige">Knjige</a>
+        <a class="nav-link" href="/natecaji">Natecaji</a>
     </div>
     
     <div class="nav-buttons">
