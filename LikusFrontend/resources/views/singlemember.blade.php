@@ -143,9 +143,8 @@ color: #e89443;
         <div class="col-md-12">
             <div class="rounded p-3 shadow" style="background-color: white;">
             <h2>Življenjepis {{ $data['data']['attributes']['Ime'] }} {{ $data['data']['attributes']['Priimek'] }}</h2><br>
-                <div id="outputZivljenjepis"></div>
-           
-</div>
+                <button class="btn btn-primary" onclick="odpriŽivljenjepis()">Preberi Življenjepis</button>
+            </div>
         </div>
     @else
         <div class="col-md-12">
@@ -182,36 +181,6 @@ color: #e89443;
     <hr class="style-hr">
     @endif
     @if(isset($data['data']['attributes']['clanki']['data'][0]))
-        <div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-fullscreen">
-                <div class="modal-content">
-                <div class="modal-header" style="display: flex; justify-content: center; align-items: center;">
-                    <h5 class="modal-title custom-title" id="exampleModalLabel">
-                        {{ $data['data']['attributes']['Ime'] }} {{ $data['data']['attributes']['Priimek'] }}<br />
-                    </h5>
-                    <button id="closeButton" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
-                </div>
-                    <div class="modal-body">
-                        <div class="body-book">
-                        <div class="flipbook-container">
-                            <div class="flipbook-viewport">
-                                <div class="container">
-                                    <div class="flipbook"></div>
-                                </div>
-                            </div>
-
-                            <div class="button-container">
-                                <button id="prev" class="flipbook-button">&#8249;</button>
-                                <button id="next" class="flipbook-button">&#8250;</button>
-                            </div>
-                        </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="row">
             <div class="col-md-12 text-center">
                 <br>
@@ -236,7 +205,7 @@ color: #e89443;
                         <p style="margin-bottom: 20px;" class="card-text"><i>Strani v knjigi: {{ $val['attributes']['Strani_od'] }}-{{ $val['attributes']['Strani_do'] }}</i></p>
                         </div>
                         <div>
-                        <button data-book="{{ $val['id'] }}" class="btn btn-primary bookLoader button-with-shadow" data-bs-toggle="modal" data-bs-target="#bookModal" style="margin-bottom: 20px;>
+                        <button data-book="{{ $val['id'] }}" class="btn btn-primary bookLoader button-with-shadow" style="margin-bottom: 20px;">
                         <span class="button-text">Preberi članek</span>
                         <span class="button-hover"></span>
                         </button>
@@ -270,7 +239,6 @@ color: #e89443;
                         <p class="card-text">Samostojna objava</p>
                         @endif
                         <a class="btn btn-primary" href="{{ config('likusConfig.likus_api_urlMain') }}{{$val['data']['attributes']['Clanek']['data']['attributes']['url']}}" target="_blank">Preberi več</a>
-
                     </div>
                 </div>
             </div>
@@ -293,113 +261,30 @@ color: #e89443;
     <script>
     $(document).ready(function() {
         var defaultContent = $('.body-book').html();
-
         $(".bookLoader").click(function() {
-        $('.container-bookify').html(defaultContent);
         var bookValue = $(this).data("book");
         fetch(`{{ config('likusConfig.likus_api_url') }}/clanki/${bookValue}?populate=*`)
             .then(response => response.json())
             .then(data => {
                 let uri = data.data.attributes.Clanek.data.attributes.url;
                 let fullurl = "{{ config('likusConfig.likus_api_urlMain') }}"+uri;        
-                var flipBookWidth = 1080;
-                var flipBookHeight = 703;
-                const flipBookWidthFinal = 1080;
-
-                if (window.innerWidth < 1000) {
-                    if (window.innerWidth < flipBookWidthFinal / 2) {
-                        flipBookWidth = window.innerWidth;
-                    } else {
-                        flipBookWidth = flipBookWidth / 2;
-                    }
-                }
-
-                function renderPDF(url, canvasContainer, options) {
-                    var options = options || { scale: 1 };
-
-                    function renderPage(page) {
-                        var viewport = page.getViewport({ scale: 1 });
-                        var scale = Math.min(flipBookWidth / viewport.width, flipBookHeight / viewport.height);
-                        viewport = page.getViewport({ scale: scale });
-                        var canvas = document.createElement('canvas');
-                        var ctx = canvas.getContext('2d');
-                        var renderContext = {
-                            canvasContext: ctx,
-                            viewport: viewport
-                        };
-
-                        canvas.height = viewport.height;
-                        canvas.width = viewport.width;
-
-                        var pageDiv = document.createElement('div');
-                        pageDiv.appendChild(canvas);
-                        canvasContainer.append(pageDiv);
-
-                        return page.render(renderContext).promise;
-                    }
-
-                    function renderPages(pdfDoc) {
-                        var pages = [];
-                        for (var num = 1; num <= pdfDoc.numPages; num++) {
-                            pages.push(pdfDoc.getPage(num).then(renderPage));
-                        }
-                        return Promise.all(pages);
-                    }
-
-                    return pdfjsLib.getDocument(url).promise.then(renderPages);
-                }
-
-                function loadApp() {
-                    var display = window.innerWidth < 1000 ? 'single' : 'double';
-                    $('.flipbook').turn({
-                        width: flipBookWidth,
-                        height: flipBookHeight,
-                        elevation: 50,
-                        gradients: true,
-                        display: display,
-                        autoCenter: true
-                    });
-                }
-
-                yepnope({
-                    test: Modernizr.csstransforms,
-                    yep: ['../resources/js/lib/turn.js'],
-                    nope: ['../resources/js/lib/turn.html4.min.js'],
-                    both: ['css/basic.css'],
-                    complete: function () {
-                        renderPDF(fullurl, $(".flipbook")).then(loadApp).then(function () {
-                            $('#next').click(function () {
-                                $('.flipbook').turn('next');
-                            });
-
-                            $('#prev').click(function () {
-                                $('.flipbook').turn('previous');
-                            });
-
-                            $(document).keydown(function (e) {
-                                if (e.keyCode == 37) {
-                                    $('.flipbook').turn('previous');
-                                } else if (e.keyCode == 39) {
-                                    $('.flipbook').turn('next');
-                                }
-                            });
-                        });
-                    }
-                });
-    //tu se konca book
+                window.open(fullurl, '_blank');
             })
             .catch(error => {
                 console.error(error);
             });
         });
 
-    let zivljenjepisId = "{{ config('likusConfig.likus_api_urlMain') }}<?php echo $zivljenjepisId; ?>";
-    if (zivljenjepisId!=0) {
-        odtConverter(zivljenjepisId);
-    } else {
-        document.getElementById('outputZivljenjepis').textContent = "Član žal še ni objavil svojega življenjepisa";
-    }
+
 });
+
+function odpriŽivljenjepis(){
+    let zivljenjepisId = "{{ config('likusConfig.likus_api_urlMain') }}<?php echo $zivljenjepisId; ?>";
+    window.open(zivljenjepisId, '_blank');
+}
+
+
+
 </script>
 
 <script>

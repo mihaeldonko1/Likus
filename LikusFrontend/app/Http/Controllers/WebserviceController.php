@@ -204,10 +204,11 @@ class WebserviceController extends BaseController
     public function getClankiPerBook($id)
     {
         $client = new Client();
-
+    
         try {
             $apiUrl = Config::get('likusConfig.likus_api_url');
             $apiUrlMain = Config::get('likusConfig.likus_api_urlMain');
+
             $url = "$apiUrl/clanki";
             $queryParams = [
                 'filters' => ['Stevilka_knjige' => ['$eq' => $id]],
@@ -215,12 +216,12 @@ class WebserviceController extends BaseController
                 'pagination' => ['pageSize' => 1000],
                 'sort' => ['Strani_od:asc']
             ];
-
+    
             $response = $client->get($url, ['query' => $queryParams]);
             $data = json_decode($response->getBody()->getContents(), true);
-
-
-            $filteredData = array_map(function ($item) {
+    
+            // Use 'use' keyword to import $apiUrlMain into the closure's scope
+            $filteredData = array_map(function ($item) use ($apiUrlMain) { // Notice the 'use' keyword here
                 return [
                     'id' => $item['id'],
                     'pdf' => "$apiUrlMain" . $item['attributes']['Clanek']['data']['attributes']['url'],
@@ -228,11 +229,12 @@ class WebserviceController extends BaseController
                     'page_start' => $item['attributes']['Strani_od'],
                 ];
             }, $data['data']);
-
+    
             return view('pdfReader', compact('filteredData'));
         } catch (RequestException $e) {
             $errorMessage = $e->getMessage();
             return view('error', ['error' => $errorMessage])->status(500);
         }
     }
+    
 }
